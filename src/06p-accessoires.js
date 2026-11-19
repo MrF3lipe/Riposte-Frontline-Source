@@ -1,9 +1,9 @@
 /* ==========================================================================
    ACCESSOIRES : catalogue, effets sur les armes, modèles 3D
    Huit emplacements techniques (ATT_SLOTS) regroupés en six points d'accroche (ATT_GROUPS : la bouche et le canon, le chargeur et
-   les munitions se partagent le leur), un accessoire au plus par point, et une arme ne porte jamais plus de ATT_MAX
-   accessoires (quatre, pistolets compris) : sur un fusil ou un pistolet-mitrailleur (six points), chaque choix en écarte un autre ; un fusil de
-   précision, un fusil à pompe ou un pistolet (quatre points) peut tous les garnir.
+   les munitions se partagent le leur), un accessoire au plus par point. Une arme peut garnir tous ses points ; il n'y a plus de
+   plafond numérique global (auparavant ATT_MAX valait 4, ce qui forçait à en laisser de côté sur un fusil ou un pistolet-mitrailleur
+   à six points). Un fusil de précision, un fusil à pompe ou un pistolet (quatre points) pouvait déjà tous les garnir.
    Un accessoire modifie l'arme par des facteurs (mods) ; weaponDef calcule l'arme « dérivée » qui en résulte et que tous
    les systèmes lisent comme une arme ordinaire (contrôleur, bots, réseau, menus) :
      dmg, rng, rpm : dégâts, portée et cadence | magx : taille du chargeur (tubeAdd : cartouches de plus d'un tube magasin)
@@ -20,7 +20,6 @@ const ATT_GROUP_SLOTS = { optic: ['optic'], canon: ['muzzle', 'barrel'], under: 
 const ATT_GROUPS = Object.keys(ATT_GROUP_SLOTS);
 const ATT_GROUP_NAMES = { optic: _t('Optique'), canon: _t('Bouche et canon'), under: _t('Sous-canon'), side: _t('Rail latéral'), mun: _t('Chargeur et munitions'), stock: _t('Crosse') };
 const ATT_GROUP = {}; for (const g of ATT_GROUPS) for (const s of ATT_GROUP_SLOTS[g]) ATT_GROUP[s] = g;
-const ATT_MAX = { primary: 4, secondary: 4 };
 const ATT = {
   // optiques : remplacent les organes de visée métalliques
   red: { slot: 'optic', name: _t('Point rouge'), lvl: 2, fam: ['rifle', 'smg', 'shotgun', 'pistol'], mods: { ads: 1.03, zoom: 1.1, adsAcc: 0.95 },
@@ -77,15 +76,16 @@ function attFits(base, id) {
   const a = ATT[id]; if (!a || !base.slots.includes(a.slot) || !a.fam.includes(base.fam)) return false;
   return !(base.noAtt && base.noAtt.includes(id));
 }
-function attMax(base) { return base.cat === 'pistol' ? ATT_MAX.secondary : ATT_MAX.primary; }
 /* Point d'accroche (ATT_GROUPS) d'un accessoire, et ceux que l'arme possède */
 const attGroup = (id) => ATT_GROUP[ATT[id].slot];
 const attGroupsOf = (base) => ATT_GROUPS.filter((g) => ATT_GROUP_SLOTS[g].some((s) => base.slots.includes(s)));
-/* Jeu d'accessoires valide : ceux qui vont sur l'arme, un par point d'accroche (le premier cité l'emporte), au plus attMax */
+/* Plafond = nombre de points d'accroche de l'arme (un accessoire par point), plus de limite globale à 4. */
+function attMax(base) { return attGroupsOf(base).length; }
+/* Jeu d'accessoires valide : ceux qui vont sur l'arme, un par point d'accroche (le premier cité l'emporte) */
 function attNormalize(base, att) {
   const out = [], used = new Set();
   for (const id of att || []) {
-    if (!attFits(base, id) || used.has(attGroup(id)) || out.length >= attMax(base)) continue;
+    if (!attFits(base, id) || used.has(attGroup(id))) continue;
     used.add(attGroup(id)); out.push(id);
   }
   return out.sort((x, y) => ATT_SLOTS.indexOf(ATT[x].slot) - ATT_SLOTS.indexOf(ATT[y].slot));

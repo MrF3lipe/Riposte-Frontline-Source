@@ -202,7 +202,7 @@ function gunTrim() {
   for (const k of Object.keys(WORLD_GUN_GEO)) if (!keep.has(k)) { const G = WORLD_GUN_GEO[k]; for (const lv of ['hi', 'lo']) for (const m in G[lv]) if (G[lv][m]) G[lv][m].dispose(); delete WORLD_GUN_GEO[k]; delete GRIP_SHAPES[k]; }
 }
 /* Remet une configuration en règle : arme existante et débloquée (sinon celle d'origine), accessoires débloqués qui vont sur l'arme
-   (au plus attMax, un par emplacement), camouflage débloqué */
+   (un par point d'accroche, tous les points permis), camouflage débloqué */
 function classClean(c, wkey, akey, ckey, want, defId) {
   let id = WEAPONS[want] && !weaponLock(want) && (wkey === 'primary' ? WEAPONS[want].cat !== 'pistol' : WEAPONS[want].cat === 'pistol') ? want : defId;
   const base = WEAPONS[id];
@@ -264,10 +264,9 @@ function classToggleAtt(i, which, aid) {
   if (c[key].includes(aid)) { c[key] = c[key].filter((x) => x !== aid); arsRemember(id, c[key], c[k ? 'sc' : 'pc']); arsLoadoutEdit(); return ''; }
   if (!attFits(base, aid)) return _t('Cet accessoire ne va pas sur cette arme.');
   const lock = attLock(id, aid); if (lock) return `${_t('Accessoire verrouillé : {0}.', lock)}`;
-  // un accessoire de plus au même point d'accroche remplace l'ancien ; sinon la limite s'applique
+  // un accessoire de plus au même point d'accroche remplace l'ancien ; tous les points peuvent être garnis
   const same = c[key].find((x) => attGroup(x) === attGroup(aid));
   const next = c[key].filter((x) => x !== same);
-  if (next.length >= attMax(base)) return `${_t('Une arme porte {0} accessoires au plus. Retirez-en un.', attMax(base))}`;
   c[key] = attNormalize(base, next.concat(aid)); arsRemember(id, c[key], c[k ? 'sc' : 'pc']); arsLoadoutEdit(); return '';
 }
 function classSetCamo(i, which, cid) {
