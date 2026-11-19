@@ -1,0 +1,35 @@
+Riposte: Frontline — fork no oficial
+Modo LAN sin internet
+================================
+
+Esto no es el juego oficial (https://www.playriposte.com). Es un fork
+de la fuente publica 5.6.0 de BenDBSS. La partida LAN no usa internet:
+el ordenador del anfitrion reparte los archivos y hace de servidor
+PeerJS (senalizacion). El video sigue yendo de un navegador a otro por
+la red local.
+
+Hace falta Windows y PowerShell 5.1. No hay que instalar nada mas.
+
+1. Construye el juego una vez, en la carpeta del repo:
+
+       python3 build.py
+
+   Eso deja dist/riposte-frontline.html y dist/peerjs.min.js.
+
+2. Anfitrion. Doble clic en Jugar-LAN-Host.bat (pide administrador para
+   abrir el puerto TCP 8770 en el firewall). En la ventana sale tu IPv4,
+   por ejemplo 192.168.1.25. En el juego: Multijoueur, crear salon, y
+   pasa el codigo de 5 caracteres.
+
+3. Quien se une. En otro PC de la misma red, doble clic en
+   Jugar-LAN-Unirse.bat y escribe esa IP (no 127.0.0.1). El script
+   comprueba que el anfitrion responde y abre el juego en este PC, con
+   ?lan=IP:8770. En el juego: Multijoueur, Rejoindre un salon, y el
+   codigo.
+
+Los dos tienen que dejar la ventana negra abierta. Cerrarla apaga el
+servidor. Sin ?lan= el juego vuelve a usar el CDN de PeerJS, como la
+version 5.6.
+
+Si un amigo no entra: misma Wi-Fi, firewall con el puerto 8770, y la
+IP que muestra el anfitrion (192.168... o 10...).

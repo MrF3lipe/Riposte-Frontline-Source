@@ -118,7 +118,15 @@ function netFail(msg) { netdLog('échec : ' + msg); netReset(msg); netdShow(true
 
 function netLib() { return typeof window.Peer === 'function'; }
 function netCan() { return netLib() || !!netrUrl(); } // au moins une voie de connexion : pair à pair (PeerJS) ou relais
-function netPeerOpts() { return Object.assign({ debug: 0 }, window.NET_PEER_OPTS || {}); }
+function netPeerOpts() {
+  const base = Object.assign({ debug: 0 }, window.NET_PEER_OPTS || {});
+  if (typeof lanOn === 'function' && lanOn()) { // PeerJS sur la machine de l'hôte, sans STUN public
+    const hp = lanHostPort();
+    base.host = hp.host; base.port = hp.port; base.path = '/'; base.secure = false; base.key = 'peerjs';
+    base.config = { iceServers: [] };
+  }
+  return base;
+}
 /* Pseudo reçu ou affiché : caractères de contrôle et chevrons ôtés, 16 caractères ; un nom refusé par le filtre (api/_lib/filtre.js) devient « Soldat » */
 function netClean(n) { const s = String(n == null ? '' : n).replace(/[\u0000-\u001f\u007f<>]/g, '').trim().slice(0, 16); return s && !filtreNom(s) ? s : _t('Soldat'); }
 function netNewCode() { const a = new Uint32Array(5); crypto.getRandomValues(a); let s = ''; for (const v of a) s += NET_ABC[v % NET_ABC.length]; return s; }
@@ -1305,8 +1313,10 @@ function netTeamSwap(id) {
 }
 const NET_PAGES = {
   home: () => {
-    const rows = [], via = netViaServer(), can = netCan(), title = _t('Multijoueur'), sub = _t('Parties en ligne, publiques ou entre amis, jusqu\u0027à 8 joueurs');
+    const rows = [], via = netViaServer(), can = netCan(), lan = typeof lanOn === 'function' && lanOn(), title = _t('Multijoueur');
+    const sub = lan ? _t('Réseau local, sans internet, jusqu\u0027à 8 joueurs') : _t('Parties en ligne, publiques ou entre amis, jusqu\u0027à 8 joueurs');
     if (NET.status && NET.status !== netHello()) rows.push({ k: 'node', node: $('netStatus') }); // un message (connexion, salon introuvable...), pas l'invite d'accueil
+    if (lan) { const hp = lanHostPort(); rows.push({ k: 'note', text: _t('Mode LAN : pas d\u0027internet. La mise en relation passe par l\u0027ordinateur de l\u0027hôte ({0}).', hp.host + ':' + hp.port) }); }
     if (!acctOnlineOk()) { // le multijoueur demande un compte
       rows.push({ k: 'note', text: _t('Le multijoueur demande un compte. Votre nom et votre progression vous suivent d\u0027une partie à l\u0027autre. Le mode Solo reste ouvert à tous.') });
       rows.push({ k: 'btn', key: 'login', label: _t('Se connecter ou créer un compte'), run: () => { ACCT.note = _t('Connectez-vous pour jouer en ligne.'); uiGo('profile'); } });

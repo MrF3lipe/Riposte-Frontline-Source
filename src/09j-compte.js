@@ -48,6 +48,7 @@ function acctApply(d) {
 }
 function acctForget() { ACCT.user = null; ACCT.level = null; ACCT.stats = null; ACCT.recent = []; ACCT.view = 'login'; }
 async function acctLoad() {
+  if (typeof lanOn === 'function' && lanOn()) { ACCT.state = 'off'; ACCT.user = null; acctChanged(); return false; } // LAN : aucun compte en ligne ne bloque le salon
   let r = await acctApi('me');
   // serveur qui se réveille, réseau qui tousse : on réessaie avant de déclarer les comptes indisponibles
   for (const wait of [1200, 3500]) { if (r.ok || (r.status > 0 && r.status < 500) || location.protocol === 'file:') break; await new Promise((x) => setTimeout(x, wait)); r = await acctApi('me'); }
@@ -100,7 +101,7 @@ function acctChip() {
 }
 
 /* ---------- Multijoueur : compte obligatoire ---------- */
-function acctOnlineOk() { return ACCT.state === 'off' || !!ACCT.user; }
+function acctOnlineOk() { return (typeof lanOn === 'function' && lanOn()) || ACCT.state === 'off' || !!ACCT.user; }
 /* Barre le salon à qui n'est pas connecté ; le pseudo en ligne est celui du compte */
 function acctSyncMulti() {
   const nm = $('netName');

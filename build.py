@@ -18,8 +18,13 @@ if not relay and os.path.exists("relay.url"):
     relay=next((l.strip() for l in open("relay.url",encoding="utf-8") if l.strip() and not l.lstrip().startswith("#")),"")
 if relay and not re.fullmatch(r"wss?://[^\s\"<>]+",relay):
     raise SystemExit("adresse du relais invalide (attendu : wss://... ) : "+relay)
+# PeerJS local (vendor/, bibliothèque 1.5.5, pas un asset du jeu) : copié à côté de la page pour le mode LAN.
+# Sans ?lan= la page charge toujours le CDN. Avec ?lan=HOTE:PORT (ou sessionStorage dc_lan / window.__DC_LAN) elle charge dist/peerjs.min.js.
+if os.path.isfile("vendor/peerjs.min.js"):
+    os.makedirs("dist", exist_ok=True)
+    shutil.copyfile("vendor/peerjs.min.js", "dist/peerjs.min.js")
 if not relay: # PeerJS : connexions WebRTC entre joueurs (voir src/09c-net.js) ; empreinte vérifiée (SRI) : jsDelivr ne peut pas en changer le code
-    tags+='\n<script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js" integrity="sha384-x0YgkOr/3UOZP2CRDxGW9e0Q+2Qjyr3uJrm4xU32Y7ZCNAo7Cc7bjhrZMi/dwczu" crossorigin="anonymous"></script>'
+    tags+='\n<script>(function(){var q="";try{var m=/[?&]lan=([^&#]*)/.exec(location.search||"");if(m&&m[1]){q=decodeURIComponent(m[1].replace(/\\+/g," ")).trim();if(q&&q!=="0"&&q!=="off")sessionStorage.setItem("dc_lan",q);else{q="";sessionStorage.removeItem("dc_lan");}}else if(typeof window.__DC_LAN==="string"&&window.__DC_LAN.trim())q=window.__DC_LAN.trim();else q=(sessionStorage.getItem("dc_lan")||"").trim();}catch(e){q="";}var s=document.createElement("script");if(q)s.src="peerjs.min.js";else{s.src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js";s.integrity="sha384-x0YgkOr/3UOZP2CRDxGW9e0Q+2Qjyr3uJrm4xU32Y7ZCNAo7Cc7bjhrZMi/dwczu";s.crossOrigin="anonymous";}document.write(s.outerHTML);})();</script>'
 js="\n".join(open(f,encoding="utf-8").read() for f in sorted(glob.glob("src/*.js")))
 # Filtre des mots (noms, discussion) : le même fichier sert au serveur des comptes (module) ; joint au jeu sans ses « export »
 js=re.sub(r"^export ","",open("api/_lib/filtre.js",encoding="utf-8").read(),flags=re.M)+"\n"+js
@@ -252,7 +257,7 @@ sha=" ".join("'sha256-"+base64.b64encode(hashlib.sha256(x.encode("utf-8")).diges
 if relay:
     host=re.match(r"wss?://([^/]+)",relay).group(1); net="https://"+host+" wss://"+host
     peer=""
-else: net="https://*.peerjs.com wss://*.peerjs.com stun: turn:"; peer=" https://cdn.jsdelivr.net/npm/peerjs@1.5.5/"
+else: net="https://*.peerjs.com wss://*.peerjs.com stun: turn: http: ws:"; peer=" https://cdn.jsdelivr.net/npm/peerjs@1.5.5/"
 csp=("default-src 'self'; script-src 'self' "+sha+peer+"; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
      "font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' "+net+"; "
      "manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'")

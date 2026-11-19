@@ -1764,3 +1764,7 @@ Entrez le code de 5 caractères de l'hôte ⇒ Enter the host's 5-character code
 Survivants (un infecté au départ) ⇒ Survivors (one starts infected)
 Course aux armes terminée ⇒ Gun game complete
 Tous les survivants ont été infectés ⇒ All survivors have been infected
+
+# LAN (src/00c-lan.js, src/09c-net.js)
+Réseau local, sans internet, jusqu'à 8 joueurs ⇒ LAN, no internet, up to 8 players
+Mode LAN : pas d'internet. La mise en relation passe par l'ordinateur de l'hôte ({0}). ⇒ LAN mode: no internet. Matchmaking goes through the host computer ({0}).

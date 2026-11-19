@@ -17,6 +17,7 @@ const NETR = { after: 5000, openTimeout: 8000, hostGrace: 15000, srvGrace: 45000
 const NETR_CTL = String.fromCharCode(2), NETR_SEP = String.fromCharCode(1);
 
 function netrUrl() {
+  if (typeof lanOn === 'function' && lanOn()) return ''; // LAN : pas de relais en ligne
   const meta = document.querySelector('meta[name="cod-relay"]');
   const u = String(window.NET_RELAY_URL != null ? window.NET_RELAY_URL : (meta && meta.content) || '').trim().replace(/\/+$/, '');
   return /^wss?:\/\/[^\s/]+(\/\S*)?$/.test(u) ? u : '';
