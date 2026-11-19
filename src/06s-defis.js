@@ -47,7 +47,7 @@ const defisOf = (skin) => DEFIS.filter((d) => d.skin === skin);
 function skinUnlocked(s) {
   const K = SKINS[s]; if (!K) return false;
   if (K.owner) return !!(ACCT.user && String(ACCT.user.username).toLowerCase() === K.owner);
-  return !K.defi || defisOf(s).every((d) => defiDone(d.id));
+  return UNLOCK_ALL || !K.defi || defisOf(s).every((d) => defiDone(d.id));
 }
 /* La tenue du joueur : celle qu'il a choisie si elle est à sa disposition, sinon Assaut (choix d'un autre appareil, défis non accomplis ici) */
 function skinMine() { const s = skinId(Settings.skin); return skinUnlocked(s) ? s : 'assault'; }

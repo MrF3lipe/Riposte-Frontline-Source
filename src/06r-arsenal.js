@@ -14,6 +14,9 @@
 /* Niveau maximal d'une arme : 30, celui du camouflage Holo, le dernier déblocage (50 de la 4.1.0 à la 4.4.0, quand le Holo le demandait ; 20 avant,
    WLEVEL_V3 : celui des sauvegardes de version 3 et moins). L'XP gagnée au-delà reste enregistrée, elle ne compte plus */
 const ARS_KEY = 'cod_arsenal', WLEVEL_MAX = 30, WLEVEL_V3 = 20, ARS_XP = { kill: 100, head: 50 };
+/* Copie locale pour jouer entre amis : tout le monde au niveau max, tout débloqué.
+   Remettre à false pour revenir au rythme normal (une sauvegarde déjà montée reste haute). */
+const UNLOCK_ALL = true, PLAYER_LEVEL_MAX = 100;
 const ARS = { wxp: {}, k: {}, h: {}, px: 0, t0: 0, gain: null, sess: {}, saveT: 0, pushT: 0, synced: '', syncT: 0, ver: 4, cfg: {}, lt: 0, lvSeen: 1, lvT: 0, ch: {}, chMaps: [], chSess: {} };
 /* cfg : dernière configuration (accessoires et camouflage) de chaque arme dans l'atelier ; elle revient d'elle-même quand on rechoisit l'arme ;
    lt : heure de la dernière retouche des classes personnalisées ou de cfg (arsLoadoutEdit), qui départage deux appareils (arsApply) ;
@@ -51,13 +54,14 @@ const wLevel = (id) => wLevelInfo(id).level;
 const PREVIEW_HOST = /^playriposte-dev\.|-git-dev-/.test(location.hostname), PREVIEW_CAMOS = { ump45: ['holo'] };
 /* Raison pour laquelle une arme est verrouillée ('' si disponible ; sur la préversion, une arme qui y a un camouflage offert l'est) */
 function weaponLock(id) {
+  if (UNLOCK_ALL) return '';
   const u = WEAPONS[id].unlock; if (!u || (PREVIEW_HOST && PREVIEW_CAMOS[id])) return '';
   const lv = wLevel(u.from);
   return lv >= u.level ? '' : `${_t('Montez le {0} au niveau {1} (niveau {2})', WEAPONS[u.from].name, u.level, lv)}`;
 }
-function attLock(wid, aid) { const L = ATT[aid].lvl, lv = wLevel(wid); return lv >= L ? '' : `${_t('Niveau {0} de l\u0027arme (niveau {1})', L, lv)}`; }
+function attLock(wid, aid) { if (UNLOCK_ALL) return ''; const L = ATT[aid].lvl, lv = wLevel(wid); return lv >= L ? '' : `${_t('Niveau {0} de l\u0027arme (niveau {1})', L, lv)}`; }
 function camoLock(wid, cid) {
-  if (PREVIEW_HOST && (PREVIEW_CAMOS[wid] || []).includes(cid)) return '';
+  if (UNLOCK_ALL || (PREVIEW_HOST && (PREVIEW_CAMOS[wid] || []).includes(cid))) return '';
   const L = CAMOS[cid].lvl, lv = wLevel(wid);
   return lv >= L ? '' : `${_t('niveau {0} de l\u0027arme (niveau {1})', L, lv)}`;
 }
@@ -159,7 +163,7 @@ for (let n = 0; n < CUSTOM_MAX; n++) {
   CLASSES.push({ name: _t('Classe {0}', n + 1), desc: _t('Une classe de votre composition, avec armes, accessoires et camouflages.'), primary: 'm4', secondary: 'm9', nades: NADE_COUNT, nade: 'frag',
     pa: [], sa: [], pc: null, sc: null, ks: KS_DEFAULT.slice(), def: { primary: 'm4', secondary: 'm9' }, custom: true, slot: n, made: false });
 }
-const customUnlocked = (n) => playerLevel() >= CUSTOM_UNLOCK[n];
+const customUnlocked = (n) => UNLOCK_ALL || playerLevel() >= CUSTOM_UNLOCK[n];
 /* Une classe se choisit si elle est préconçue, ou personnalisée, créée et débloquée */
 const classAvail = (i) => { const c = CLASSES[i]; return !!c && (!c.custom || (c.made && customUnlocked(c.slot))); };
 const classIds = () => CLASSES.map((c, i) => i).filter(classAvail);
@@ -278,6 +282,31 @@ function classClearWeapon(i, which) {
   const c = CLASSES[i], k = which === 's'; c[k ? 'sa' : 'pa'] = []; c[k ? 'sc' : 'pc'] = null; arsRemember(c[k ? 'secondary' : 'primary'], [], null); arsLoadoutEdit();
 }
 
+/* Pousse la sauvegarde au maximum (joueurs nouveaux et déjà commencés), sans jamais baisser une valeur. */
+function arsUnlockAll() {
+  if (!UNLOCK_ALL) return false;
+  let changed = false;
+  const pxNeed = pxpForLevel(PLAYER_LEVEL_MAX);
+  if ((ARS.px || 0) < pxNeed) { ARS.px = pxNeed; changed = true; }
+  for (const id in WEAPONS) {
+    const need = wxpForLevel(id, WLEVEL_MAX);
+    if ((ARS.wxp[id] || 0) < need) { ARS.wxp[id] = need; changed = true; }
+  }
+  /* typeof no protege un const en zona muerta: 06s-defis.js va despues en el HTML concatenado. */
+  let defis = null;
+  try { defis = DEFIS; } catch (e) { /* DEFIS aun no inicializado; 99-start.js lo reintenta */ }
+  if (defis) {
+    for (const d of defis) {
+      if ((ARS.ch[d.id] || 0) < d.goal) { ARS.ch[d.id] = d.goal; changed = true; }
+    }
+    for (const m of MAPS) {
+      if (m.ok && m.id && !ARS.chMaps.includes(m.id)) { ARS.chMaps.push(m.id); changed = true; }
+    }
+  }
+  if (changed) arsSaveSoon();
+  return changed;
+}
+
 /* ---------- Stockage ---------- */
 function arsSaveSoon() { if (ARS.saveT) return; ARS.saveT = setTimeout(arsSave, 700); }
 /* Une classe personnalisée ou la configuration d'une arme vient de changer : notée, elle passera devant celle des autres appareils */
@@ -359,6 +388,7 @@ function arsApply(s, merge) {
 function arsLoad() {
   let s = null; try { s = JSON.parse(localStorage.getItem(ARS_KEY) || 'null'); } catch (e) { /* ignoré */ }
   arsApply(s, false);
+  arsUnlockAll();
   for (const c of CLASSES) classCleanAll(c);
 }
 arsLoad();
