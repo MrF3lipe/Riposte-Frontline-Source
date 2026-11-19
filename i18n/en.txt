@@ -1718,3 +1718,49 @@ Sprinter, retenir son souffle en lunette ⇒ Sprint, hold your breath when scope
 pour avancer. Poussé au-delà du cercle, il fait sprinter. ⇒ to move. Pushed past the circle, it sprints.
 Se déplacer (analogique). L3 (appui sur le bâton) pour sprinter, en lunette pour retenir son souffle ⇒ Move (analog). L3 (press the stick) to sprint, in a scope to hold your breath
 Aucun salon public pour le moment. Créez le vôtre, il apparaîtra ici. ⇒ No public lobby right now. Create yours and it will show up here.
+
+Course aux armes ⇒ Gun game
+Chaque élimination change votre arme. La dernière est le couteau. ⇒ Each kill changes your weapon. The last one is the knife.
+Personne n'est votre allié. Chaque élimination vous donne l'arme suivante. Le premier qui tue au couteau l'emporte. ⇒ Nobody is your ally. Each kill gives you the next weapon. The first to get a knife kill wins.
+Coop contre les bots ⇒ Co-op versus bots
+Coop ⇒ Co-op
+Vous et vos amis dans le même camp, contre une vague de bots. ⇒ You and your friends on the same team, against a wave of bots.
+Vous contre les bots ⇒ You versus the bots
+Vous et vos alliés contre les bots. Le premier camp à la limite d'éliminations l'emporte. ⇒ You and your allies against the bots. First team to the kill limit wins.
+Bots ennemis ⇒ Enemy bots
+Infectés ⇒ Infected
+Un infecté au couteau. Les morts le rejoignent. ⇒ One infected with a knife. The dead join them.
+Survivants contre infectés ⇒ Survivors versus infected
+Un soldat commence infecté (couteau, plus rapide). Un survivant tué réapparaît infecté. S'il ne reste plus de survivants, les infectés l'emportent. Si le temps s'achève, les survivants gagnent. ⇒ One soldier starts infected (knife, faster). A killed survivor respawns infected. If no survivors remain, the infected win. If time runs out, the survivors win.
+Survivants ⇒ Survivors
+Mutateurs ⇒ Mutators
+Hardcore ⇒ Hardcore
+Moins de vie (30 PV). Chaque échange compte. ⇒ Less health (30 HP). Every fight matters.
+Pistolets seulement ⇒ Pistols only
+Tout le monde n'a qu'un pistolet. ⇒ Everybody only has a pistol.
+Couteau seulement ⇒ Knife only
+Plus d'armes à feu, le couteau seulement. ⇒ No firearms: knife only.
+Instagib ⇒ Instagib
+Chaque touche tue sur le coup. ⇒ Every hit is a one-shot kill.
+Classe au hasard ⇒ Random class
+Une classe tirée au sort à chaque vie. ⇒ A random class every life.
+Tir allié ⇒ Friendly fire
+Les balles touchent aussi vos alliés. ⇒ Bullets also hurt your teammates.
+Vous êtes l'infecté de départ ! ⇒ You are the starting infected!
+{0} est l'infecté de départ ⇒ {0} is the starting infected
+Vous avez été infecté ⇒ You have been infected
+Prochaine arme, {0} ⇒ Next weapon: {0}
+Couteau. Une élimination pour gagner ⇒ Knife: one kill to win
+Vous gagnez la course aux armes ⇒ You win the gun game
+{0} gagne la course aux armes ⇒ {0} wins the gun game
+Les infectés l'emportent ⇒ The infected win
+Les survivants l'emportent ⇒ The survivors win
+Premier au couteau ⇒ First to a knife kill
+Survivre jusqu'à la fin ⇒ Survive until the end
+Héberger une partie ⇒ Host a match
+Vous créez le salon et donnez le code à vos amis ⇒ You create the lobby and give the code to your friends
+Rejoindre une partie ⇒ Join a match
+Entrez le code de 5 caractères de l'hôte ⇒ Enter the host's 5-character code
+Survivants (un infecté au départ) ⇒ Survivors (one starts infected)
+Course aux armes terminée ⇒ Gun game complete
+Tous les survivants ont été infectés ⇒ All survivors have been infected

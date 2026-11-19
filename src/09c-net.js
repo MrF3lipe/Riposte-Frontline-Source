@@ -1193,6 +1193,7 @@ function netUpdate(dt) {
     } else netSend({ t: 'p', p: netPresence(PL.ent, now) });
   }
   const live = MATCH.state === 'playing' || MATCH.state === 'paused';
+  if (MATCH.mode === 'gun' || MATCH.mode === 'inf') { if (NET.role === 'host' && live && typeof partyLimitReached === 'function' && partyLimitReached()) matchFinishSoon(); return; } /* party-hook-netlim */
   if (MATCH.mode === 'ffa') { // chacun pour soi : le score est celui de modeUpdate (moi et le meilleur adversaire), le premier à la limite gagne
     if (NET.role === 'host' && live && ffaList().some((e) => e.kills >= MATCH.limit)) matchFinishSoon();
     return;

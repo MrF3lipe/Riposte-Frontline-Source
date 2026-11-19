@@ -68,7 +68,7 @@ function ctlMove(ent, dt) {
   ent.crouchAmt = damp(ent.crouchAmt, ent.crouch ? 1 : 0, 10, dt);
   ent.adsActive = I.ads && !sprint && !A.reload && !ent.busy && !A.knife && A.switching <= 0 && (A.boltT <= 0.2 || !!d.bolt || !!d.pump);
   A.adsW = damp(A.adsW, ent.adsActive ? 1 : 0, (1 / Math.max(0.05, d.adsTime)) * 2.2, dt);
-  let spd = MOVE_SPEED * (A.knife ? KNIFE_MOVE : d.move);
+  let spd = MOVE_SPEED * (A.knife ? KNIFE_MOVE : d.move); if (typeof partyMoveMul === 'function') spd *= partyMoveMul(ent); /* party-hook-spd */
   if (sprint) spd *= SPRINT_MUL; else if (A.adsW > 0.5) spd *= d.scope ? 0.4 : 0.58;
   if (ent.crouch) spd *= 0.6;
   const fx = -Math.sin(ent.yaw), fz = -Math.cos(ent.yaw), rx = Math.cos(ent.yaw), rz = -Math.sin(ent.yaw);

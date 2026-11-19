@@ -92,3 +92,22 @@ function finClear(fade) {
     finTimer = setTimeout(() => { el.className = 'fin'; }, 520);
   } else el.className = 'fin';
 }
+
+/* party-end-hooks */
+const _party_matchOutcome = matchOutcome;
+matchOutcome = function () {
+  if (typeof partyOutcome === 'function') { const p = partyOutcome(); if (p) return p; }
+  return _party_matchOutcome();
+};
+const _party_finByLimit = finByLimit;
+finByLimit = function () {
+  if (typeof partyLimitReached === 'function' && partyLimitReached()) return true;
+  if (MATCH.mode === 'gun' || MATCH.mode === 'inf') return false;
+  return _party_finByLimit();
+};
+const _party_finKicker = finKicker;
+finKicker = function () {
+  if (MATCH.mode === 'gun' && typeof partyLimitReached === 'function' && partyLimitReached()) return _t('Course aux armes terminée');
+  if (MATCH.mode === 'inf' && typeof partyLimitReached === 'function' && partyLimitReached()) return _t('Tous les survivants ont été infectés');
+  return _party_finKicker();
+};
