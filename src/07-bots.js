@@ -17,8 +17,8 @@ const DIFF = [
   { name: _t('Vétéran'), react: [0.16, 0.3], err: 0.055, settle: 0.7, head: 0.14, turn: 7, dmg: 1.0, nade: 1.0, see: 1.1, lag: 0.11, flinch: 0.7, tokens: 3, mem: 6, flair: 1.0, chase: 18, spin: 5.8, startle: [0.22, 0.36] },
 ];
 const BOT_NAMES = [
-  ['Dubois', 'Keller', 'Marchetti', 'Okafor', 'Novak'],
-  ['Volkov', 'Rahim', 'Karimov', 'Drago', 'Sokol', 'Petrenko'],
+  ['Dubois', 'Keller', 'Marchetti', 'Okafor', 'Novak', 'Morel', 'Bianchi'],
+  ['Volkov', 'Rahim', 'Karimov', 'Drago', 'Sokol', 'Petrenko', 'Hassan', 'Berg'],
 ];
 const TEAM_NAMES = ['Alpha', 'Bravo'];
 const entities = [];

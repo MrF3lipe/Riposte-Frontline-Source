@@ -2,7 +2,7 @@
    MODES DE JEU
    Trois modes, en solo comme en ligne (l'hôte du salon choisit le mode ; en ligne, c'est lui qui décide de la fin de la partie et
    qui tient les points de la domination, les invités en reçoivent l'état, voir domNetApply) :
-     tdm  match à mort par équipe : 6 contre 6, premier camp à N éliminations ;
+     tdm  match à mort par équipe : 8 contre 8, premier camp à N éliminations ;
      ffa  match à mort : chacun pour soi, les 12 soldats s'affrontent, premier à N éliminations ;
      dom  domination : trois points à tenir (A côté d'Alpha, B au centre, C côté Bravo), chaque point tenu rapporte
           un point de score toutes les DOM.tick secondes, premier camp à N points.
@@ -12,13 +12,13 @@
    Ce fichier porte aussi le système d'apparition (spawnOpening au départ, chooseSpawn ensuite), qui dépend du mode : voir plus bas.
    ========================================================================== */
 const MODES = {
-  tdm: { name: _t('Match à mort par équipe'), btn: _t('Par équipe'), sub: _t('Match à mort par équipe'), teams: _t('6 contre 6 (vous et 5 alliés)'), lim: _t('Limite d\u0027éliminations'), unit: _t('éliminations'),
+  tdm: { name: _t('Match à mort par équipe'), btn: _t('Par équipe'), sub: _t('Match à mort par équipe'), teams: _t('8 contre 8 (vous et 7 alliés)'), lim: _t('Limite d\u0027éliminations'), unit: _t('éliminations'),
     limits: [20, 30, 50, 75], key: 'limit', respawn: 4, botRespawn: 5.5, prot: 2,
-    hint: _t('Deux équipes de six. Le premier camp à la limite d\u0027éliminations l\u0027emporte.') },
-  ffa: { name: _t('Match à mort'), btn: _t('Chacun pour soi'), sub: _t('Match à mort, chacun pour soi'), teams: _t('Chacun pour soi, vous et 7 bots (8 joueurs)'), lim: _t('Limite d\u0027éliminations'), unit: _t('éliminations'),
+    hint: _t('Deux équipes de huit. Le premier camp à la limite d\u0027éliminations l\u0027emporte.') },
+  ffa: { name: _t('Match à mort'), btn: _t('Chacun pour soi'), sub: _t('Match à mort, chacun pour soi'), teams: _t('Chacun pour soi, vous et 15 bots (16 joueurs)'), lim: _t('Limite d\u0027éliminations'), unit: _t('éliminations'),
     limits: [10, 20, 30, 50], key: 'limitFfa', respawn: 3, botRespawn: 3.5, prot: 2,
     hint: _t('Personne n\u0027est votre allié. Le premier à la limite d\u0027éliminations l\u0027emporte.') },
-  dom: { name: _t('Domination'), btn: _t('Domination'), sub: _t('Domination, trois points à tenir'), teams: _t('6 contre 6, trois points à tenir'), lim: _t('Score à atteindre'), unit: 'points',
+  dom: { name: _t('Domination'), btn: _t('Domination'), sub: _t('Domination, trois points à tenir'), teams: _t('8 contre 8, trois points à tenir'), lim: _t('Score à atteindre'), unit: 'points',
     limits: [100, 150, 200, 250], key: 'limitDom', respawn: 4, botRespawn: 4.5, prot: 2,
     hint: _t('Restez dans la zone d\u0027un point pour le capturer. Chaque point tenu rapporte un point toutes les 4 secondes.') },
 };
@@ -48,12 +48,15 @@ function modeStart(mode) {
   $('domCap').className = '';
   return D;
 }
-/* Soldats en jeu et tenue de chacun. Match à mort : 7 bots seulement, tous vus en ennemis (tenue sombre, bandes rouges : skinRel),
-   pour qu'aucun ne ressemble à un allié. Autres modes : tous en jeu, alliés en clair, ennemis en sombre (06ga-tenues.js). */
+/* Soldats en jeu et tenue de chacun. Chacun pour soi : le sélecteur garde N bots (15 par défaut), tous vus en
+   ennemis (tenue sombre, bandes rouges : skinRel), pour qu'aucun ne ressemble à un allié. Autres modes : les N
+   premiers alliés et ennemis (7 et 8 par défaut), alliés en clair, ennemis en sombre (06ga-tenues.js). */
 function modeRoster() {
-  const ffa = MATCH.mode === 'ffa', bots = entities.filter((e) => !e.isPlayer), cut = MATCH.online ? 0 : bots.length - FFA_BOTS; // en ligne, l'hôte active les bots (netRebalanceBots)
-  // on retire des bots répartis sur les deux camps d'origine (un sur trois, puis les derniers)
-  const off = new Set(ffa && cut > 0 ? bots.filter((e, i) => i % 3 === 1).concat(bots.slice().reverse()).filter((e, i, a) => a.indexOf(e) === i).slice(0, cut) : []);
+  const ffa = MATCH.mode === 'ffa', bots = entities.filter((e) => !e.isPlayer);
+  const plan = typeof botPlan === 'function' ? botPlan() : { ally: 7, enemy: 8, ffa: 15 };
+  // en ligne, l'hôte active les bots (netRebalanceBots). En solo, le sélecteur décide qui joue.
+  let off = new Set();
+  if (!MATCH.online) off = ffa ? botFfaOff(bots, plan.ffa) : new Set(bots.filter((e) => e.team === 0).slice(plan.ally).concat(bots.filter((e) => e.team === 1).slice(plan.enemy)));
   for (const e of bots) {
     e.off = off.has(e);
     if (e.off) { e.alive = false; e.respawnT = Infinity; e.target = null; e.model.rag = null; e.model.root.visible = false; }
@@ -76,8 +79,8 @@ function ffaScore() {
   let best = 0; for (const e of ffaList()) if (e !== PL.ent && e.kills > best) best = e.kills;
   MATCH.score[0] = PL.ent.kills; MATCH.score[1] = best;
 }
-/* Participants du match à mort : le joueur et 7 bots (les autres soldats restent hors jeu) */
-const FFA_BOTS = 7;
+/* Participants du match à mort : le joueur et les bots encore en jeu (les autres restent écartés) */
+const FFA_BOTS = 15;
 function ffaList() { return entities.filter((e) => !e.off && (!MATCH.online || e.isPlayer || e.isRemote || e.netBot)); } // en ligne : ceux qui participent
 function ffaRank() { return ffaList().sort(ffaCmp).indexOf(PL.ent) + 1; }
 /* Limite atteinte par un tueur (éliminations) : la partie se joue sur une dernière killcam */

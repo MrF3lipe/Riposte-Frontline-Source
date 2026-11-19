@@ -382,7 +382,7 @@ Chargement en cours : {0} ⇒ Loading: {0}
 Partie annulée : la carte n'a pas pu être chargée. ⇒ Match canceled: the map could not be loaded.
 Vous êtes dans le salon. En attente du lancement par l'hôte. ⇒ You are in the lobby. Waiting for the host to start.
 L'hôte a annulé la partie. ⇒ The host canceled the match.
-Ce salon est complet (8 joueurs). ⇒ This lobby is full (8 players).
+Ce salon est complet ({0} joueurs). ⇒ This lobby is full ({0} players).
 Votre version du jeu diffère de celle de l'hôte. Rechargez la page. ⇒ Your game version differs from the host's. Reload the page.
 {0} a rejoint la partie ⇒ {0} joined the match
 {0} a quitté la partie ⇒ {0} left the match
@@ -553,18 +553,18 @@ Aucun message. Appuyez sur T pour écrire. ⇒ No messages. Press T to write.
 # 09i-modes.js
 Match à mort par équipe ⇒ Team deathmatch
 Par équipe ⇒ Team
-6 contre 6 (vous et 5 alliés) ⇒ 6 vs 6 (you and 5 allies)
+8 contre 8 (vous et 7 alliés) ⇒ 8 vs 8 (you and 7 allies)
 Limite d'éliminations ⇒ Kill limit
 éliminations ⇒ kills
-Deux équipes de six. Le premier camp à la limite d'éliminations l'emporte. ⇒ Two teams of six. The first side to reach the kill limit wins.
+Deux équipes de huit. Le premier camp à la limite d'éliminations l'emporte. ⇒ Two teams of eight. The first side to reach the kill limit wins.
 Match à mort ⇒ Deathmatch
 Chacun pour soi ⇒ Free for all
 Match à mort, chacun pour soi ⇒ Deathmatch, free for all
-Chacun pour soi, vous et 7 bots (8 joueurs) ⇒ Free for all, you and 7 bots (8 players)
+Chacun pour soi, vous et 15 bots (16 joueurs) ⇒ Free for all, you and 15 bots (16 players)
 Personne n'est votre allié. Le premier à la limite d'éliminations l'emporte. ⇒ Nobody is your ally. The first to reach the kill limit wins.
 Domination ⇒ Domination
 Domination, trois points à tenir ⇒ Domination, hold three points
-6 contre 6, trois points à tenir ⇒ 6 vs 6, hold three points
+8 contre 8, trois points à tenir ⇒ 8 vs 8, hold three points
 Score à atteindre ⇒ Score to reach
 Restez dans la zone d'un point pour le capturer. Chaque point tenu rapporte un point toutes les 4 secondes. ⇒ Stay inside a point's zone to capture it. Each point held scores one point every 4 seconds.
 Rival ⇒ Rival
@@ -788,7 +788,7 @@ Mode ⇒ Mode
 Joueurs ⇒ Players
 Difficulté des bots ⇒ Bot difficulty
 Durée maximale ⇒ Maximum duration
-Parties en ligne, publiques ou entre amis, jusqu'à 8 joueurs ⇒ Online matches, public or with friends, up to 8 players
+Parties en ligne, publiques ou entre amis, jusqu'à 16 joueurs ⇒ Online matches, public or with friends, up to 16 players
 Chargement... ⇒ Loading...
 Le multijoueur demande un compte. Votre nom et votre progression vous suivent d'une partie à l'autre. Le mode Solo reste ouvert à tous. ⇒ Multiplayer requires an account. Your name and your progression follow you from one match to the next. Solo mode stays open to everyone.
 Se connecter ou créer un compte ⇒ Sign in or create an account
@@ -1291,9 +1291,9 @@ Visée au zoom (vitesse par rapport à la hanche) ⇒ Zoomed aim (speed relative
 Visée au zoom (manette, vitesse par rapport à la hanche) ⇒ Zoomed aim (controller, speed relative to hip)
 Onglets ⇒ Tabs
 
-Jusqu'à 8 joueurs, complétés par des bots ⇒ Up to 8 players, filled with bots
+Jusqu'à 16 joueurs, complétés par des bots ⇒ Up to 16 players, filled with bots
 Chacun pour soi, joueurs humains seulement ⇒ Free for all, human players only
-6 contre 6, complétés par des bots ⇒ 6 vs 6, filled with bots
+8 contre 8, complétés par des bots ⇒ 8 vs 8, filled with bots
 Deux équipes, joueurs humains seulement ⇒ Two teams, human players only
 Aucun message pour l'instant. ⇒ No messages yet.
 Réglés par l'hôte ⇒ Set by the host
@@ -1728,6 +1728,9 @@ Vous et vos amis dans le même camp, contre une vague de bots. ⇒ You and your 
 Vous contre les bots ⇒ You versus the bots
 Vous et vos alliés contre les bots. Le premier camp à la limite d'éliminations l'emporte. ⇒ You and your allies against the bots. First team to the kill limit wins.
 Bots ennemis ⇒ Enemy bots
+Bots alliés ⇒ Allied bots
+Bots en chacun pour soi ⇒ Bots in free-for-all
+L'autre équipe est complète ⇒ The other team is full
 Infectés ⇒ Infected
 Un infecté au couteau. Les morts le rejoignent. ⇒ One infected with a knife. The dead join them.
 Survivants contre infectés ⇒ Survivors versus infected
@@ -1766,7 +1769,7 @@ Course aux armes terminée ⇒ Gun game complete
 Tous les survivants ont été infectés ⇒ All survivors have been infected
 
 # LAN (src/00c-lan.js, src/09c-net.js)
-Réseau local, sans internet, jusqu'à 8 joueurs ⇒ LAN, no internet, up to 8 players
+Réseau local, sans internet, jusqu'à 16 joueurs ⇒ LAN, no internet, up to 16 players
 Mode LAN : pas d'internet. La mise en relation passe par l'ordinateur de l'hôte ({0}). ⇒ LAN mode: no internet. Matchmaking goes through the host computer ({0}).
 
 # Atouts (src/06ib-perks.js, src/09n-armurerie.js)

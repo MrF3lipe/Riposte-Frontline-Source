@@ -250,7 +250,8 @@ function srvStage() {
   const st = SRV.st, note = $('srvNote');
   note.textContent = srvNoteText();
   const head = `<b>${esc(_t('Joueurs'))}</b><span>${st ? st.j.length + '/' + st.x : ''}</span>`;
-  if (st && st.ps && st.o !== 'ffa') { const mine = Math.max(0, srvTeam()); return { head, note, cols: [mine, 1 - mine].map((t) => ({ cls: t === mine ? 'ally' : 'enemy', head: esc(TEAM_NAMES[t]), rows: srvPlayerRows(t) })) }; }
+  const pool = st && (typeof botPoolMode === 'function' ? botPoolMode(st.o) : st.o === 'ffa');
+  if (st && st.ps && !pool) { const mine = Math.max(0, srvTeam()); return { head, note, cols: [mine, 1 - mine].map((t) => ({ cls: t === mine ? 'ally' : 'enemy', head: esc(TEAM_NAMES[t]), rows: srvPlayerRows(t) })) }; }
   return { head, note, cols: [{ rows: srvPlayerRows(-1) }] };
 }
 /* Les joueurs d'une équipe (t = -1 : tous) ; dans un salon créé, les places que prendront les bots ; on agit sur un joueur depuis ses actions */
@@ -263,7 +264,7 @@ function srvPlayerRows(t) {
     const acts = !me || (st.ps && st.o !== 'ffa' && st.ph === 'attente'); // soi-même : changer d'équipe
     rows.push({ k: 'player', key: p.id, label: p.n, lv: p.lv, tags, me, page: acts ? 'srvp' : null, params: p.id });
   }
-  const free = st && st.ps && st.cfg.bots ? (t < 0 ? NET_MAX : NET_TEAM) - rows.length : 0, diff = (DIFF[st ? st.cfg.diff : 1] || DIFF[1]).name;
+  const free = st && st.ps && st.cfg && typeof botSlotFree === 'function' ? botSlotFree(st.o, st.cfg, rows.length, t, t < 0) : (st && st.ps && st.cfg.bots ? (t < 0 ? NET_MAX : NET_TEAM) - rows.length : 0), diff = (DIFF[st ? st.cfg.diff : 1] || DIFF[1]).name;
   for (let i = 0; i < free; i++) rows.push({ k: 'player', key: 'bot' + t + '-' + i, label: diff, bot: true });
   if (!rows.length) rows.push({ k: 'note', text: _t('Personne') });
   return rows;

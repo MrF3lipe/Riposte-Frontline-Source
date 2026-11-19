@@ -204,7 +204,7 @@ function decideTactic(b, now) {
 
 function updateBot(b, dt, now) {
   if (b.isRemote) return; // piloté par le réseau (voir netUpdate)
-  if (b.off) return;      // hors jeu (match à mort à 8 joueurs)
+  if (b.off) return;      // hors jeu (effectif réduit, ou chacun pour soi)
   if (MATCH.online && !b.netBot) { b.alive = false; b.model.root.visible = false; return; } // en ligne, seuls les bots de l'hôte jouent
   if (!b.alive) {
     releaseCover(b);

@@ -949,8 +949,8 @@ async function boot() {
     // dans l'atelier) : aucune construction pendant la partie (un changement d'arme la figeait de 8 à 22 ms)
     classFix(); arsenalPrebuild(); setTimeout(thumbsStart, 1500); // vignettes d'armes (09o-vitrine.js), une par tâche
     soldierPrebuild(); // les quatre tenues (06ga-tenues.js), vues par un allié et par un ennemi
-    for (let i = 0; i < 5; i++) makeBot(0, i);
-    for (let i = 0; i < 6; i++) makeBot(1, i);
+    for (let i = 0; i < 7; i++) makeBot(0, i);
+    for (let i = 0; i < 8; i++) makeBot(1, i);
     vmEquip(WEAPONS.m4); VM.root.visible = false;
     PL.ent.model = makeSoldier(skinOf(PL.ent), 0, 'm4', { shadowOnly: true }); PL.ent.model.root.visible = false;
     KC.body = makeSoldier(skinOf(PL.ent), 0, 'm4'); KC.body.root.visible = false; KC.bodyEnt = { model: KC.body, pos: new V3(), yaw: 0, alive: false, lastForce: null };

@@ -442,9 +442,10 @@ function syncSettings() { syncOptions(); }
    niveau, limite, durée, et en ligne la visibilité du salon. Tous les choix sont visibles ; gauche et droite passent au voisin, un clic choisit.
    o = { map, mode, diff, bots (en ligne : 0 ou 1), limit, time, online, edit, pubOk, pub, set(clé, valeur) } ; edit faux : lecture seule (invité d'un salon). */
 function matchRows(o) {
-  const MD = MODES[o.mode] || MODES.tdm, ffa = o.mode === 'ffa', diffs = DIFF.map((d, i) => [i, d.name]), set = (k) => (v) => o.set(k, v), dis = !o.edit;
-  const teams = !o.online ? MD.teams : ffa ? (o.bots ? _t('Jusqu\u0027à 8 joueurs, complétés par des bots') : _t('Chacun pour soi, joueurs humains seulement'))
-    : o.bots ? _t('6 contre 6, complétés par des bots') : _t('Deux équipes, joueurs humains seulement');
+  const MD = MODES[o.mode] || MODES.tdm, ffa = typeof botPoolMode === 'function' ? botPoolMode(o.mode) : o.mode === 'ffa', diffs = DIFF.map((d, i) => [i, d.name]), set = (k) => (v) => o.set(k, v), dis = !o.edit;
+  const teams = !o.online ? MD.teams : ffa ? (o.bots ? _t('Jusqu\u0027à 16 joueurs, complétés par des bots') : _t('Chacun pour soi, joueurs humains seulement'))
+    : o.mode === 'coop' ? (o.bots ? _t('Vous contre les bots') : _t('Deux équipes, joueurs humains seulement'))
+    : o.bots ? _t('8 contre 8, complétés par des bots') : _t('Deux équipes, joueurs humains seulement');
   const rows = [];
   if (dis) rows.push({ k: 'note', text: o.note || _t('Réglés par l\u0027hôte') });
   rows.push(
@@ -457,6 +458,7 @@ function matchRows(o) {
     { k: 'seg', full: true, key: 'limit', label: MD.lim, items: MD.limits.map((v) => [v, String(v)]), get: () => o.limit, set: set('limit'), disabled: dis },
     { k: 'seg', full: true, key: 'time', label: _t('Durée maximale'), items: [5, 10, 15].map((v) => [v, v + ' min']), get: () => o.time, set: set('time'), disabled: dis });
   if (o.pubOk) rows.push({ k: 'seg', full: true, key: 'pub', label: _t('Salon'), items: [[0, _t('Privé')], [1, _t('Public')]], get: () => (o.pub ? 1 : 0), set: set('pub'), disabled: dis }); // en ligne, avec le serveur de jeu : privé ou listé
+  if (typeof botCountRows === 'function') rows.push(...botCountRows(o));
   return rows;
 }
 /* Taille d'une carte : combat rapproché, moyenne à trois couloirs, grande et ouverte (README, « Règles de conception d'une carte ») */
@@ -480,25 +482,37 @@ function lobbyMe(tags) {
   const n = ACCT.user ? ACCT.user.displayName : NET.nick;
   return { k: 'player', key: 'me', label: n || _t('Vous'), lv: playerLevel(), tags: n ? [_t('vous'), ...tags] : tags, me: true };
 }
-/* Scène du Solo : les deux équipes, vous et les bots, avec les noms qu'ils porteront (BOT_NAMES) ; chacun pour soi, les sept bots en jeu (modeRoster) */
+/* Scène du Solo : vous et les bots qui joueront vraiment (botPlan, le même écart que modeRoster) */
 function soloStage() {
-  const ffa = Settings.mode === 'ffa', MD = MODES[Settings.mode] || MODES.tdm;
+  const mode = Settings.mode, ffa = mode === 'ffa';
+  const plan = typeof botPlan === 'function' ? botPlan() : { ally: 7, enemy: 8, ffa: 15 };
   const me = lobbyMe([]), bot = (n, i) => ({ k: 'player', key: 'b' + i, label: n, bot: true }); // (leur niveau est dans le résumé des paramètres)
   if (ffa) {
-    const all = [...BOT_NAMES[0], ...BOT_NAMES[1]], idx = all.map((n, i) => i), cut = all.length - FFA_BOTS;
-    const off = new Set(idx.filter((i) => i % 3 === 1).concat(idx.slice().reverse()).filter((e, i, a) => a.indexOf(e) === i).slice(0, cut));
-    return { head: `<b>${esc(_t('Joueurs'))}</b><span>${esc(MD.teams)}</span>`, cols: [{ head: esc(_t('Chacun pour soi')), rows: [me, ...all.filter((n, i) => !off.has(i)).map(bot)] }] };
+    const all = [...BOT_NAMES[0], ...BOT_NAMES[1]], idx = all.map((n, i) => i);
+    const off = typeof botFfaOff === 'function' ? botFfaOff(idx, plan.ffa) : new Set();
+    const shown = all.filter((n, i) => !off.has(i));
+    return { head: `<b>${esc(_t('Joueurs'))}</b><span>${1 + shown.length}</span>`, cols: [{ head: esc(_t('Chacun pour soi')), rows: [me, ...shown.map(bot)] }] };
   }
-  return { head: `<b>${esc(_t('Joueurs'))}</b><span>${esc(MD.teams)}</span>`, cols: [
-    { cls: 'ally', head: esc(TEAM_NAMES[0]), rows: [me, ...BOT_NAMES[0].map(bot)] },
-    { cls: 'enemy', head: esc(TEAM_NAMES[1]), rows: BOT_NAMES[1].map((n, i) => bot(n, 10 + i)) },
+  const allies = BOT_NAMES[0].slice(0, plan.ally), foes = BOT_NAMES[1].slice(0, plan.enemy);
+  return { head: `<b>${esc(_t('Joueurs'))}</b><span>${1 + allies.length + foes.length}</span>`, cols: [
+    { cls: 'ally', head: esc(TEAM_NAMES[0]), rows: [me, ...allies.map(bot)] },
+    { cls: 'enemy', head: esc(TEAM_NAMES[1]), rows: foes.map((n, i) => bot(n, 10 + i)) },
   ] };
 }
 function soloSet(k, v) {
-  if (k === 'mode') Settings.mode = v; else if (k === 'bots') Settings.difficulty = v; else if (k === 'limit') Settings[MODES[Settings.mode].key] = v; else Settings.minutes = v;
+  if (k === 'mode') Settings.mode = v;
+  else if (k === 'bots') Settings.difficulty = v;
+  else if (k === 'limit') Settings[MODES[Settings.mode].key] = v;
+  else if (k === 'allyN') Settings.allyN = typeof botClamp === 'function' ? botClamp(v, 0, 7, 7) : v;
+  else if (k === 'enemyN') Settings.enemyN = typeof botClamp === 'function' ? botClamp(v, 1, 8, 8) : v;
+  else if (k === 'ffaN') Settings.ffaN = typeof botClamp === 'function' ? botClamp(v, 1, 15, 15) : v;
+  else Settings.minutes = v;
   saveSettings();
 }
-function soloCfg() { const MD = MODES[Settings.mode] || MODES.tdm; return { map: Settings.map, mode: Settings.mode, diff: Settings.difficulty, limit: Settings[MD.key], time: Settings.minutes, online: false, edit: true, set: soloSet }; }
+function soloCfg() {
+  const MD = MODES[Settings.mode] || MODES.tdm;
+  return { map: Settings.map, mode: Settings.mode, diff: Settings.difficulty, limit: Settings[MD.key], time: Settings.minutes, allyN: Settings.allyN, enemyN: Settings.enemyN, ffaN: Settings.ffaN, online: false, edit: true, set: soloSet };
+}
 const SOLO_PAGES = {
   solo: () => {
     const m = mapById(Settings.map);

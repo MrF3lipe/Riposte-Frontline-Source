@@ -25,7 +25,7 @@ const party = { _ff: false };
 
 MODES.gun = {
   name: _t('Course aux armes'), btn: _t('Course aux armes'), sub: _t('Chaque élimination change votre arme. La dernière est le couteau.'),
-  teams: _t('Chacun pour soi, vous et 7 bots (8 joueurs)'), lim: _t('Limite d\u0027éliminations'), unit: _t('éliminations'),
+  teams: _t('Chacun pour soi, vous et 15 bots (16 joueurs)'), lim: _t('Limite d\u0027éliminations'), unit: _t('éliminations'),
   limits: [10, 20, 30, 50], key: 'limitFfa', respawn: 3, botRespawn: 3.5, prot: 2,
   hint: _t('Personne n\u0027est votre allié. Chaque élimination vous donne l\u0027arme suivante. Le premier qui tue au couteau l\u0027emporte.')
 };
@@ -100,8 +100,8 @@ function partyRoster() {
     off = new Set(bots.filter((e) => e.team === 0).concat(bots.filter((e) => e.team === 1).slice(n)));
     if (PL && PL.ent) PL.ent.team = 0;
   } else {
-    const cut = MATCH.online ? 0 : bots.length - FFA_BOTS;
-    off = new Set(cut > 0 ? bots.filter((e, i) => i % 3 === 1).concat(bots.slice().reverse()).filter((e, i, a) => a.indexOf(e) === i).slice(0, cut) : []);
+    const keep = typeof botPlan === 'function' ? botPlan().ffa : FFA_BOTS;
+    off = MATCH.online ? new Set() : botFfaOff(bots, keep);
   }
   for (const e of bots) {
     e.off = off.has(e);
@@ -308,7 +308,6 @@ function partyFillCfg(dst, src) {
 function partySoloStage(orig) {
   const mode = Settings.mode;
   if (mode !== 'coop' && mode !== 'gun' && mode !== 'inf') return orig;
-  const MD = MODES[mode] || MODES.tdm;
   const me = lobbyMe([]);
   const bot = (n, i) => ({ k: 'player', key: 'b' + i, label: n, bot: true });
   if (mode === 'coop') {
@@ -320,10 +319,12 @@ function partySoloStage(orig) {
     ] };
   }
   // gun / inf : comme le chacun pour soi
-  const all = [...BOT_NAMES[0], ...BOT_NAMES[1]], idx = all.map((n, i) => i), cut = all.length - FFA_BOTS;
-  const off = new Set(idx.filter((i) => i % 3 === 1).concat(idx.slice().reverse()).filter((e, i, a) => a.indexOf(e) === i).slice(0, cut));
+  const all = [...BOT_NAMES[0], ...BOT_NAMES[1]], idx = all.map((n, i) => i);
+  const keep = typeof botPlan === 'function' ? botPlan().ffa : FFA_BOTS;
+  const off = botFfaOff(idx, keep);
+  const shown = all.filter((n, i) => !off.has(i));
   const head = mode === 'inf' ? _t('Survivants (un infecté au départ)') : _t('Chacun pour soi');
-  return { head: `<b>${esc(_t('Joueurs'))}</b><span>${esc(MD.teams)}</span>`, cols: [{ head: esc(head), rows: [me, ...all.filter((n, i) => !off.has(i)).map(bot)] }] };
+  return { head: `<b>${esc(_t('Joueurs'))}</b><span>${1 + shown.length}</span>`, cols: [{ head: esc(head), rows: [me, ...shown.map(bot)] }] };
 }
 
 function partyNetRebalance() {
@@ -345,7 +346,8 @@ function partyNetRebalance() {
   }
   // gun / inf : un seul groupe, comme le chacun pour soi
   const nHum = hum.length;
-  const want = !NET.cfg.bots ? 0 : Math.max(0, NET_MAX - nHum);
+  const plan = typeof botPlanCfg === 'function' ? botPlanCfg(NET.cfg) : { ffa: FFA_BOTS };
+  const want = !NET.cfg.bots ? 0 : Math.max(0, Math.min(plan.ffa, NET_MAX - nHum));
   const pool = entities.filter((e) => !e.isPlayer && !e.isRemote);
   let active = pool.filter((b) => b.netBot);
   while (active.length > want) { const b = active.find((x) => !x.alive) || active[active.length - 1]; netBotOff(b); active = active.filter((x) => x !== b); }
