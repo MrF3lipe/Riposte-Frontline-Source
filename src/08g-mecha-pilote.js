@@ -72,7 +72,8 @@ function mechaPilot(dt, now) {
   // le soldat est dans la verrière : il suit le mecha, ne bouge ni ne tire ; il retrouve sa santé comme d'habitude
   I.mz = I.mx = 0; I.sprint = I.jump = I.ads = I.fire = I.firePressed = I.crouch = false;
   e.busy = true; e.pos.copy(me.pos); if (e.vel) e.vel.set(0, 0, 0); e.yaw = PL.yaw; e.pitch = PL.pitch;
-  if (now - PL.lastDmgT > 4.5 && e.health < 100) e.health = Math.min(100, e.health + 45 * dt);
+  const perkWait = typeof perkRegenDelay === 'function' ? perkRegenDelay(e) : 4.5, perkRate = typeof perkRegenRate === 'function' ? perkRegenRate(e) : 45;
+  if (now - PL.lastDmgT > perkWait && e.health < 100) e.health = Math.min(100, e.health + perkRate * dt);
   const P = MECHA_P.in;
   P.fw = padClamp((TOUCH.on ? TOUCH.mz : (KEYS.KeyW || KEYS.ArrowUp ? 1 : 0) - (KEYS.KeyS || KEYS.ArrowDown ? 1 : 0)) + PAD.mz);
   P.st = padClamp((TOUCH.on ? TOUCH.mx : (KEYS.KeyD || KEYS.ArrowRight ? 1 : 0) - (KEYS.KeyA || KEYS.ArrowLeft ? 1 : 0)) + PAD.mx);

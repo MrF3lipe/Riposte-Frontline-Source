@@ -196,7 +196,8 @@ function fpvPlayer(dt, now) {
   e.busy = true; e.yaw = PILOT.yaw; e.pitch = PILOT.pitch;
   ctlMove(e, dt);
   if (voidCheck(e) || ringCheck(e, dt)) return;
-  if (now - PL.lastDmgT > 4.5 && e.health < 100) e.health = Math.min(100, e.health + 45 * dt);
+  const perkWait = typeof perkRegenDelay === 'function' ? perkRegenDelay(e) : 4.5, perkRate = typeof perkRegenRate === 'function' ? perkRegenRate(e) : 45;
+  if (now - PL.lastDmgT > perkWait && e.health < 100) e.health = Math.min(100, e.health + perkRate * dt);
   // commandes : les mêmes que pour marcher (09q-tactile.js au doigt, 09qc-manette.js à la manette)
   d.in.fw = padClamp((TOUCH.on ? TOUCH.mz : (KEYS.KeyW || KEYS.ArrowUp ? 1 : 0) - (KEYS.KeyS || KEYS.ArrowDown ? 1 : 0)) + PAD.mz);
   d.in.st = padClamp((TOUCH.on ? TOUCH.mx : (KEYS.KeyD || KEYS.ArrowRight ? 1 : 0) - (KEYS.KeyA || KEYS.ArrowLeft ? 1 : 0)) + PAD.mx);

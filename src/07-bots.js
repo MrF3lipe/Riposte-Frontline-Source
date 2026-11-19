@@ -90,6 +90,7 @@ function makeBot(team, idx) {
     dmgBy: new Map(), lastForce: null, aw: new Map(), lookAtT: 0, lookAtX: 0, lookAtZ: 0, heardT: -99, fear: 0, aimT: null, aimP: new V3(),
   };
   initCtl(b, [wid], 60);
+  b.pk = typeof perkDraw === 'function' ? perkDraw() : [[], [], []];
   b.pers = botPers(); // son tempérament, le même toute la partie
   b.skin = skinOfWeapon(def);
   b.model = makeSoldier(b.skin, team === 0 ? 0 : 1, def.key); // au démarrage, le joueur est Alpha
@@ -109,7 +110,7 @@ function spawnEntity(e) {
   e.yaw = spawnYaw(e, e.pos); e.pitch = 0; e.protT = modeDef().prot;
   e.alive = true; e.health = 100; e.streak = 0; e.comboN = 0; e.crouch = false; e.crouchAmt = 0; e.slideT = 0; e.slideCd = 0; e.slideBuf = 0; e.slideAmt = 0; e.dmgBy.clear(); e.voidDead = false;
   if (!e.isPlayer) {
-    e.arms = makeArms([e.weapon.id], 60); e.input = makeInput(); e.onGround = true; e.vy = 0; e.eyeH = 1.62; e.sprinting = false; e.lastShots = 0; e.burstLeft = 0;
+    e.arms = makeArms([e.weapon.id], 60); if (typeof perkFillReserve === 'function') perkFillReserve(e); e.input = makeInput(); e.onGround = true; e.vy = 0; e.eyeH = 1.62; e.sprinting = false; e.lastShots = 0; e.burstLeft = 0;
     e.target = null; e.visible = false; e.lastSeenT = -99; e.path = null; e.goal = null; e.nades = NADE_COUNT; e.nadeType = botNadeType(); e.nadeCd = rand(8, 28); e.nadeOn = Math.random() < 0.8 * botDiff().nade; e.aw.clear(); e.aimT = null; e.lookAtT = 0; e.fear = 0; e.sq = null; e.lastHitT = -9;
     e.lookYaw = e.yaw; e.lastForce = null; releaseCover(e); initTactics(e); e.atCover = false;
     // heures de la partie (MATCH.time) qui repartent de zéro à la suivante : un bot ébloui à 400 s restait aveugle 400 s de la partie

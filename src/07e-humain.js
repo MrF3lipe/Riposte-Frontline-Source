@@ -153,7 +153,9 @@ function botLeapNow(b, a, p) {
    jusqu'au repérage : il faut voir pour tirer), le bot tourne la tête vers le bruit et, une fois sur deux s'il se baladait, va voir. Marcher
    accroupi ou lentement ne s'entend pas. Renvoie la jauge. */
 function botEars(b, e, d, aw, dt, now, D) {
-  const sp = Math.sqrt(e.vel.x * e.vel.x + e.vel.z * e.vel.z), R = e.slideT > 0 ? 12 : sp > 4.6 ? 11 : sp > 2.4 && !e.crouch ? 5 : 0;
+  const sp = Math.sqrt(e.vel.x * e.vel.x + e.vel.z * e.vel.z);
+  let R = e.slideT > 0 ? 12 : sp > 4.6 ? 11 : sp > 2.4 && !e.crouch ? 5 : 0;
+  if (typeof perkHas === 'function' && perkHas(e, 'silence')) R = e.slideT > 0 ? 3.2 : sp > 6.5 ? 2.6 : 0;
   if (R === 0 || d > R || Math.abs(e.pos.y - b.pos.y) > 3.5) return aw;
   aw = Math.min(0.9, aw + 1.1 * (1 - d / R) * D.see * dt);
   if (aw > 0.45 && now - b.stepHeardT > 2) {

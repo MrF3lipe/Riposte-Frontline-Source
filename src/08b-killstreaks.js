@@ -12,7 +12,7 @@ const KS_KEYS = ['Digit4', 'Digit5', 'Digit6'];
 /* Appelle la série de l'emplacement slot (0 à 2) de la classe du joueur */
 function useKs(slot) {
   const id = PL.ksSel[slot]; if (!id) return;
-  if (ksJammed(PL.ent.team) && PL.ks[id]) { hudMsg(_t('Séries brouillées par une IEM'), 'enemy', 1.8); return; }
+  if ((typeof perkJam === 'function' ? perkJam(PL.ent) : ksJammed(PL.ent.team)) && PL.ks[id]) { hudMsg(_t('Séries brouillées par une IEM'), 'enemy', 1.8); return; }
   KSDEF[id].use();
 }
 /* Action (touche, bouton) qui appelle la série id, '' si elle n'est pas dans la classe */
@@ -55,7 +55,7 @@ function iemFire(owner) {
   const me = owner === PL.ent, ally = owner.team === PL.ent.team, foe = 1 - owner.team;
   MATCH.iem[foe] = IEM.life; MATCH.uav[foe] = 0; MATCH.sat[foe] = 0; MATCH.uavPing[foe] = null; // le drone de l'UAV s'en va avec (updateAircraft)
   for (const h of KS.helis) if (h.team === foe && h.state !== 'crash') { h.stunT = MATCH.time + IEM.stun; h.burst = null; }
-  const hit = !me && PL.ent.team === foe; // le joueur est dans l'équipe brouillée : éclair à l'écran, appel en cours coupé (la série reste prête)
+  const hit = !me && PL.ent.team === foe && !(typeof perkHas === 'function' && perkHas(PL.ent, 'resist')); // le joueur est dans l'équipe brouillée : éclair à l'écran, appel en cours coupé (la série reste prête) ; Résistant n'est pas touché
   netIem(owner); sfxIem(hit ? 1 : 0.5); sfxAnnounce(ksFriendly(owner) ? 'iem_on' : 'iem_enemy');
   if (hit) { if (KS.mode && KS.pressT < 0) ksAbort(); const fx = $('iemFx'); fx.classList.remove('on'); void fx.offsetWidth; fx.classList.add('on'); }
   hudMsg(me ? _t('IEM déclenchée') : ally ? _t('IEM alliée ({0})', owner.name) : _t('IEM ennemie, vos appareils sont brouillés'), ally ? 'ally' : 'enemy', 2.5);
@@ -66,7 +66,7 @@ function usePhoneKs(id) { if (PL.ks[id] && ksStart(id)) { PL.ks[id] = false; upd
 /* Repère d'un adversaire o dans le dernier relevé de l'équipe de me : { x, z, a } (a : opacité de 0 à 1), ou null. wave : il n'apparaît qu'au
    passage de l'onde partie de me (mini-carte) ; sinon dès le relevé (carte de la frappe, vue d'ensemble) */
 function uavBlip(o, me, wave) {
-  const p = MATCH.uavPing[me.team]; if (!p || ksJammed(me.team)) return null;
+  const p = MATCH.uavPing[me.team]; if (!p || (typeof perkJam === 'function' ? perkJam(me) : ksJammed(me.team))) return null;
   const q = p.pts.find((r) => r.o === o); if (!q) return null;
   const seen = p.t + (wave ? hyp(q.x - me.pos.x, q.z - me.pos.z) / UAV.speed : 0), age = MATCH.time - seen;
   if (age < 0 || age > UAV.hold + UAV.fade) return null;

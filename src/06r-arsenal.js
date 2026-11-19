@@ -215,6 +215,7 @@ function classCleanAll(c) {
   classClean(c, 'secondary', 'sa', 'sc', c.secondary, c.def.secondary);
   c.ks = ksFill(c.ks);
   if (!NADE_TYPES[c.nade]) c.nade = 'frag';
+  if (typeof perkClean === 'function') perkClean(c);
 }
 /* Type de grenade d'une classe personnalisée (un seul, NADE_COUNT à chaque vie) */
 function classSetNade(i, id) {
@@ -227,7 +228,7 @@ const classEditable = (i) => { const c = CLASSES[i]; return !!c && c.custom && c
 function classCreate(n) {
   const c = CLASSES[PRESETS + n]; if (!c || c.made || !customUnlocked(n)) return -1;
   const mp = arsRecall(c.def.primary), ms = arsRecall(c.def.secondary);
-  Object.assign(c, { made: true, name: _t('Classe {0}', n + 1), primary: c.def.primary, secondary: c.def.secondary, pa: mp.a, sa: ms.a, pc: mp.c, sc: ms.c, ks: KS_DEFAULT.slice(), nade: 'frag' });
+  Object.assign(c, { made: true, name: _t('Classe {0}', n + 1), primary: c.def.primary, secondary: c.def.secondary, pa: mp.a, sa: ms.a, pc: mp.c, sc: ms.c, ks: KS_DEFAULT.slice(), nade: 'frag', pk: [[], [], []] });
   arsLoadoutEdit(); return PRESETS + n;
 }
 function classRename(i, name) {
@@ -237,7 +238,7 @@ function classRename(i, name) {
 }
 function classDelete(i) {
   if (!classEditable(i)) return;
-  const c = CLASSES[i]; c.made = false; c.name = _t('Classe {0}', c.slot + 1); c.primary = c.def.primary; c.secondary = c.def.secondary; c.pa = []; c.sa = []; c.pc = c.sc = null; c.ks = KS_DEFAULT.slice(); c.nade = 'frag';
+  const c = CLASSES[i]; c.made = false; c.name = _t('Classe {0}', c.slot + 1); c.primary = c.def.primary; c.secondary = c.def.secondary; c.pa = []; c.sa = []; c.pc = c.sc = null; c.ks = KS_DEFAULT.slice(); c.nade = 'frag'; c.pk = [[], [], []];
   classFix(); arsLoadoutEdit();
 }
 /* Retient la configuration d'une arme, et la rend remise en règle (accessoires et camouflage encore valables) */
@@ -312,7 +313,7 @@ function arsSaveSoon() { if (ARS.saveT) return; ARS.saveT = setTimeout(arsSave, 
 function arsLoadoutEdit() { ARS.lt = Math.max(Date.now(), ARS.lt + 1); arsSaveSoon(); }
 /* Instantané enregistrable : stockage local et copie du compte (api/_lib/handlers.js, arsenal) */
 function arsSnapshot() {
-  const custom = CLASSES.slice(PRESETS).map((c) => (c.made ? { n: c.name, p: c.primary, pa: c.pa, pc: c.pc, s: c.secondary, sa: c.sa, sc: c.sc, k: c.ks, g: c.nade } : null));
+  const custom = CLASSES.slice(PRESETS).map((c) => (c.made ? { n: c.name, p: c.primary, pa: c.pa, pc: c.pc, s: c.secondary, sa: c.sa, sc: c.sc, k: c.ks, g: c.nade, pk: c.pk } : null));
   return { v: ARS.ver, wxp: ARS.wxp, k: ARS.k, h: ARS.h, px: Math.floor(ARS.px), cfg: ARS.cfg, lt: ARS.lt, custom, ch: ARS.ch, cm: ARS.chMaps };
 }
 function arsSave() {
@@ -382,6 +383,7 @@ function arsApply(s, merge) {
     c.pc = x.pc ? String(x.pc) : null; c.sc = x.sc ? String(x.sc) : null;
     c.ks = ksFill(Array.isArray(x.k) ? x.k.map(String) : null); // séries (absentes des copies d'avant : celles d'origine)
     c.nade = NADE_TYPES[x.g] ? x.g : 'frag'; // type de grenade (absent des copies d'avant : la frag)
+    c.pk = x.pk; if (typeof perkClean === 'function') perkClean(c); // atouts (absents des copies d'avant : aucun)
   }
 }
 function arsLoad() {

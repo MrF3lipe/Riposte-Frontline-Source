@@ -1768,3 +1768,43 @@ Tous les survivants ont été infectés ⇒ All survivors have been infected
 # LAN (src/00c-lan.js, src/09c-net.js)
 Réseau local, sans internet, jusqu'à 8 joueurs ⇒ LAN, no internet, up to 8 players
 Mode LAN : pas d'internet. La mise en relation passe par l'ordinateur de l'hôte ({0}). ⇒ LAN mode: no internet. Matchmaking goes through the host computer ({0}).
+
+# Atouts (src/06ib-perks.js, src/09n-armurerie.js)
+Léger ⇒ Lightweight
+Vous courez 8 % plus vite. ⇒ You move 8% faster.
+Prestidigitateur ⇒ Sleight of Hand
+Le rechargement est 30 % plus court. ⇒ Reload time is 30% shorter.
+Silence mortel ⇒ Dead Silence
+Vos pas s'entendent beaucoup moins. ⇒ Your footsteps are much harder to hear.
+Marathon ⇒ Marathon
+Le sprint est plus rapide. ⇒ Sprint is faster.
+Charognard ⇒ Scavenger
+Une élimination rend des munitions. ⇒ A kill gives ammunition back.
+Blindé ⇒ Armored
+20 % de dégâts de balle en moins. Vous êtes 6 % plus lent. ⇒ 20% less bullet damage. You move 6% slower.
+Masque tactique ⇒ Tactical Mask
+Les grenades incapacitantes vous touchent moins. ⇒ Tactical grenades affect you less.
+Bandoulière ⇒ Bandolier
+Plus de munitions en réserve. ⇒ More ammunition in reserve.
+Pouvoir d'arrêt ⇒ Stopping Power
+12 % de dégâts de balle en plus. Le recul augmente de 10 %. ⇒ 12% more bullet damage. Recoil is 10% higher.
+Dégainé rapide ⇒ Quickdraw
+La visée et le changement d'arme sont plus rapides. ⇒ Aiming and weapon swaps are faster.
+Pouls ferme ⇒ Steady Aim
+La dispersion à la hanche baisse de 30 %. ⇒ Hip-fire spread is 30% lower.
+Résistant ⇒ Hardened
+Immunisé contre l'IEM et la contre-UAV. ⇒ Immune to EMP and counter-UAV.
+Stimulant ⇒ Stimulant
+La santé revient plus vite. ⇒ Health comes back faster.
+Cet atout n'existe pas. ⇒ That perk does not exist.
+Deux atouts par niveau. Retirez-en un. ⇒ Two perks per tier. Remove one first.
+Atouts ⇒ Perks
+2 par niveau ⇒ 2 per tier
+Classe personnalisée {0} sur {1}. Deux atouts par niveau, au plus. ⇒ Custom class {0} of {1}. Two perks per tier, at most.
+Niveau 1 ⇒ Tier 1
+Niveau 2 ⇒ Tier 2
+Niveau 3 ⇒ Tier 3
+Choisi ⇒ Selected
+Deux par niveau ⇒ Two per tier
+Les contreparties restent. Rien ne les inverse. ⇒ Tradeoffs stay. Nothing flips them.
+Choisissez-en dans la liste. ⇒ Pick some from the list.

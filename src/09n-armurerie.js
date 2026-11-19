@@ -42,15 +42,17 @@ function arsLevelHtml(base) {
 
 function renderArsenal(reset = true) {
   if (!classEditable(ARSUI.cls)) { uiGo('classes', false); return; }
-  const { c } = arsCur(), ks = ARSUI.tab === 'k', gr = ARSUI.tab === 'g';
+  const { c } = arsCur(), ks = ARSUI.tab === 'k', gr = ARSUI.tab === 'g', at = ARSUI.tab === 'a';
   $('arsSub').textContent = ks ? _t('Classe personnalisée {0} sur {1}. Choisissez trois séries, qui ne se débloquent pas au même nombre d\u0027éliminations', c.slot + 1, CUSTOM_MAX)
     : gr ? _t('Classe personnalisée {0} sur {1}. Choisissez une grenade ou le couteau de lancer, vous en avez deux à chaque vie', c.slot + 1, CUSTOM_MAX)
+    : at ? _t('Classe personnalisée {0} sur {1}. Deux atouts par niveau, au plus.', c.slot + 1, CUSTOM_MAX)
     : _t('Classe personnalisée {0} sur {1}. Choisissez vos armes. Les + posés sur l\u0027arme ouvrent ses accessoires', c.slot + 1, CUSTOM_MAX);
   const inp = $('arsName'); if (document.activeElement !== inp) inp.value = c.name;
   renderArsSlots();
-  $('arsStage').classList.toggle('series', ks || gr); // séries, grenade : pas de visuel 3D (09-game.js ne le dessine plus), le détail prend la place
+  $('arsStage').classList.toggle('series', ks || gr || at); // séries, grenade, atouts : pas de visuel 3D (09-game.js ne le dessine plus), le détail prend la place
   if (ks) { renderArsKsList(); renderArsKsPanel(); return; }
   if (gr) { renderArsNadeList(); renderArsNadePanel(); return; }
+  if (at) { renderArsPerkList(); renderArsPerkPanel(); return; }
   renderArsList(); arsStageSet(reset); renderArsPanel();
   const help = VW.host && VW.host.querySelector('.vw-help'); if (help) help.textContent = TOUCH.on ? _t('Glissez pour faire tourner l\u0027arme') : _t('Glissez pour faire tourner l\u0027arme, molette pour l\u0027approcher'); // (pas de molette au doigt)
 }
@@ -64,6 +66,7 @@ function renderArsSlots() {
     ['s', _t('Pistolet'), esc(s.name), acc(s)],
     ['g', _t('Équipement'), nadeSvg(c.nade) + esc(N.name), _t('{0} par vie', NADE_COUNT)],
     ['k', _t('Séries'), `<span class="ics">${c.ks.map(ksSvg).join('')}</span>`, c.ks.map((id) => KSDEF[id].n).join(' · ')],
+    ['a', _t('Atouts'), String(typeof perkCount === 'function' ? perkCount(c) : 0), _t('2 par niveau')],
   ];
   root.innerHTML = items.map(([v, l, val, sub]) => `<button type="button" class="ars-slot" role="radio" data-v="${v}" aria-checked="${v === ARSUI.tab}"><span class="sl">${l}</span><span class="sv">${val}</span><span class="ss">${sub}</span></button>`).join('');
 }
@@ -87,6 +90,29 @@ function renderArsNadePanel() {
   $('arsPanel').innerHTML = `<div class="ars-cols"><div>
     <div class="ars-lv"><p class="wt">${esc(N.long)}</p><p class="wn">${esc(N.name)}${id === c.nade ? `<small>${_t('Équipée')}</small>` : ''}</p><span>${esc(N.desc)}</span></div>
     </div><div><dl class="ars-facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div></div>`;
+}
+/* ---------- Onglet Atouts ---------- */
+function renderArsPerkList() {
+  const c = CLASSES[ARSUI.cls]; if (typeof perkClean === 'function') perkClean(c);
+  const heads = [_t('Niveau 1'), _t('Niveau 2'), _t('Niveau 3')];
+  $('arsList').innerHTML = [0, 1, 2].map((lv) => {
+    const row = (c.pk && c.pk[lv]) || [];
+    return `<h4>${heads[lv]} · ${row.length}/${PERK_PER}</h4><div class="ars-grid">${PERKS.filter((p) => p.lv === lv).map((p) => {
+      const on = row.indexOf(p.id) >= 0;
+      return `<button type="button" class="ars-card ars-ksc" data-perk="${p.id}" aria-selected="${on}">${on ? `<span class="ars-on">${_t('Choisi')}</span>` : ''}<span class="n">${esc(p.name)}</span><span class="m">${esc(p.desc)}</span></button>`;
+    }).join('')}</div>`;
+  }).join('');
+}
+function renderArsPerkPanel() {
+  const c = CLASSES[ARSUI.cls]; if (typeof perkClean === 'function') perkClean(c);
+  const rows = (c.pk || []).map((row, lv) => (row || []).map((id) => PERK_BY[id]).filter(Boolean).map((p) => `<div><dt>${esc(p.name)}</dt><dd>${esc(p.desc)}</dd></div>`).join('')).join('');
+  $('arsPanel').innerHTML = `<div class="ars-cols"><div><div class="ars-lv"><p class="wt">${_t('Atouts')}</p><p class="wn">${_t('Deux par niveau')}<small>${perkCount(c)}/6</small></p><span>${_t('Les contreparties restent. Rien ne les inverse.')}</span></div></div><div><dl class="ars-facts">${rows || `<div><dt>${_t('Aucun')}</dt><dd>${_t('Choisissez-en dans la liste.')}</dd></div>`}</dl></div></div>`;
+}
+function arsPerkPick(id) {
+  const c = CLASSES[ARSUI.cls], r = perkToggle(c, id);
+  if (r) { arsMsg(r); sfxUi('locked'); renderArsPerkList(); return; }
+  arsLoadoutEdit(); ARSUI.msg = ''; sfxUi('equip');
+  renderArsSlots(); renderArsPerkList(); renderArsPerkPanel();
 }
 function arsNadePick(id) {
   const c = CLASSES[ARSUI.cls]; ARSUI.nadeSee = id;
@@ -234,6 +260,7 @@ function arsInit() {
     const b = e.target.closest('.ars-card'); if (!b) return;
     if (b.dataset.ks) { arsKsPick(b.dataset.ks); return; }
     if (b.dataset.nade) { arsNadePick(b.dataset.nade); return; }
+    if (b.dataset.perk) { arsPerkPick(b.dataset.perk); return; }
     const { i, which } = arsCur(), lock = weaponLock(b.dataset.w);
     if (lock) { arsMsg(`${_t('{0} verrouillé : {1}.', WEAPONS[b.dataset.w].name, lock)}`); sfxUi('locked'); return; }
     classSetWeapon(i, which, b.dataset.w); ARSUI.msg = ''; arsPopClose(); renderArsenal(true); sfxUi('click');

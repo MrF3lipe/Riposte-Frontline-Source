@@ -26,7 +26,7 @@ let mouseDX = 0, mouseDY = 0;
 function giveLoadout() {
   classFix(); // la classe choisie existe toujours (06r-arsenal.js)
   const C = CLASSES[PL.classIdx = Settings.loadout];
-  PL.ent.arms = makeArms(classWeapons(PL.classIdx));
+  PL.ent.arms = makeArms(classWeapons(PL.classIdx)); if (typeof perkFillReserve === 'function') perkFillReserve(PL.ent);
   PL.ksSel = ESSAI ? essaiKs() : classKs(PL.classIdx); updateStreakHud(); // séries de la classe ; celles déjà prêtes d'une autre classe attendent qu'on la reprenne
   PL.nades = C.nades; PL.nadeType = NADE_TYPES[C.nade] ? C.nade : 'frag'; PL.flashT = 0; PL.knifeT = 0; PL.nadeState = null; PL.knifeOut = false; PL.knifeHold = 0; PL.knifeBtn = null;
   vmSetLook(skinOf(PL.ent), 0); vmEquip(PL.weapons[0].def); VM.action = null;
@@ -423,7 +423,8 @@ function updatePlayer(dt, now) {
   PL.holding = scoped && (KEYS.ShiftLeft || PAD.l3) && PL.breath > 0;
   PL.breath = clamp(PL.breath + (PL.holding ? -dt / 4 : dt / 5), 0, 1);
   // régénération
-  if (now - PL.lastDmgT > 4.5 && e.health < 100) e.health = Math.min(100, e.health + 45 * dt);
+  const perkWait = typeof perkRegenDelay === 'function' ? perkRegenDelay(e) : 4.5, perkRate = typeof perkRegenRate === 'function' ? perkRegenRate(e) : 45;
+  if (now - PL.lastDmgT > perkWait && e.health < 100) e.health = Math.min(100, e.health + perkRate * dt);
   if (e.health < 40) { PL.heartT -= dt; if (PL.heartT <= 0) { sfxHeart(); PL.heartT = 0.9; } }
   PL.suppress = Math.max(0, PL.suppress - dt * 0.8);
   PL.ent.pitch = PL.pitch; PL.ent.yaw = PL.yaw;

@@ -67,9 +67,9 @@ function ctlMove(ent, dt) {
   else if (ent.crouch && ceilingAbove(ent.pos.x, ent.pos.z, ent.pos.y + 1.0, 0.3) > ent.pos.y + 1.8) ent.crouch = false;
   ent.crouchAmt = damp(ent.crouchAmt, ent.crouch ? 1 : 0, 10, dt);
   ent.adsActive = I.ads && !sprint && !A.reload && !ent.busy && !A.knife && A.switching <= 0 && (A.boltT <= 0.2 || !!d.bolt || !!d.pump);
-  A.adsW = damp(A.adsW, ent.adsActive ? 1 : 0, (1 / Math.max(0.05, d.adsTime)) * 2.2, dt);
-  let spd = MOVE_SPEED * (A.knife ? KNIFE_MOVE : d.move); if (typeof partyMoveMul === 'function') spd *= partyMoveMul(ent); /* party-hook-spd */
-  if (sprint) spd *= SPRINT_MUL; else if (A.adsW > 0.5) spd *= d.scope ? 0.4 : 0.58;
+  A.adsW = damp(A.adsW, ent.adsActive ? 1 : 0, (1 / Math.max(0.05, d.adsTime * (typeof perkAdsTime === 'function' ? perkAdsTime(ent) : 1))) * 2.2, dt);
+  let spd = MOVE_SPEED * (A.knife ? KNIFE_MOVE : d.move); if (typeof partyMoveMul === 'function') spd *= partyMoveMul(ent); if (typeof perkMoveMul === 'function') spd *= perkMoveMul(ent); /* party-hook-spd */
+  if (sprint) spd *= SPRINT_MUL * (typeof perkSprintMul === 'function' ? perkSprintMul(ent) : 1); else if (A.adsW > 0.5) spd *= d.scope ? 0.4 : 0.58;
   if (ent.crouch) spd *= 0.6;
   const fx = -Math.sin(ent.yaw), fz = -Math.cos(ent.yaw), rx = Math.cos(ent.yaw), rz = -Math.sin(ent.yaw);
   let wx = fx * I.mz + rx * I.mx, wz = fz * I.mz + rz * I.mx; const wl = hyp(wx, wz);
@@ -162,8 +162,9 @@ function ctlAction(ent, name, dur, data) {
 function ctlStartReload(ent) {
   const A = ent.arms, w = armsW(ent), d = w.def;
   if (A.reload || ent.busy || A.knife || w.mag >= d.mag || w.reserve <= 0 || A.boltT > 0 || A.switching > 0) return false;
+  const perkMul = (typeof perkHas === 'function' && perkHas(ent, 'sleight')) ? 0.7 : 1; A.perkReload = perkMul;
   if (d.tube) { A.reload = { tube: true, phase: 'start', t: 0, empty: w.mag === 0, stop: false }; ctlAction(ent, 'shellStart', 0.32); }
-  else { const empty = w.mag === 0, dur = empty ? d.reloadEmpty : d.reload; A.reload = { t: 0, dur, empty, filled: false }; ctlAction(ent, 'reload', dur, { empty }); }
+  else { const empty = w.mag === 0, dur = (empty ? d.reloadEmpty : d.reload) * perkMul; A.reload = { t: 0, dur, empty, filled: false }; ctlAction(ent, 'reload', dur, { empty }); }
   // un adversaire qui recharge tout près s'entend (le chargeur qui sort, puis celui qui entre) : un repère pour le joueur
   if (!ent.isPlayer && ent.alive && !d.tube && ent.pos.distanceTo(camera.position) < 16) { const p = ent.pos.clone(); p.y += 1.1; sfxMech('magout', 0.15, p, d.fam); sfxMech('magin', Math.min(1.4, (A.reload.dur || 2) * 0.55), p, d.fam); }
   return true;
@@ -172,7 +173,7 @@ function ctlStartReload(ent) {
 function ctlSwitch(ent, i, again) {
   const A = ent.arms;
   if ((i === A.cur && !again) || i < 0 || i >= A.slots.length || A.switching > 0 || ent.busy) return false;
-  A.reload = null; A.boltT = 0; A.switching = SWITCH.dur; A.switchTo = i;
+  A.reload = null; A.boltT = 0; A.switching = SWITCH.dur * (typeof perkSwitchMul === 'function' ? perkSwitchMul(ent) : 1); A.switchTo = i;
   if (ent.isPlayer) { VM.action = null; VM.lowerTarget = 1; }
   kcEvent('vma', { sid: ent.kcI, name: 'switch', dur: SWITCH.dur, data: { to: A.slots[i].def.key, from: A.slots[A.cur].def.key } }); // from : l'arme du début d'une relecture (kcStartWeapon)
   return true;
@@ -194,11 +195,12 @@ function ctlWeapon(ent, dt, now) {
   if (A.reload) {
     const R = A.reload; R.t += dt;
     if (R.tube) {
-      if (R.phase === 'start' && R.t >= 0.32) { R.phase = 'shell'; R.t = 0; ctlAction(ent, 'shell', d.shellTime); }
-      else if (R.phase === 'shell' && R.t >= d.shellTime) {
+      const shellT = d.shellTime * (A.perkReload || 1);
+      if (R.phase === 'start' && R.t >= 0.32) { R.phase = 'shell'; R.t = 0; ctlAction(ent, 'shell', shellT); }
+      else if (R.phase === 'shell' && R.t >= shellT) {
         w.mag++; w.reserve--; R.t = 0;
         if (w.mag >= d.mag || w.reserve <= 0 || R.stop) { R.phase = 'end'; ctlAction(ent, 'shellEnd', 0.3, { empty: R.empty });  }
-        else ctlAction(ent, 'shell', d.shellTime);
+        else ctlAction(ent, 'shell', shellT);
       } else if (R.phase === 'end' && R.t >= 0.3) A.reload = null;
       if (I.fire && w.mag > 0 && R.phase === 'shell') R.stop = true;
     } else {
@@ -226,6 +228,7 @@ function ctlShoot(ent, now) {
   if (ent.crouch) spread *= 0.8;
   if (d.bipod && ent.crouch && spd < 0.4) spread *= 0.6; // bipied posé
   if (d.scope && ads < 0.95) spread = Math.max(spread, 0.06);
+  if (typeof perkHipMul === 'function' && ads < 0.4) spread *= perkHipMul(ent);
   let origin, f, muzzle;
   if (ent.isPlayer) {
     origin = camera.position.clone(); f = camFwd(new V3());
@@ -258,6 +261,7 @@ function ctlShoot(ent, now) {
     else kh = (Math.random() - 0.5) * 2 * d.recoil.h;
     kh *= pod;
   }
+  if (typeof perkRecoilMul === 'function') { const rm = perkRecoilMul(ent); if (rm !== 1) { if (ent.isPlayer) A.recPend += kv * (rm - 1); kv *= rm; kh *= rm; } }
   ent.pitch = clamp(ent.pitch + kv, -1.5, 1.5); ent.yaw += kh;
   if (d.auto) A.bloom = Math.min(0.03, A.bloom + 0.003);
   A.fireCd = 60 / d.rpm;

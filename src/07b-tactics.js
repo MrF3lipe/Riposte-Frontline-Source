@@ -219,7 +219,8 @@ function updateBot(b, dt, now) {
   }
   const D = botDiff(), def = b.weapon;
   b.senseT -= dt; if (b.senseT <= 0) { b.senseT = rand(0.12, 0.22); botSense(b, now); }
-  if (now - b.lastHitT > 5 && b.health < 100) b.health = Math.min(100, b.health + 30 * dt);
+  const perkWait = typeof perkRegenDelay === 'function' ? perkRegenDelay(b, true) : 5, perkRate = typeof perkRegenRate === 'function' ? perkRegenRate(b, true) : 30;
+  if (now - b.lastHitT > perkWait && b.health < 100) b.health = Math.min(100, b.health + perkRate * dt);
   b.suppr = Math.max(0, b.suppr - dt * 0.45); b.fear = Math.max(0, b.fear - dt * 0.3);
   if (MATCH.mode === 'dom') squadMaybe(b.team, now);
   if (b.sq && b.sqSeen !== b.sq.rev) { b.sqSeen = b.sq.rev; if (b.tactic === 'roam') { b.goal = null; b.path = null; b.holdT = 0; } } // le plan d'équipe a changé : on repart

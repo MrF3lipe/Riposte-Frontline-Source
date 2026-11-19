@@ -139,7 +139,7 @@ function killInfo(a, v, weapon) { return `<span class="${teamCls(a)}">${esc(a.na
 /* Séries d'un bot : trois au hasard, à trois seuils différents, tirées une fois pour toutes */
 function botKs(b) { if (!b.ks) b.ks = ksSort(ksPick(KS_IDS.slice().sort(() => Math.random() - 0.5))); return b.ks; }
 function botStreak(b) {
-  if (MATCH.mode === 'ffa' || ksJammed(b.team)) return; // chacun pour soi : les séries restent au joueur ; brouillé par une IEM : la série est perdue
+  if (MATCH.mode === 'ffa' || (typeof perkJam === 'function' ? perkJam(b) : ksJammed(b.team))) return; // chacun pour soi : les séries restent au joueur ; brouillé par une IEM : la série est perdue (Résistant y échappe)
   for (const id of botKs(b)) if (b.streak === KSDEF[id].n) KSDEF[id].bot(b);
 }
 function botUav(b) {
@@ -261,7 +261,7 @@ function drawMinimap() {
     g.fillStyle = col; g.beginPath(); g.moveTo(0, -6); g.lineTo(4.5, 4.5); g.lineTo(0, 2.5); g.lineTo(-4.5, 4.5); g.closePath(); g.fill();
     g.strokeStyle = 'rgba(0,0,0,0.75)'; g.lineWidth = 1; g.stroke(); g.restore();
   };
-  const jam = ksJammed(e.team), sat = satOn(e.team);
+  const jam = typeof perkJam === 'function' ? perkJam(e) : ksJammed(e.team), sat = MATCH.sat[e.team] > 0 && !jam;
   for (const o of entities) {
     if (!o.alive || o === e || jam) continue; // brouillé par une IEM : aucun repère
     if (allied(o, e)) arrow(o, C.ally);
