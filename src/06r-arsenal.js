@@ -204,18 +204,20 @@ function gunTrim() {
 /* Remet une configuration en règle : arme existante et débloquée (sinon celle d'origine), accessoires débloqués qui vont sur l'arme
    (un par point d'accroche, tous les points permis), camouflage débloqué */
 function classClean(c, wkey, akey, ckey, want, defId) {
-  let id = WEAPONS[want] && !weaponLock(want) && (wkey === 'primary' ? WEAPONS[want].cat !== 'pistol' : WEAPONS[want].cat === 'pistol') ? want : defId;
+  const over = wkey === 'secondary' && typeof perkOnClass === 'function' && perkOnClass(c, 'over');
+  const catOk = wkey === 'primary' ? WEAPONS[want] && WEAPONS[want].cat !== 'pistol' : WEAPONS[want] && (WEAPONS[want].cat === 'pistol' || over);
+  let id = WEAPONS[want] && !weaponLock(want) && catOk ? want : defId;
   const base = WEAPONS[id];
   c[wkey] = id;
   c[akey] = attNormalize(base, (c[akey] || []).filter((a) => ATT[a] && !attLock(id, a)));
   c[ckey] = c[ckey] && CAMOS[c[ckey]] && !camoLock(id, c[ckey]) ? c[ckey] : null;
 }
 function classCleanAll(c) {
+  if (typeof perkClean === 'function') perkClean(c); // avant les armes : Surarmement décide si la seconde peut être une principale
   classClean(c, 'primary', 'pa', 'pc', c.primary, c.def.primary);
   classClean(c, 'secondary', 'sa', 'sc', c.secondary, c.def.secondary);
   c.ks = ksFill(c.ks);
   if (!NADE_TYPES[c.nade]) c.nade = 'frag';
-  if (typeof perkClean === 'function') perkClean(c);
 }
 /* Type de grenade d'une classe personnalisée (un seul, NADE_COUNT à chaque vie) */
 function classSetNade(i, id) {
@@ -251,7 +253,8 @@ function classSetWeapon(i, which, id) {
   if (!classEditable(i)) return false;
   const c = CLASSES[i], k = which === 's';
   if (!WEAPONS[id] || weaponLock(id)) return false;
-  if (k ? WEAPONS[id].cat !== 'pistol' : WEAPONS[id].cat === 'pistol') return false;
+  if (k) { if (WEAPONS[id].cat !== 'pistol' && !(typeof perkOnClass === 'function' && perkOnClass(c, 'over'))) return false; }
+  else if (WEAPONS[id].cat === 'pistol') return false;
   if (c[k ? 'secondary' : 'primary'] === id) return true;
   // l'arme quittée garde ses accessoires et son camouflage pour la prochaine fois, la nouvelle reprend les siens
   arsRemember(c[k ? 'secondary' : 'primary'], c[k ? 'sa' : 'pa'], c[k ? 'sc' : 'pc']);

@@ -10,6 +10,7 @@ const PERKS = [
   { id: 'sleight', lv: 0, name: _t('Prestidigitateur'), desc: _t('Le rechargement est 30 % plus court.') },
   { id: 'silence', lv: 0, name: _t('Silence mortel'), desc: _t('Vos pas s\u0027entendent beaucoup moins.') },
   { id: 'marathon', lv: 0, name: _t('Marathon'), desc: _t('Le sprint est plus rapide.') },
+  { id: 'over', lv: 1, name: _t('Deux armes principales'), desc: _t('La seconde arme peut être une arme principale.') },
   { id: 'scav', lv: 1, name: _t('Charognard'), desc: _t('Une élimination rend des munitions.') },
   { id: 'armor', lv: 1, name: _t('Blindé'), desc: _t('20 % de dégâts de balle en moins. Vous êtes 6 % plus lent.') },
   { id: 'mask', lv: 1, name: _t('Masque tactique'), desc: _t('Les grenades incapacitantes vous touchent moins.') },
@@ -51,6 +52,12 @@ function perkHas(ent, id) {
   for (const row of pk) if (row && row.indexOf(id) >= 0) return true;
   return false;
 }
+/* Même test sur une classe (l'armurerie), pas sur un soldat. */
+function perkOnClass(c, id) {
+  if (!c || !Array.isArray(c.pk)) return false;
+  for (const row of c.pk) if (row && row.indexOf(id) >= 0) return true;
+  return false;
+}
 /* Tirage des bots : un ou deux atouts par palier, dans le catalogue de ce palier. */
 function perkDraw() {
   const pk = [[], [], []];
@@ -65,7 +72,12 @@ function perkToggle(c, id) {
   const p = PERK_BY[id]; if (!p || !c) return _t('Cet atout n\u0027existe pas.');
   perkClean(c);
   const row = c.pk[p.lv], i = row.indexOf(id);
-  if (i >= 0) { row.splice(i, 1); return ''; }
+  if (i >= 0) {
+    row.splice(i, 1);
+    // sans Surarmement, une seconde arme principale redevient le pistolet d'origine
+    if (id === 'over' && typeof classClean === 'function') classClean(c, 'secondary', 'sa', 'sc', c.secondary, (c.def && c.def.secondary) || 'm9');
+    return '';
+  }
   if (row.length >= PERK_PER) return _t('Deux atouts par niveau. Retirez-en un.');
   row.push(id); return '';
 }

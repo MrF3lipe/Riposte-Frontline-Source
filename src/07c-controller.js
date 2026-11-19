@@ -187,7 +187,11 @@ function ctlWeapon(ent, dt, now) {
   if (A.boltT > 0) A.boltT -= dt;
   if (A.switching > 0) {
     const before = A.switching; A.switching -= dt;
-    if (before > SWITCH.swap && A.switching <= SWITCH.swap) { A.cur = A.switchTo; w = armsW(ent); d = w.def; if (ent.isPlayer) { vmEquip(d); VM.lowerTarget = 0; sfxMech('draw'); VM.rec.vy += 0.5; VM.rec.vrx -= 0.9; VM.rec.vz += 0.15; } }
+    if (before > SWITCH.swap && A.switching <= SWITCH.swap) {
+      A.cur = A.switchTo; w = armsW(ent); d = w.def;
+      if (ent.isPlayer) { vmEquip(d); VM.lowerTarget = 0; sfxMech('draw'); VM.rec.vy += 0.5; VM.rec.vrx -= 0.9; VM.rec.vz += 0.15; }
+      else if (ent.model) { ent.weapon = d; if (ent.model.gunKey !== d.key) setSoldierGun(ent.model, d.key); } // le bot montre l'arme qu'il tient
+    }
   }
   if (I.switchTo >= 0) { ctlSwitch(ent, I.switchTo); I.switchTo = -1; }
   if (I.reload) { ctlStartReload(ent); I.reload = false; }

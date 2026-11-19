@@ -218,6 +218,7 @@ function updateBot(b, dt, now) {
     ctlMove(b, dt); animSoldier(b, dt); return;
   }
   const D = botDiff(), def = b.weapon;
+  if (typeof botOverkillTick === 'function') botOverkillTick(b);
   b.senseT -= dt; if (b.senseT <= 0) { b.senseT = rand(0.12, 0.22); botSense(b, now); }
   const perkWait = typeof perkRegenDelay === 'function' ? perkRegenDelay(b, true) : 5, perkRate = typeof perkRegenRate === 'function' ? perkRegenRate(b, true) : 30;
   if (now - b.lastHitT > perkWait && b.health < 100) b.health = Math.min(100, b.health + perkRate * dt);

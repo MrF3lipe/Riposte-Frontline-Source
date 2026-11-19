@@ -1787,6 +1787,8 @@ Blindé ⇒ Armored
 20 % de dégâts de balle en moins. Vous êtes 6 % plus lent. ⇒ 20% less bullet damage. You move 6% slower.
 Masque tactique ⇒ Tactical Mask
 Les grenades incapacitantes vous touchent moins. ⇒ Tactical grenades affect you less.
+Deux armes principales ⇒ Overkill
+La seconde arme peut être une arme principale. ⇒ The sidearm can be a primary weapon.
 Bandoulière ⇒ Bandolier
 Plus de munitions en réserve. ⇒ More ammunition in reserve.
 Pouvoir d'arrêt ⇒ Stopping Power

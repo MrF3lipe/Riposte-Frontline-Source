@@ -50,6 +50,29 @@ const BOT_ARM = { map: null };
 /* Armes des bots (tirage botArmForMap) construites d'avance : modèle extérieur et modèle de la vue subjective (killcam du tueur) ; une fois
    construites, elles restent pour la session (gunTrim garde les armes nues) */
 function botArmPrebuild() { for (const b of entities) if (!b.isPlayer && !b.isRemote) gunPrebuild(b.weapon); }
+/* Seconde arme d'un bot qui a Deux armes principales : une principale d'une autre portée, pas un pistolet. */
+function botOverkillSide(primaryId) {
+  const prim = WEAPONS[primaryId], ids = [];
+  for (const id in WEAPONS) { if (id !== primaryId && WEAPONS[id].cat !== 'pistol') ids.push(id); }
+  if (!ids.length) return null;
+  const wantClose = prim && (prim.cat === 'sniper' || prim.cat === 'ar');
+  const pool = ids.filter((id) => wantClose ? (WEAPONS[id].cat === 'smg' || WEAPONS[id].cat === 'shotgun') : (WEAPONS[id].cat === 'ar' || WEAPONS[id].cat === 'smg'));
+  const list = pool.length ? pool : ids;
+  return list[Math.floor(Math.random() * list.length)];
+}
+/* Le bot change d'arme principale selon la distance, ou quand la première n'a plus de munitions. */
+function botOverkillTick(b) {
+  if (typeof perkHas !== 'function' || !perkHas(b, 'over')) return;
+  const A = b.arms; if (!A || A.slots.length < 2 || A.switching > 0 || A.reload) return;
+  const cur = A.cur, w = A.slots[cur], other = A.slots[1 - cur];
+  if (!w || !other) return;
+  if (w.mag <= 0 && w.reserve <= 0 && (other.mag > 0 || other.reserve > 0)) { b.input.switchTo = 1 - cur; return; }
+  if (!b.target || !b.target.alive) return;
+  const dist = hyp(b.target.pos.x - b.pos.x, b.target.pos.z - b.pos.z);
+  const close = (def) => def.cat === 'smg' || def.cat === 'shotgun' || (def.ai && def.ai.shotgun);
+  const want = dist < 12 ? (close(other.def) && !close(w.def) ? 1 - cur : -1) : (dist > 28 && close(w.def) && !close(other.def) ? 1 - cur : -1);
+  if (want >= 0) b.input.switchTo = want;
+}
 function botArmForMap() {
   const type = CURMAP.def && BOT_WEAPON_MIX[CURMAP.def.type] ? CURMAP.def.type : 'mid', mix = BOT_WEAPON_MIX[type], maxSn = type === 'open' ? 2 : 1, sn = [0, 0];
   const byCat = {}; for (const id in WEAPONS) { const c = WEAPONS[id].cat; if (mix[c] !== undefined) (byCat[c] || (byCat[c] = [])).push(id); }
@@ -110,7 +133,12 @@ function spawnEntity(e) {
   e.yaw = spawnYaw(e, e.pos); e.pitch = 0; e.protT = modeDef().prot;
   e.alive = true; e.health = 100; e.streak = 0; e.comboN = 0; e.crouch = false; e.crouchAmt = 0; e.slideT = 0; e.slideCd = 0; e.slideBuf = 0; e.slideAmt = 0; e.dmgBy.clear(); e.voidDead = false;
   if (!e.isPlayer) {
-    e.arms = makeArms([e.weapon.id], 60); if (typeof perkFillReserve === 'function') perkFillReserve(e); e.input = makeInput(); e.onGround = true; e.vy = 0; e.eyeH = 1.62; e.sprinting = false; e.lastShots = 0; e.burstLeft = 0;
+    e.arms = makeArms([e.weapon.id], 60);
+    if (typeof perkHas === 'function' && perkHas(e, 'over')) {
+      const alt = botOverkillSide(e.weapon.id);
+      if (alt) { e.arms = makeArms([e.weapon.id, alt], 60); if (typeof gunPrebuild === 'function') gunPrebuild(WEAPONS[alt]); }
+    }
+    if (typeof perkFillReserve === 'function') perkFillReserve(e); e.input = makeInput(); e.onGround = true; e.vy = 0; e.eyeH = 1.62; e.sprinting = false; e.lastShots = 0; e.burstLeft = 0;
     e.target = null; e.visible = false; e.lastSeenT = -99; e.path = null; e.goal = null; e.nades = NADE_COUNT; e.nadeType = botNadeType(); e.nadeCd = rand(8, 28); e.nadeOn = Math.random() < 0.8 * botDiff().nade; e.aw.clear(); e.aimT = null; e.lookAtT = 0; e.fear = 0; e.sq = null; e.lastHitT = -9;
     e.lookYaw = e.yaw; e.lastForce = null; releaseCover(e); initTactics(e); e.atCover = false;
     // heures de la partie (MATCH.time) qui repartent de zéro à la suivante : un bot ébloui à 400 s restait aveugle 400 s de la partie

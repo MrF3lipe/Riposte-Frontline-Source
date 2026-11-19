@@ -63,7 +63,7 @@ function renderArsSlots() {
   const acc = (d) => (d.att.length ? _tn(d.att.length, '{0} accessoire', '{0} accessoires') : _t('D\u0027origine'));
   const items = [
     ['p', _t('Principale'), esc(p.name), acc(p)],
-    ['s', _t('Pistolet'), esc(s.name), acc(s)],
+    ['s', (typeof perkOnClass === 'function' && perkOnClass(c, 'over')) ? _t('Secondaire') : _t('Pistolet'), esc(s.name), acc(s)],
     ['g', _t('Équipement'), nadeSvg(c.nade) + esc(N.name), _t('{0} par vie', NADE_COUNT)],
     ['k', _t('Séries'), `<span class="ics">${c.ks.map(ksSvg).join('')}</span>`, c.ks.map((id) => KSDEF[id].n).join(' · ')],
     ['a', _t('Atouts'), String(typeof perkCount === 'function' ? perkCount(c) : 0), _t('2 par niveau')],
@@ -121,8 +121,10 @@ function arsNadePick(id) {
 }
 /* Cartes d'armes par catégorie */
 function renderArsList() {
-  const { sec, base } = arsCur();
-  $('arsList').innerHTML = WEAPON_CATS.filter((k) => (sec ? k.id === 'pistol' : k.id !== 'pistol')).map((cat) => {
+  const { sec, base, c } = arsCur();
+  const over = sec && typeof perkOnClass === 'function' && perkOnClass(c, 'over');
+  const head = over ? `<h4>${esc(_t('La seconde arme peut être une arme principale.'))}</h4>` : '';
+  $('arsList').innerHTML = head + WEAPON_CATS.filter((k) => (sec ? (over || k.id === 'pistol') : k.id !== 'pistol')).map((cat) => {
     const ids = Object.keys(WEAPONS).filter((id) => WEAPONS[id].cat === cat.id);
     return `<h4>${cat.name}</h4><div class="ars-grid">${ids.map((id) => {
       const w = WEAPONS[id], lock = weaponLock(id), u = w.unlock;
