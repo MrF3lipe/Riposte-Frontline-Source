@@ -157,7 +157,7 @@ function decideTactic(b, now) {
   // un joueur qui tient une position (tireur d'élite au balcon, guetteur) ne la quitte pas sur un simple bruit
   const holding = b.holdT > 0 || (b.goal && b.goal.hold && b.goal.distanceTo(b.pos) < 5);
   if (!vis && holding && b.tactic === 'roam' && now - b.lastHitT > 2 && (def.ai.sniper || Math.random() < 0.6)) return;
-  const tp = vis ? T.pos : b.lastKnown, dist = hyp(tp.x - b.pos.x, tp.z - b.pos.z), ideal = def.ai.ideal;
+  const tp = vis ? T.pos : b.lastKnown, dist = hyp(tp.x - b.pos.x, tp.z - b.pos.z), ideal = def.ai.ideal * (b.persIdeal || 1);
   const hpLow = b.health < 40, needReload = !!b.arms.reload || armsW(b).mag <= Math.ceil(def.mag * 0.25);
   const targetWeak = vis && (T.isPlayer ? (!!PL.reload || T.health < 50) : (!!(T.arms && T.arms.reload) || T.health < 50));
   let allies = 0, foes = 0;
@@ -176,9 +176,9 @@ function decideTactic(b, now) {
   // effrayé (impacts qui s'accumulent), et alors vers un couvert proche, sans traverser la carte en courant
   let wantCover = hpLow || needReload || (b.fear > 1.0 && Math.random() < 0.5 * (1 - b.aggr * 0.6)) || (b.suppr > 1.1 && Math.random() < 0.35 * (1 - b.aggr)) || (vis && foes > allies + 2 && Math.random() < 0.6);
   const coverR = hpLow || needReload ? 15 : 8;
-  if (!wantCover && vis && dist > 16 && !justLeft) wantCover = Math.random() < 0.18 * (1 - b.aggr);
+  if (!wantCover && vis && dist > 16 && !justLeft) wantCover = Math.random() < 0.18 * (b.persCover || 1) * (1 - b.aggr);
   if (def.ai.sniper && vis && !justLeft) wantCover = wantCover || Math.random() < 0.45;
-  let wantPush = !wantCover && (targetWeak || (def.ai.rush && dist > ideal + 4) || Math.random() < b.aggr * 0.35);
+  let wantPush = !wantCover && (targetWeak || (def.ai.rush && dist > ideal + 4) || Math.random() < b.aggr * 0.35 * (b.persPush || 1));
   if (vis) {
     if (wantCover) { const c = findCover(b, eye, coverR); if (c && setCover(b, c)) return; }
     releaseCover(b); b.atCover = false;
@@ -193,7 +193,7 @@ function decideTactic(b, now) {
   // cible retranchée hors de vue : contournement, assaut ou traque prudente
   releaseCover(b);
   const flankers = entities.filter((o) => o.alive && allied(o, b) && o.tactic === 'flank').length;
-  if (b.tactic !== 'flank' && !def.ai.sniper && now - b.lastSeenT > 1.2 && flankers < 2 && Math.random() < 0.3 + b.aggr * 0.35) {
+  if (b.tactic !== 'flank' && !def.ai.sniper && now - b.lastSeenT > 1.2 && flankers < 2 && Math.random() < (0.3 + b.aggr * 0.35) * (b.persFlank || 1)) {
     const f = flankPoint(b, b.lastKnown);
     if (f) { b.tactic = 'flank'; b.flankPt = f; setPath(b, f); return; }
   }

@@ -486,7 +486,7 @@ function lobbyMe(tags) {
 function soloStage() {
   const mode = Settings.mode, ffa = mode === 'ffa';
   const plan = typeof botPlan === 'function' ? botPlan() : { ally: 7, enemy: 8, ffa: 15 };
-  const me = lobbyMe([]), bot = (n, i) => ({ k: 'player', key: 'b' + i, label: n, bot: true }); // (leur niveau est dans le résumé des paramètres)
+  const me = lobbyMe([]), bot = (n, i) => ({ k: 'player', key: 'b' + i, label: n, bot: true, tags: typeof persListTag === 'function' ? persListTag(n) : [] }); // (leur niveau est dans le résumé des paramètres)
   if (ffa) {
     const all = [...BOT_NAMES[0], ...BOT_NAMES[1]], idx = all.map((n, i) => i);
     const off = typeof botFfaOff === 'function' ? botFfaOff(idx, plan.ffa) : new Set();

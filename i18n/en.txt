@@ -1788,6 +1788,11 @@ Blindé ⇒ Armored
 Masque tactique ⇒ Tactical Mask
 Les grenades incapacitantes vous touchent moins. ⇒ Tactical grenades affect you less.
 Deux armes principales ⇒ Overkill
+Tireur ⇒ Marksman
+Tactique ⇒ Tactical
+Appui ⇒ Support
+Furtif ⇒ Stealth
+Équilibré ⇒ Balanced
 La seconde arme peut être une arme principale. ⇒ The sidearm can be a primary weapon.
 Bandoulière ⇒ Bandolier
 Plus de munitions en réserve. ⇒ More ammunition in reserve.

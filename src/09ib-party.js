@@ -309,7 +309,7 @@ function partySoloStage(orig) {
   const mode = Settings.mode;
   if (mode !== 'coop' && mode !== 'gun' && mode !== 'inf') return orig;
   const me = lobbyMe([]);
-  const bot = (n, i) => ({ k: 'player', key: 'b' + i, label: n, bot: true });
+  const bot = (n, i) => ({ k: 'player', key: 'b' + i, label: n, bot: true, tags: typeof persListTag === 'function' ? persListTag(n) : [] });
   if (mode === 'coop') {
     const n = partyCfg().coopN;
     const pool = [...BOT_NAMES[1]];
