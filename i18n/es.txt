@@ -1,0 +1,1820 @@
+# Dictionnaire anglais du jeu : « texte français ⇒ traduction » (voir src/00-i18n.js, README « Langues »).
+# Les clés sont les textes passés à _t() dans src/ et les textes de shell.html. « = » : identique en anglais.
+# Un contrôle : python3 tools/dev/check_i18n.py (clés manquantes, inutilisées, textes français non enveloppés).
+
+
+# 02-map.js
+Village de ruelles ⇒ Pueblo de callejones
+Un village écrasé de soleil où il ne se passe jamais rien. Sauf aujourd'hui. ⇒ Un pueblo abrasado por el sol donde nunca pasa nada. Excepto hoy.
+Gare de montagne enneigée ⇒ Estación de montaña nevada
+Une gare de montagne sous la neige. Le prochain train a du retard depuis 1987. ⇒ Una estación de montaña bajo la nieve. El próximo tren lleva retraso desde 1987.
+Port de pêche et criée ⇒ Puerto pesquero y mercado de pescado
+Un port breton au soleil couchant. Il fait beau, ce qui inquiète tout le monde. ⇒ Un puerto bretón al atardecer. Hace buen tiempo, lo que preocupa a todo el mundo.
+Jardin botanique et grande serre ⇒ Jardín botánico y gran invernadero
+Un jardin botanique en pleine floraison. Prière de ne pas marcher sur les pelouses, même mort. ⇒ Un jardín botánico en plena floración. Se ruega no pisar el césped, ni siquiera muerto.
+Île des Cyclades ⇒ Isla de las Cícladas
+Un village blanc au bord de la mer Égée. Le vent y souffle depuis l'Antiquité, personne n'a pensé à l'éteindre. ⇒ Un pueblo blanco a orillas del mar Egeo. El viento sopla ahí desde la Antigüedad y nadie pensó en apagarlo.
+Station volcanologique ⇒ Estación vulcanológica
+Une station de recherche au pied d'un volcan en éruption. Le volcan avait prévenu. ⇒ Una estación de investigación al pie de un volcán en erupción. El volcán ya había avisado.
+Îles flottantes ⇒ Islas flotantes
+Des îles suspendues au-dessus des nuages, reliées par des ponts de cordes. Personne ne les a jamais fait réviser. ⇒ Islas suspendidas sobre las nubes, unidas por puentes de cuerda. Nadie las ha hecho revisar nunca.
+Mer de dunes ⇒ Mar de dunas
+Une oasis au milieu des dunes. Au-delà, il n'y a que du sable et ceux qui sont partis vérifier. ⇒ Un oasis en medio de las dunas. Más allá, solo hay arena y quienes fueron a comprobarlo.
+Lotissement pavillonnaire ⇒ Urbanización residencial
+Un lotissement où toutes les maisons se ressemblent. Le syndic décline toute responsabilité. ⇒ Una urbanización donde todas las casas se parecen. La administración declina toda responsabilidad.
+
+# 06c-models.js
+Drone en vol ⇒ Dron en vuelo
+Satellite en ligne ⇒ Satélite en línea
+IEM déclenchée ⇒ IEM activada
+
+# 06i-armes.js
+Mecha ⇒ =
+Un mecha tombe sur la zone choisie et défend sa position. Montez à bord pour le piloter. Il finit par exploser, sortez avant. ⇒ Un mecha cae en la zona elegida y defiende su posición. Sube a bordo para pilotarlo. Termina explotando: sal antes.
+Drone kamikaze ⇒ Dron kamikaze
+Drone ⇒ Dron
+Vous pilotez un drone explosif pendant 30 secondes. Il explose au contact ou quand vous tirez. Votre soldat reste sans défense. ⇒ Pilotas un dron explosivo durante 30 segundos. Explota al contacto o cuando disparas. Tu soldado queda indefenso.
+IEM ⇒ =
+Brouille l'équipe adverse pendant 25 secondes. Plus de mini-carte ni de séries, son UAV et son satellite s'éteignent. ⇒ Interfiere al equipo enemigo durante 25 segundos. Sin minimapa ni rachas; su UAV y su satélite se apagan.
+Satellite ⇒ Satélite
+Pendant 30 secondes, la mini-carte montre les ennemis en direct et où ils regardent. Seule une IEM le coupe. ⇒ Durante 30 segundos, el minimapa muestra a los enemigos en directo y hacia dónde miran. Solo una IEM lo corta.
+Pendant 30 secondes, la mini-carte montre les ennemis toutes les 3 secondes. ⇒ Durante 30 segundos, el minimapa muestra a los enemigos cada 3 segundos.
+Deux chasseurs bombardent la zone choisie sur la carte. Un toit protège bien. ⇒ Dos cazas bombardean la zona que eliges en el mapa. Un techo protege bien.
+Un hélicoptère tire sur les ennemis à découvert pendant 34 secondes. Il peut être abattu. ⇒ Un helicóptero dispara a los enemigos al descubierto durante 34 segundos. Se puede derribar.
+Fusils d'assaut ⇒ Rifles de asalto
+Pistolets-mitrailleurs ⇒ Subfusiles
+Fusils de précision ⇒ Rifles de francotirador
+Fusils à pompe ⇒ Escopetas
+Pistolets ⇒ Pistolas
+Fusil d'assaut ⇒ Rifle de asalto
+La carabine de référence. Précise et maîtrisable à toutes les distances. ⇒ La carabina de referencia. Precisa y controlable a cualquier distancia.
+Pistolet-mitrailleur ⇒ Subfusil
+Le pistolet-mitrailleur des unités d'intervention. Cadence élevée, recul doux, redoutable de près. ⇒ El subfusil de las unidades de intervención. Cadencia alta, retroceso suave, temible de cerca.
+Fusil de précision ⇒ Rifle de francotirador
+Fusil à verrou de l'armée britannique. Une balle au torse suffit, à n'importe quelle distance. ⇒ Rifle de cerrojo del ejército británico. Una bala al torso basta, a cualquier distancia.
+Fusil à pompe ⇒ Escopeta
+Semi-automatique de la marine. Huit chevrotines par coup, dévastateur en intérieur. ⇒ Semiautomática de la marina. Ocho perdigones por disparo, devastadora en interiores.
+Pistolet ⇒ Pistola
+L'arme de poing réglementaire. Fiable et rapide à dégainer. ⇒ La pistola reglamentaria. Fiable y rápida de desenfundar.
+Le fusil le plus répandu au monde. Lourd de recul, mais chaque balle frappe fort. ⇒ El rifle más extendido del mundo. Mucho retroceso, pero cada bala pega fuerte.
+Fusil de bataille des forces spéciales. Cartouche lourde, trois balles au torse suffisent. ⇒ Rifle de batalla de las fuerzas especiales. Cartucho pesado: tres balas al torso bastan.
+Le "clairon" français. Un bullpup compact qui tire plus de mille coups par minute. ⇒ El "clarín" francés. Un bullpup compacto que dispara más de mil tiros por minuto.
+Ultra-compacte. Quarante coups, recul presque nul, très rapide à épauler. ⇒ Ultracompacta. Cuarenta disparos, retroceso casi nulo, muy rápida de encarar.
+Le .45 ACP en rafales. Cadence posée et balles lourdes, trois suffisent de près. ⇒ El .45 ACP en ráfagas. Cadencia medida y balas pesadas: de cerca bastan tres.
+Douze cents coups par minute. Une tronçonneuse de couloir, mais le chargeur se vide vite. ⇒ Mil doscientos disparos por minuto. Una motosierra de pasillo, pero el cargador se vacía rápido.
+Fusil de tireur d'élite semi-automatique. Deux balles au torse, une seule à la tête. ⇒ Rifle de tirador semiautomático. Dos balas al torso, una sola a la cabeza.
+Fusil antimatériel de calibre .50. Toute touche au corps est fatale, mais il est lourd et lent à épauler. ⇒ Rifle antimaterial de calibre .50. Cualquier impacto en el cuerpo es mortal, pero es pesado y lento de echar al hombro.
+La pompe des policiers et des chasseurs. Gerbe serrée et portée plus longue, une pompe entre deux coups. ⇒ La escopeta de corredera de policías y cazadores. Dispersión cerrada y más alcance, un bombeo entre disparos.
+Fusil à pompe entièrement automatique. Trois cents coups par minute, vingt dans le tambour étendu. ⇒ Escopeta totalmente automática. Trescientos disparos por minuto, veinte en el tambor ampliado.
+Le .45 ACP des forces spéciales. Moins de coups que le M9, mais plus de dégâts. ⇒ El .45 ACP de las fuerzas especiales. Menos disparos que el M9, pero más daño.
+Pistolet entièrement automatique. Il vide son chargeur en moins de deux secondes. ⇒ Pistola totalmente automática. Vacía el cargador en menos de dos segundos.
+Le .50 Action Express. Deux balles au torse, une à la tête, mais sept coups seulement. ⇒ El .50 Action Express. Dos balas al torso, una a la cabeza, pero solo siete disparos.
+Assaut ⇒ Asalto
+Le choix polyvalent, à l'aise à toutes les distances. ⇒ La opción versátil, cómoda a cualquier distancia.
+Nettoyeur ⇒ Limpiador
+Vitesse et cadence pour le corps à corps. ⇒ Velocidad y cadencia para el cuerpo a cuerpo.
+Tireur d'élite ⇒ Francotirador
+Une balle au torse suffit. En visée, retenez votre souffle pour stabiliser la lunette. ⇒ Una bala al torso basta. Al apuntar, aguanta la respiración para estabilizar la mira.
+Brèche ⇒ Incursor
+Dévastateur en intérieur, inoffensif au-delà de vingt mètres. ⇒ Devastador en interiores, inofensivo a más de veinte metros.
+
+# 06p-accessoires.js
+Optique ⇒ Mira
+Bouche ⇒ Boca
+Canon ⇒ Cañón
+Sous-canon ⇒ Bajo el cañón
+Rail latéral ⇒ Riel lateral
+Chargeur ⇒ Cargador
+Crosse ⇒ Culata
+Munitions ⇒ Munición
+Bouche et canon ⇒ Boca y cañón
+Chargeur et munitions ⇒ Cargador y munición
+Point rouge ⇒ Punto rojo
+Point lumineux sur verre. Visée rapide et dégagée. ⇒ Punto luminoso sobre cristal. Apuntado rápido y despejado.
+Holographique ⇒ Holográfica
+Réticule en cercle sur grande fenêtre. On garde les deux yeux ouverts, mais la mise en joue est un peu plus lente. ⇒ Retícula circular en una ventana grande. Mantienes los dos ojos abiertos, pero el apuntado es un poco más lento.
+Lunette de combat 4x. De la portée et de la précision, au prix d'un champ réduit et d'une mise en joue plus lente. ⇒ Mira de combate 4x. Más alcance y precisión, a costa de un campo de visión reducido y un apuntado más lento.
+Silencieux ⇒ Silenciador
+Tir étouffé, sans flash ni traçante. Portée et dégâts un peu réduits. ⇒ Disparo amortiguado, sin fogonazo ni trazadora. Alcance y daño un poco reducidos.
+Compensateur ⇒ Compensador
+Évents orientés vers le haut. Le canon monte beaucoup moins, mais dérive un peu plus sur les côtés. ⇒ Orificios orientados hacia arriba. El cañón sube mucho menos, pero se desvía un poco más a los lados.
+Frein de bouche ⇒ Freno de boca
+Recul plus droit, mais flash plus large et vue secouée. ⇒ Retroceso más recto, pero fogonazo más amplio y vista más inestable.
+Choke serré ⇒ Estrangulador cerrado
+Resserre la gerbe. Les chevrotines portent plus loin et se dispersent moins. ⇒ Cierra la dispersión. Los perdigones llegan más lejos y se dispersan menos.
+Canon long ⇒ Cañón largo
+Plus de portée et de précision en visée. L'arme est plus lourde à épauler. ⇒ Más alcance y precisión al apuntar. El arma es más pesada de echar al hombro.
+Canon court ⇒ Cañón corto
+Arme plus vive et plus maniable. Moins de portée et un recul plus sec. ⇒ Arma más viva y más manejable. Menos alcance y un retroceso más seco.
+Poignée verticale ⇒ Empuñadura vertical
+Bonne prise de la main d'appui. Le recul est domestiqué, mais l'arme se met en joue plus lentement. ⇒ Buen agarre de la mano de apoyo. El retroceso queda controlado, pero el arma tarda más en apuntar.
+Poignée angulaire ⇒ Empuñadura angular
+Mise en joue plus rapide et tir à la hanche plus précis. Le recul vertical reste entier. ⇒ Apuntado más rápido y disparo desde la cadera más preciso. El retroceso vertical sigue intacto.
+Bipied ⇒ Bípode
+Accroupi et immobile, recul et dispersion presque annulés. Debout, l'arme est plus lourde. ⇒ Agachado e inmóvil, el retroceso y la dispersión casi desaparecen. De pie, el arma pesa más.
+Pointeur laser ⇒ Puntero láser
+Un point rouge marque l'impact. Tir à la hanche bien plus précis. ⇒ Un punto rojo marca el impacto. Tiro a la cadera mucho más preciso.
+Chargeur rapide ⇒ Cargador rápido
+Chargeur à sangle d'extraction. Le rechargement est un quart plus court. ⇒ Cargador con cinta de extracción. La recarga es un cuarto más corta.
+Chargeur étendu ⇒ Cargador ampliado
+Une moitié de munitions en plus par chargeur. Plus lourd et un peu plus long à changer. ⇒ La mitad más de munición por cargador. Más pesado y un poco más lento de cambiar.
+Crosse renforcée ⇒ Culata reforzada
+Épaulée à fond, l'arme tient mieux la ligne de mire. Elle est plus lourde à manier. ⇒ Bien echada al hombro, el arma mantiene mejor la línea de mira. Es más pesada de manejar.
+Sans crosse ⇒ Sin culata
+Arme compacte et vive, mais bien plus difficile à maîtriser. ⇒ Arma compacta y viva, pero mucho más difícil de dominar.
+Pointe creuse ⇒ Punta hueca
+Balles à expansion. Plus de dégâts, mais la portée efficace fond. ⇒ Balas expansivas. Más daño, pero el alcance efectivo se derrite.
+Balle unique ⇒ Bala única
+Une seule balle lourde à la place des chevrotines. Précise et efficace à moyenne distance. ⇒ Una sola bala pesada en lugar de los perdigones. Precisa y eficaz a media distancia.
+Tube étendu ⇒ Tubo ampliado
+Dégâts ⇒ Daño
+Portée ⇒ Alcance
+Cadence de tir ⇒ Cadencia de tiro
+Capacité du chargeur ⇒ Capacidad del cargador
+Durée de rechargement ⇒ Tiempo de recarga
+Temps de mise en joue ⇒ Tiempo para apuntar
+Grossissement ⇒ Aumento
+Dispersion à la hanche ⇒ Dispersión a la cadera
+Dispersion en visée ⇒ Dispersión al apuntar
+Recul vertical ⇒ Retroceso vertical
+Recul horizontal ⇒ Retroceso horizontal
+Secousse de l'arme ⇒ Sacudida del arma
+Mobilité ⇒ Movilidad
+Flash de bouche ⇒ Fogónazo
+Secousse de la vue ⇒ Sacudida de la vista
+Tir silencieux : les bots ne l'entendent que de tout près ⇒ Disparo silencioso: los bots solo lo oyen de muy cerca
+Point laser visible à la hanche ⇒ Punto láser visible al disparar de cadera
+Posé (accroupi, immobile), recul et dispersion réduits ⇒ Desplegado (agachado, quieto), retroceso y dispersión reducidos
+Une seule balle lourde, sans gerbe ⇒ Una sola bala pesada, sin dispersión
+
+# 06q-camos.js
+Désert ⇒ Desierto
+Forêt ⇒ Bosque
+Urbain ⇒ Urbano
+Neige ⇒ Nieve
+Tigre ⇒ =
+Cobalt ⇒ Cobalto
+Braise ⇒ Brasa
+Diamant ⇒ Diamante
+
+# 06r-arsenal.js
+Trois séries au plus. Retirez-en une avant d'en choisir une autre. ⇒ Tres rachas como máximo. Quita una antes de elegir otra.
+Montez le {0} au niveau {1} (niveau {2}) ⇒ Sube el {0} al nivel {1} (nivel {2})
+Niveau {0} de l'arme (niveau {1}) ⇒ Nivel {0} del arma (nivel {1})
+niveau {0} de l'arme (niveau {1}) ⇒ nivel {0} del arma (nivel {1})
+Camouflage {0} ⇒ Camuflaje {0}
++{0} XP · {1} élim. ⇒ +{0} XP · {1} bajas
+niveau {0}{1} ⇒ nivel {0}{1}
+Classe {0} ⇒ Clase {0}
+Une classe de votre composition, avec armes, accessoires et camouflages. ⇒ Una clase armada por ti, con armas, accesorios y camuflajes.
+Cette classe ne se modifie pas. ⇒ Esta clase no se puede modificar.
+Cet accessoire ne va pas sur cette arme. ⇒ Este accesorio no encaja en esta arma.
+Accessoire verrouillé : {0}. ⇒ Accesorio bloqueado: {0}.
+Une arme porte {0} accessoires au plus. Retirez-en un. ⇒ Un arma lleva {0} accesorios como máximo. Quita uno.
+
+# 07-bots.js
+Recrue ⇒ Recluta
+Régulier ⇒ Regular
+Vétéran ⇒ Veterano
+Grenade ! ⇒ ¡Granada!
+Grenade ⇒ Granada
+
+# 08-player.js
+Vous ⇒ Tú
+Couteau ⇒ Cuchillo
+
+# 08b-killstreaks.js
+Largage du mecha ⇒ Lanzamiento del mecha
+Touchez une zone de largage ⇒ Toca una zona de lanzamiento
+Aucune zone de largage sur cette carte ⇒ Ninguna zona de lanzamiento en este mapa
+Séries brouillées par une IEM ⇒ Rachas interferidas por una IEM
+Satellite allié ({0}) ⇒ Satélite aliado ({0})
+Satellite ennemi en ligne ⇒ Satélite enemigo en línea
+IEM alliée ({0}) ⇒ IEM aliada ({0})
+IEM ennemie, vos appareils sont brouillés ⇒ IEM enemiga, tus dispositivos están interferidos
+UAV en ligne ⇒ UAV en línea
+Liaison drone ⇒ Enlace del dron
+Appui aérien ⇒ Apoyo aéreo
+Cible confirmée ⇒ Blanco confirmado
+Annulé ⇒ Cancelado
+Sélection de la cible ⇒ Elegir un objetivo
+Frappe aérienne en approche ⇒ Ataque aéreo en camino
+Frappe aérienne ⇒ Ataque aéreo
+
+# 08c-pickups.js
+Échanger {0} contre {1} ⇒ Cambiar {0} por {1}
+Maintenir {0} pour échanger {1} contre {2} ⇒ Mantén {0} para cambiar {1} por {2}
+
+# 08d-heli.js
+Hélicoptère ⇒ Helicóptero
+Appuyer pour appeler ⇒ Pulsa para llamar
+Hélicoptère : vous êtes ciblé ! ⇒ ¡Helicóptero: te están apuntando!
+Hélicoptère abattu ⇒ Helicóptero derribado
+Hélicoptère en approche ⇒ Helicóptero en camino
+Hélicoptère allié ({0}) ⇒ Helicóptero aliado ({0})
+Hélicoptère ennemi en approche ! Mettez-vous à couvert ⇒ ¡Helicóptero enemigo en aproximación! Ponte a cubierto
+Votre hélicoptère est abattu ⇒ Tu helicóptero fue derribado
+Hélicoptère ennemi abattu ⇒ Helicóptero enemigo derribado
+Hélicoptère allié parti ⇒ Helicóptero aliado se fue
+Hélicoptère ennemi parti ⇒ Helicóptero enemigo se fue
+Un hélicoptère est déjà en vol ⇒ Ya hay un helicóptero en vuelo
+
+# 08e-fpv.js
+Drone kamikaze allié ({0}) ⇒ Dron kamikaze aliado ({0})
+Drone kamikaze ennemi ! ⇒ ¡Dron kamikaze enemigo!
+Drone abattu ⇒ Dron derribado
+{0} Exploser ⇒ {0} Detonar
+Exploser ⇒ Detonar
+
+# 08f-mecha.js
+Mecha en approche ⇒ Mecha en camino
+Mecha allié en approche ({0}) ⇒ Mecha aliado en camino ({0})
+Mecha ennemi en approche ! ⇒ ¡Mecha enemigo en camino!
+Mecha : vous êtes ciblé ! ⇒ ¡Mecha: te están apuntando!
+
+# 09-game.js
+Signal brouillé ⇒ Señal interferida
+Première série ⇒ Primera racha
+Deuxième série ⇒ Segunda racha
+Troisième série ⇒ Tercera racha
+{0} disponible : {1} ⇒ {0} listo: {1}
+{0} disponible ⇒ =
+Tir en pleine tête ⇒ Tiro a la cabeza
+Élimination ⇒ Baja
+Bonus tête ⇒ Bonus a la cabeza
+Bonus combo ⇒ Bonus de combo
+Assistance à la visée (au doigt, à la manette, au pavé tactile) ⇒ Asistencia al apuntado (dedo, mando, panel táctil)
+Normale ⇒ Normal
+Désactivée ⇒ Desactivada
+Tir automatique (quand le réticule est sur un ennemi, la visée remplace le bouton de tir) ⇒ Disparo automático (cuando la retícula está sobre un enemigo, apuntar sustituye al botón de disparo)
+Tir au relâchement (fusils de précision, appuyer pour viser et relâcher pour tirer) ⇒ Disparo al soltar (rifles de francotirador, pulsa para apuntar y suelta para disparar)
+Vibrations (touche, élimination, coup reçu) ⇒ Vibraciones (impacto, baja, golpe recibido)
+Opacité des boutons ⇒ Opacidad de los botones
+Aide ⇒ Asistencia
+UAV allié ({0}) ⇒ UAV aliado ({0})
+UAV ennemi en ligne ⇒ UAV enemigo en línea
+Frappe aérienne alliée ⇒ Ataque aéreo aliado
+Frappe aérienne ennemie ! ⇒ ¡Ataque aéreo enemigo!
+Double élimination ⇒ Doble baja
+Triple élimination ⇒ Triple baja
+Quadruple élimination ⇒ Cuádruple baja
+Série de {0} éliminations ⇒ Racha de {0} bajas
+<em>tête</em> ⇒ <em>cabeza</em>
+Éliminé par ⇒ Abatido por
+Vous vous êtes éliminé ⇒ Te diste de baja
+Tombé dans le vide ⇒ Caíste al vacío
+Perdu dans le désert ⇒ Perdido en el desierto
+Premier à {0} · vous êtes {1} ⇒ Primero a {0} · eres {1}
+{0} Recharger ⇒ {0} Recargar
+{0} Retenir son souffle ⇒ {0} Aguantar la respiración
+(bot) ⇒ =
+Classement, premier à {0} ⇒ Clasificación, primero a {0}
+Nom ⇒ Nombre
+Score ⇒ Puntos
+Élim. ⇒ Bajas
+Morts ⇒ Muertes
+Aides ⇒ Asistencias
+Ratio ⇒ =
+Classement ⇒ Clasificación
+Vainqueur : {0} ⇒ Ganador: {0}
+{0} dans {1} s ⇒ {0} en {1} s
+Retour au salon ⇒ Volver a la sala
+Retour au menu ⇒ Volver al menú
+Premier à {0} points ⇒ El primero a {0} puntos
+Premier à {0} ⇒ Primero a {0}
+Éliminations ⇒ Bajas
+Précision ⇒ Precisión
+Meilleure série ⇒ Mejor racha
+Rejouer ⇒ Jugar de nuevo
+Quitter le match ⇒ Salir de la partida
+Terminer la partie ⇒ Terminar la partida
+{0} : équipée à votre prochaine réapparition ⇒ {0}: equipada en tu próxima reaparición
+Préparation des effets ⇒ Preparación de los efectos
+Éclairage de la scène ⇒ Iluminación de la escena
+Préparation des soldats ⇒ Preparación de los soldados
+Préparation des menus ⇒ Preparando los menús
+Prêt ⇒ Listo
+Le chargement a échoué : {0}. Rechargez la page ou passez la qualité en Basse. ⇒ La carga falló: {0}. Recarga la página o pon la calidad en Baja.
+WebGL est indisponible sur ce navigateur. ⇒ WebGL no está disponible en este navegador.
+{0} · {1} m ⇒ =
+{0} Réapparaître tout de suite ⇒ {0} Reaparecer de inmediato
+{0} ou {1} Réapparaître tout de suite ⇒ {0} o {1} Reaparecer de inmediato
++{0} XP ⇒ =
+
+# 09a-loading.js
+Chargement des textures ⇒ Carga de las texturas
+Génération des matières ⇒ Generación de materiales
+Construction de {0} ⇒ Construcción de {0}
+Éclairage cuit de la carte ⇒ Horneado de la iluminación del mapa
+Calcul des itinéraires des bots ⇒ Cálculo de las rutas de los bots
+Relevé satellite de la carte ⇒ Captura satelital del mapa
+Éclairage HDRI ⇒ Iluminación HDRI
+Compilation des shaders ⇒ Compilación de shaders
+
+# 09b-killcam.js
+Killcam finale ⇒ Killcam final
+Killcam ⇒ =
+{0} Passer aux résultats ⇒ {0} Pasar a los resultados
+{0} Passer et réapparaître ⇒ {0} Pasar y reaparecer
+{0} ou {1} Passer aux résultats ⇒ {0} o {1} Pasar a los resultados
+{0} ou {1} Passer et réapparaître ⇒ {0} o {1} Pasar y reaparecer
+
+# 09c-net.js
+{0} a été exclu du salon. ⇒ {0} fue expulsado de la sala.
+L'hôte vous a exclu du salon. ⇒ El anfitrión te expulsó de la sala.
+masqué ⇒ silenciado
+Afficher ⇒ Desilenciar
+Masquer ⇒ Silenciar
+Afficher de nouveau les messages de ce joueur ⇒ Volver a mostrar los mensajes de este jugador
+Ne plus voir les messages de ce joueur ⇒ Dejar de ver los mensajes de este jugador
+Confirmer l'exclusion ⇒ Confirmar la expulsión
+Exclure ⇒ Excluir
+Retirer ce joueur du salon (il ne peut pas revenir) ⇒ Sacar a este jugador de la sala (no puede volver)
+Chute ⇒ Caída
+Connecté au salon. Aucun problème de connexion. ⇒ Conectado a la sala. Ningún problema de conexión.
+Le relais ne connaît pas ce salon et le serveur de mise en relation (0.peerjs.com) est injoignable depuis ce poste. Vérifiez le code du salon. ⇒ El relé no conoce esta sala y el servidor de señalización (0.peerjs.com) no responde desde esta computadora. Revisa el código de la sala.
+Ni la connexion directe ni le relais ne trouvent ce salon. Le code est faux ou l'hôte a fermé le salon. ⇒ Ni la conexión directa ni el relé encuentran esta sala. El código es incorrecto o el anfitrión cerró la sala.
+La connexion directe est impossible depuis ce poste et le relais de secours (HTTPS, port 443) est injoignable aussi. Réseau très restrictif, relais hors service, ou quota du jour atteint (il revient à minuit UTC). ⇒ La conexión directa es imposible desde esta computadora y el relé de respaldo (HTTPS, puerto 443) tampoco responde. Red muy restrictiva, relé fuera de servicio o cuota del día alcanzada (se restablece a medianoche UTC).
+Le serveur de mise en relation (0.peerjs.com) est injoignable depuis ce poste. Sans doute bloqué par le proxy ou le pare-feu de l'entreprise, ou momentanément hors service. ⇒ El servidor de señalización (0.peerjs.com) no responde desde esta computadora. Seguramente lo bloquea el proxy o el cortafuegos de la empresa, o está fuera de servicio un momento.
+Le serveur ne connaît pas ce salon. L'hôte n'y est plus enregistré (onglet fermé, réseau coupé ou salon fermé). Demandez à l'hôte de créer un nouveau salon. ⇒ El servidor no conoce esta sala. El anfitrión ya no está registrado ahí (pestaña cerrada, red cortada o sala cerrada). Pide al anfitrión que cree una sala nueva.
+Rapport de l'hôte. Joignez-le à celui du joueur qui n'arrive pas à se connecter. ⇒ Informe del anfitrión. Júntalo con el del jugador que no logra conectarse.
+connecté ⇒ conectado
+injoignable ⇒ inalcanzable
+en cours ⇒ en curso
+non configuré ⇒ no configurado
+non sollicité ⇒ no solicitado
+Salon ouvert : {0} joueur(s) en direct, {1} par le relais. Serveur de mise en relation PeerJS : {2}. Relais de secours : {3}. ⇒ Sala abierta: {0} jugador(es) en directo, {1} por el relé. Servidor de señalización PeerJS: {2}. Relé de respaldo: {3}.
+non utilisé ⇒ no usado
+Aucun chemin réseau n'a été trouvé : WebRTC est probablement bloqué sur ce poste (réglage du navigateur, stratégie d'entreprise, VPN ou extension). ⇒ No se encontró ninguna ruta de red: WebRTC probablemente está bloqueado en esta computadora (ajuste del navegador, política de empresa, VPN o extensión).
+Aucun accès UDP vers Internet depuis ce poste. Seuls des chemins locaux existent et ils n'ont pas abouti{0}. Les relais publics sont hors d'atteinte. ⇒ Sin acceso UDP a Internet desde esta computadora. Solo existen rutas locales y no funcionaron{0}. Los relés públicos están fuera de alcance.
+(le navigateur masque les adresses locales et le réseau semble bloquer leur résolution entre PC) ⇒ (el navegador oculta las direcciones locales y la red parece bloquear su resolución entre PC)
+La connexion directe avec l'hôte a échoué et les relais publics de PeerJS sont injoignables (port UDP 3478 sans doute filtré par le pare-feu) ⇒ Falló la conexión directa con el anfitrión y los relés públicos de PeerJS no responden (el puerto UDP 3478 seguramente lo filtra el cortafuegos)
+, et aucun relais de secours n'est configuré pour ce jeu. ⇒ , y no hay ningún relé de respaldo configurado para este juego.
+Un relais a été joint mais la connexion n'a pas abouti. Relais saturé ou trafic bloqué. ⇒ Se contactó un relé, pero la conexión no se completó. Relé saturado o tráfico bloqueado.
+Copier le rapport de connexion ⇒ Copiar el informe de conexión
+Rapport copié ⇒ Reporte copiado
+Copie impossible ⇒ No se pudo copiar
+Soldat ⇒ Soldado
+Création du salon... ⇒ Creando la sala...
+Salon ouvert : envoyez le lien à vos amis, puis lancez la partie. ⇒ Sala abierta: envía el enlace a tus amigos y luego empieza la partida.
+Salon ouvert par le relais. Envoyez le lien à vos amis, puis lancez la partie. ⇒ Sala abierta por el relé. Envía el enlace a tus amigos y luego inicia la partida.
+Le relais de secours est injoignable. ⇒ El relé de respaldo no responde.
+Le code d'un salon compte 5 caractères. ⇒ El código de una sala tiene 5 caracteres.
+Connexion au salon {0}... ⇒ Conectando a la sala {0}...
+L'hôte a fermé le salon ou la connexion est perdue. ⇒ El anfitrión cerró la sala o se perdió la conexión.
+La connexion avec l'hôte a échoué. ⇒ La conexión con el anfitrión falló.
+Connexion au salon {0} par le relais... ⇒ Conexión a la sala {0} por el relé...
+Connecté par le relais. Pour éviter l'attente, cochez "Passer directement par le relais". ⇒ Conectado por el relé. Para evitar la espera, marca "Pasar directo por el relé".
+Salon introuvable. Vérifiez le code, ou l'hôte a fermé le salon. ⇒ Sala no encontrada. Revisa el código, o el anfitrión cerró la sala.
+Ce salon est complet. ⇒ Esta sala está llena.
+Ce navigateur ne permet pas le jeu en ligne. ⇒ Este navegador no permite jugar en línea.
+Serveur de mise en relation injoignable. Réessayez dans un instant. ⇒ Servidor de enlace inalcanzable. Inténtalo de nuevo en un momento.
+Connexion impossible ({0}). ⇒ No se pudo conectar ({0}).
+erreur inconnue ⇒ error desconocido
+Créez un salon et envoyez le lien à vos amis, ou entrez le code d'un salon. ⇒ Crea una sala y envía el enlace a tus amigos, o ingresa el código de una sala.
+Vous avez quitté le salon. ⇒ Saliste de la sala.
+{0} a changé de connexion{1}. ⇒ {0} cambió de conexión{1}.
+(relais) ⇒ (relé)
+{0} a rejoint le salon. ⇒ {0} se unió a la sala.
+{0} a quitté le salon. ⇒ {0} salió de la sala.
+Chargement en cours : {0} ⇒ Cargando: {0}
+(départ sans eux dans {0} s) ⇒ (inicio sin ellos en {0} s)
+Partie annulée : la carte n'a pas pu être chargée. ⇒ Partida cancelada: no se pudo cargar el mapa.
+Vous êtes dans le salon. En attente du lancement par l'hôte. ⇒ Estás en la sala. A la espera de que el anfitrión empiece.
+L'hôte a annulé la partie. ⇒ El anfitrión canceló la partida.
+Ce salon est complet ({0} joueurs). ⇒ Esta sala está llena ({0} jugadores).
+Votre version du jeu diffère de celle de l'hôte. Rechargez la page. ⇒ Tu versión del juego no coincide con la del anfitrión. Recarga la página.
+{0} a rejoint la partie ⇒ {0} se unió a la partida
+{0} a quitté la partie ⇒ {0} salió de la partida
+Frappe aérienne alliée ({0}) ⇒ Ataque aéreo aliado ({0})
+Hélicoptère : vous êtes pris pour cible ! ⇒ Helicóptero: ¡te tienen en la mira!
+Impossible de joindre l'hôte. La connexion directe semble bloquée par le réseau. ⇒ No se puede contactar al anfitrión. La conexión directa parece bloqueada por la red.
+L'hôte ne répond plus. ⇒ El anfitrión ya no responde.
+vous ⇒ tú
+hôte ⇒ anfitrión
+en partie ⇒ en partida
+carte prête ⇒ mapa listo
+chargement ⇒ cargando
+via le relais ⇒ vía el relé
+Changer d'équipe ⇒ Cambiar de equipo
+Déplacer ce joueur dans l'autre équipe ⇒ Mover a este jugador al otro equipo
+Personne ⇒ Nadie
+Chargement de la partie... ⇒ Cargando la partida...
+Lancer la partie ⇒ Empezar la partida
+Rejoindre la partie ⇒ Unirse a la partida
+En attente de l'hôte ⇒ Esperando al anfitrión
+Mode en ligne indisponible. La bibliothèque réseau n'a pas pu être chargée. Rechargez la page. ⇒ Modo en línea no disponible. No se pudo cargar la biblioteca de red. Recarga la página.
+Invitation au salon {0}. Connexion dès la fin du chargement. ⇒ Invitación a la sala {0}. Conexión al terminar la carga.
+
+# 09d-netrelay.js
+relais injoignable ⇒ relé inalcanzable
+
+# 09e-menus.js
+Séries ⇒ Rachas
+Petite ⇒ Pequeña
+Grande ⇒ =
+Vous êtes dans le salon {0}. Lancer une partie ici le quitte. ⇒ Estás en la sala {0}. Empezar una partida aquí la abandona.
+Désactivé ⇒ Desactivado
+Activé ⇒ Activado
+Réactions lentes et tirs imprécis, pour prendre ses marques. ⇒ Reacciones lentas y disparos imprecisos, para ir haciéndote al juego.
+Un adversaire honnête, qui vise et réagit comme un joueur moyen. ⇒ Un adversario justo, que apunta y reacciona como un jugador promedio.
+Réactions vives et tirs précis. Ils sautent, glissent et contournent comme de vrais joueurs. ⇒ Reacciones rápidas y disparos precisos. Saltan, se deslizan y flanquean como jugadores de verdad.
+Niveau {1} : {0} emplacement de classe personnalisée sur {2} ⇒ Nivel {1}: {0} ranura de clase personalizada de {2}
+Niveau {1} : {0} emplacements de classe personnalisée sur {2} ⇒ Nivel {1}: {0} ranuras de clase personalizada de {2}
+, le suivant au niveau {0}. ⇒ , el siguiente en el nivel {0}.
+, tous débloqués. ⇒ , todos desbloqueados.
+Personnalisées ⇒ Personalizadas
+Préconçues ⇒ Predefinidas
+Verrouillée ⇒ Bloqueada
++ Créer une classe ⇒ + Crear una clase
+<span class="cb">En cours</span> ⇒ <span class="cb">En curso</span>
+Emplacement personnalisé {0} ⇒ Ranura personalizada {0}
+Niveau {0} requis ⇒ Nivel {0} requerido
+Montez de niveau en jouant pour débloquer cet emplacement. Vous y composerez votre propre classe (armes, accessoires, camouflages) et vous pourrez la renommer. ⇒ Sube de nivel jugando para desbloquear esta ranura. Ahí armarás tu propia clase (armas, accesorios, camuflajes) y podrás renombrarla.
+Votre niveau : {0}{1} ⇒ Tu nivel: {0}{1}
+(sur cet appareil, connectez-vous pour suivre le niveau de votre compte) ⇒ (en este dispositivo, inicia sesión para seguir el nivel de tu cuenta)
+Emplacement libre ⇒ Ranura libre
+Composez votre classe. Arme principale, pistolet, accessoires posés sur un visuel 3D de l'arme, camouflages. Vous pourrez la renommer. ⇒ Arma tu clase. Arma principal, pistola, accesorios colocados en una vista 3D del arma, camuflajes. Podrás renombrarla.
+<div class="cp-btns"><button type="button" class="btn cp-edit" data-act="create">Créer cette classe</button></div> ⇒ <div class="cp-btns"><button type="button" class="btn cp-edit" data-act="create">Crear esta clase</button></div>
+<p class="hint">Composez vos classes personnalisées dans l'atelier, depuis le menu principal (Classes) ou au déploiement.</p> ⇒ <p class="hint">Arma tus clases personalizadas en el taller, desde el menú principal (Clases) o al desplegar.</p>
+Supprimer la classe {0} ? ⇒ ¿Eliminar la clase {0}?
+Supprimer ⇒ Eliminar
+Garder ⇒ Conservar
+Modifier la classe ⇒ Editar la clase
+<p class="hint">Classe préconçue : elle ne se modifie pas. Créez la vôtre dans un emplacement personnalisé (Classes).</p> ⇒ <p class="hint">Clase predefinida: no se modifica. Crea la tuya en una ranura personalizada (Clases).</p>
+niveau {0} ⇒ nivel {0}
+Secondaire ⇒ Secundaria
+Équipement ⇒ Equipamiento
+{0} grenade à fragmentation ⇒ {0} granada de fragmentación
+{0} grenades à fragmentation ⇒ {0} granadas de fragmentación
+{0} coups ⇒ {0} balas
+Équiper maintenant ⇒ Equipar ahora
+Classe en cours : {0}. ⇒ Clase actual: {0}.
+Vous venez d'apparaître. La classe {0} peut être équipée tout de suite{1}. ⇒ Acabas de aparecer. La clase {0} se puede equipar ahora mismo{1}.
+La classe {0} sera équipée à votre prochaine réapparition. ⇒ La clase {0} se equipará en tu próxima reaparición.
+Classe {0} équipée ⇒ Clase {0} equipada
+Changer de langue recharge le jeu. Vous quittez le salon. Continuer ? ⇒ Cambiar de idioma recarga el juego. Sales de la sala. ¿Continuar?
+Jeu ⇒ Juego
+Langue ⇒ Idioma
+Automatique ⇒ Automático
+Sensibilité ⇒ Sensibilidad
+Champ de vision ⇒ Campo de visión
+Inverser l'axe vertical ⇒ Invertir el eje vertical
+Écran tactile ⇒ Pantalla táctil
+Visée ⇒ Apuntado
+Manette ⇒ Mando
+Interface ⇒ Interfaz
+Image ⇒ Imagen
+Affichage et dépannage ⇒ Imagen y diagnóstico
+Touches du clavier ⇒ Teclas del teclado
+Souris et touches fixes ⇒ Ratón y teclas fijas
+Marqueurs d'alliés (au-dessus de leur tête) ⇒ Marcadores de aliados (encima de su cabeza)
+Plein écran en partie (au lancement d'une partie, Échap reprend sans clic) ⇒ Pantalla completa en partida (al empezar una partida, Esc reanuda sin un clic)
+Audio ⇒ =
+Volume général ⇒ Volumen general
+Musique des menus ⇒ Música de los menús
+Annonces vocales (séries, objectifs) ⇒ Avisos de voz (rachas, objetivos)
+Vidéo ⇒ Video
+Qualité ⇒ Calidad
+Haute ⇒ Alta
+Moyenne ⇒ Media
+Basse ⇒ Baja
+Occlusion ambiante ⇒ Oclusión ambiental
+Rayons du soleil ⇒ Rayos de sol
+Herbe en relief sur les pelouses ⇒ Césped en relieve en el pasto
+Résolution dynamique ⇒ Resolución dinámica
+Sans limite ⇒ Sin límite
+Moitié de l'écran ⇒ Mitad de fotogramas
+Économie d'énergie (30 images par seconde, le jeu règle l'image selon l'appareil pour que la batterie dure plus longtemps) ⇒ Ahorro de energía (30 fotogramas por segundo, el juego ajusta la imagen según el dispositivo para que la batería dure más)
+Images par seconde au plus ⇒ Máximo de fotogramas por segundo
+Afficher les performances ⇒ Mostrar el rendimiento
+Plein écran ⇒ Pantalla completa
+Commandes ⇒ Controles
+Souris ⇒ Ratón
+Pavé tactile ⇒ Panel táctil
+Sensibilité du pavé tactile ⇒ Sensibilidad del panel táctil
+Contrôles au pavé tactile (tir automatique, visée au double clic) ⇒ Controles de panel táctil (disparo automático, apuntado con doble clic)
+Tir automatique (quand le réticule est sur un ennemi, le clic ne tire plus) ⇒ Disparo automático (cuando la retícula está sobre un enemigo, el clic ya no dispara)
+Visée au double clic ou au toucher à deux doigts (un autre range l'arme) ⇒ Apuntado con doble clic o toque con dos dedos (otro baja el arma)
+Visée en bascule à la souris (un clic droit épaule, un autre range l'arme) ⇒ Apuntado alternado con el ratón (un clic derecho apunta, otro baja el arma)
+Glisser pour viser, double clic ou toucher à deux doigts pour épauler. Le tir part tout seul quand le réticule est sur un ennemi ⇒ Desliza para mirar, doble clic o toque con dos dedos para apuntar. El disparo sale solo cuando la retícula está sobre un enemigo
+Pavé tactile détecté. Tir automatique et double clic pour viser (Options, Jeu) ⇒ Panel táctil detectado. Disparo automático y doble clic para apuntar (Opciones, Juego)
+Souris détectée. Le clic gauche tire de nouveau (Options, Jeu) ⇒ Ratón detectado. El clic izquierdo vuelve a disparar (Opciones, Juego)
+Viser, clic gauche pour tirer, clic droit pour épauler ⇒ Apuntar, clic izquierdo para disparar, clic derecho para encarar
+Recharger ⇒ Recargar
+Changer d'arme ⇒ Cambiar de arma
+Grenade (maintenir pour la garder en main) ⇒ Granada (mantener para conservarla en la mano)
+Couteau (maintenir pour le garder en main) ⇒ Cuchillo (mantener para conservarlo en la mano)
+Tableau des scores ⇒ Marcador
+Échap ⇒ Esc
+Entrée ⇒ Intro
+Menu pause : classe, options, quitter ⇒ Menú de pausa: clase, opciones, salir
+Lancer une partie solo vous fait quitter le salon ⇒ Empezar una partida en solitario te hace salir de la sala
+Classe : ⇒ Clase:
+Match en ligne ⇒ Partida en línea
+Solo ⇒ =
+en ligne ⇒ en línea
+solo ⇒ =
+Chargement de la carte ⇒ Cargando el mapa
+Le chargement de la carte a échoué ({0}). Rechargez la page ou passez la qualité en Basse. ⇒ La carga del mapa falló ({0}). Recarga la página o pon la calidad en Baja.
+Prêt à déployer ⇒ Listo para desplegar
+En attente des autres joueurs ⇒ Esperando a los demás jugadores
+Déployer ⇒ Desplegar
+Déploiement automatique dans ⇒ Despliegue automático en
+{0} · premier à {1} ⇒ {0} · el primero a {1}
+{0} · premier à {1} points ⇒ {0} · primero a {1} puntos
+(encore {0} s) ⇒ (faltan {0} s)
+La partie continue pendant la pause ⇒ La partida continúa durante la pausa
+Partie en pause ⇒ Partida en pausa
+Meilleur adversaire ⇒ Mejor rival
+Temps restant ⇒ Tiempo restante
+Votre partie ⇒ Tu partida
+Vous êtes {0} ⇒ Eres {0}
+Puis {0} à la prochaine réapparition ⇒ Luego {0} en la próxima reaparición
+
+# 09f-news.js
+Nouveau ⇒ Nuevo
+Amélioré ⇒ Mejorado
+Corrigé ⇒ Corregido
+Version actuelle : {0}. Les {1} dernières mises à jour. ⇒ Versión actual: {0}. Las últimas {1} actualizaciones.
+Version actuelle : {0}. Dernières nouveautés. ⇒ Versión actual: {0}. Últimas novedades.
+Dernière ⇒ Última
+Version {0} ⇒ Versión {0}
+Mise à jour {0} · {1} ⇒ Actualización {0} · {1}
+
+# 09h-update.js
+Nouvelle version du jeu disponible. ⇒ Nueva versión del juego disponible.
+Nouvelle version du jeu disponible. Elle se chargera en quittant le salon. ⇒ Nueva versión del juego disponible. Se cargará al salir de la sala.
+Nouvelle version du jeu disponible. Elle se chargera à la fin de la partie. ⇒ Nueva versión del juego disponible. Se cargará al final de la partida.
+
+# 09i-chat.js
+Aucun message. Appuyez sur T pour écrire. ⇒ Ningún mensaje. Pulsa T para escribir.
+
+# 09i-modes.js
+Match à mort par équipe ⇒ Combate a muerte por equipos
+Par équipe ⇒ Por equipos
+8 contre 8 (vous et 7 alliés) ⇒ 8 contra 8 (tú y 7 aliados)
+Limite d'éliminations ⇒ Límite de bajas
+éliminations ⇒ bajas
+Deux équipes de huit. Le premier camp à la limite d'éliminations l'emporte. ⇒ Dos equipos de ocho. Gana el primer bando que llega al límite de bajas.
+Match à mort ⇒ Combate a muerte
+Chacun pour soi ⇒ Todos contra todos
+Match à mort, chacun pour soi ⇒ Combate a muerte, todos contra todos
+Chacun pour soi, vous et 15 bots (16 joueurs) ⇒ Todos contra todos, tú y 15 bots (16 jugadores)
+Personne n'est votre allié. Le premier à la limite d'éliminations l'emporte. ⇒ Nadie es tu aliado. Gana el primero en llegar al límite de bajas.
+Domination ⇒ Dominación
+Domination, trois points à tenir ⇒ Dominación, tres puntos por defender
+8 contre 8, trois points à tenir ⇒ 8 contra 8, tres puntos que defender
+Score à atteindre ⇒ Puntos por alcanzar
+Restez dans la zone d'un point pour le capturer. Chaque point tenu rapporte un point toutes les 4 secondes. ⇒ Quédate en la zona de un punto para capturarlo. Cada punto controlado da un punto cada 4 segundos.
+Rival ⇒ =
+Vos apparitions retrouvent votre base ⇒ Tus apariciones vuelven a tu base
+Front croisé : vos apparitions passent côté adverse ⇒ Frente cruzado: tus apariciones pasan al lado contrario
+Point {0} capturé ⇒ Punto {0} capturado
+Point {0} neutralisé par l'ennemi ⇒ Punto {0} neutralizado por el enemigo
+Point {0} neutralisé ⇒ Punto {0} neutralizado
+Défense du point {0} ⇒ Defensa del punto {0}
+Attaque du point {0} ⇒ Ataque al punto {0}
+Point {0} contesté ⇒ Punto {0} disputado
+Capture du point {0} ⇒ Captura del punto {0}
+
+# 09j-compte.js
+Modération : {0} compte signalé attend votre décision. ⇒ Moderación: {0} cuenta reportada espera tu decisión.
+Modération : {0} comptes signalés attendent votre décision. ⇒ Moderación: {0} cuentas reportadas esperan tu decisión.
+Modération : aucun signalement en attente. ⇒ Moderación: ningún reporte pendiente.
+Ouvrir la modération ⇒ Abrir la moderación
+Votre photo a été signalée par plusieurs joueurs. Elle est masquée aux autres en attendant la modération. ⇒ Varios jugadores reportaron tu foto. Queda oculta para los demás hasta que la revise la moderación.
+Profil ⇒ Perfil
+Se connecter ⇒ Iniciar sesión
+Comptes indisponibles ici ⇒ Cuentas no disponibles aquí
+Niveau, statistiques et multijoueur ⇒ Nivel, estadísticas y multijugador
+Profil de {0}, niveau {1} ⇒ Perfil de {0}, nivel {1}
+Votre nom d'affichage (à changer dans Profil) ⇒ Tu nombre visible (cámbialo en Perfil)
+Connectez-vous pour rejoindre le salon {0}. ⇒ Inicia sesión para unirte a la sala {0}.
+Connectez-vous pour jouer en ligne. ⇒ Inicia sesión para jugar en línea.
+Serveur injoignable : réessayez dans un instant. ⇒ Servidor inalcanzable: inténtalo de nuevo en un momento.
+Compte et progression ⇒ Cuenta y progresión
+<p class="hint">Chargement du profil...</p> ⇒ <p class="hint">Cargando el perfil...</p>
+Comptes indisponibles ⇒ Cuentas no disponibles
+<div class="card"><p class="hint">Les comptes ne sont pas joignables depuis cette page (page ouverte depuis un fichier, ou serveur injoignable). Vous pouvez jouer sans compte. La progression n'est pas enregistrée.</p><button class="btn" id="acRetry" type="button">Réessayer</button></div> ⇒ <div class="card"><p class="hint">No se puede llegar a las cuentas desde esta página (página abierta desde un archivo, o servidor no disponible). Puedes jugar sin cuenta. El progreso no se guarda.</p><button class="btn" id="acRetry" type="button">Reintentar</button></div>
+Une erreur est survenue. ⇒ Ocurrió un error.
+J'ai 15 ans au moins et j'accepte les ⇒ Tengo al menos 15 años y acepto las
+conditions d'utilisation ⇒ condiciones de uso
+politique de confidentialité ⇒ política de privacidad
+Pourquoi un compte ? ⇒ ¿Para qué una cuenta?
+Votre niveau, votre expérience et vos statistiques vous suivent d'un appareil à l'autre. Le multijoueur demande un compte. Le Solo se joue sans, mais rien n'y est enregistré. ⇒ Tu nivel, tu experiencia y tus estadísticas te siguen de un dispositivo a otro. El multijugador exige una cuenta. El Solo se juega sin ella, pero ahí no se guarda nada.
+Politique de confidentialité ⇒ Política de privacidad
+<div class="seg" id="acTabs" role="radiogroup" aria-label="Connexion ou création de compte"></div> ⇒ <div class="seg" id="acTabs" role="radiogroup" aria-label="Inicio de sesión o creación de cuenta"></div>
+Mot de passe oublié ⇒ Olvidé la contraseña
+Retour ⇒ Volver
+Nouveau mot de passe ⇒ Contraseña nueva
+Enregistrer ⇒ Guardar
+Créer un compte ⇒ Crear una cuenta
+Connexion ⇒ Iniciar sesión
+Nom d'utilisateur ⇒ Nombre de usuario
+Mot de passe ⇒ Contraseña
+<button class="link" type="button" id="acForgot">Mot de passe oublié ?</button> ⇒ <button class="link" type="button" id="acForgot">¿Olvidaste tu contraseña?</button>
+Créer le compte ⇒ Crear la cuenta
+Parties ⇒ Partidas
+Victoires ⇒ Victorias
+Taux de victoire ⇒ Tasa de victorias
+Ratio É/M ⇒ Ratio B/M
+À la tête ⇒ A la cabeza
+Temps de jeu ⇒ Tiempo de juego
+Victoire ⇒ Victoria
+Défaite ⇒ Derrota
+Égalité ⇒ Empate
+Abandon ⇒ Abandono
+Niveau {0} ⇒ Nivel {0}
+{0} · {1} XP en tout ⇒ {0} · {1} XP en total
+{0} / {1} XP avant le niveau {2} ⇒ {0} / {1} XP para el nivel {2}
+Niveau maximal ⇒ Nivel máximo
+Dernières parties ⇒ Últimas partidas
+<p class="hint">Aucune partie enregistrée. Jouez une partie pour gagner de l'XP.</p> ⇒ <p class="hint">Ninguna partida guardada. Juega una partida para ganar XP.</p>
+Résultat ⇒ Resultado
+É / M ⇒ B / M
+Date ⇒ Fecha
+Mot de passe actuel ⇒ Contraseña actual
+Compte ⇒ Cuenta
+Nom d'affichage (16 caractères au plus) ⇒ Nombre visible (16 caracteres como máximo)
+Identifiant : ⇒ Usuario:
+Se déconnecter ⇒ Cerrar sesión
+Changer le mot de passe ⇒ Cambiar la contraseña
+Nouveau mot de passe (8 caractères au moins) ⇒ Nueva contraseña (8 caracteres como mínimo)
+Mes données et suppression du compte ⇒ Mis datos y eliminación de la cuenta
+Vous pouvez récupérer toutes vos données dans un fichier, ou supprimer le compte. ⇒ Puedes recuperar todos tus datos en un archivo, o eliminar la cuenta.
+Télécharger mes données ⇒ Descargar mis datos
+Supprimer efface le compte, la progression et l'historique, définitivement. Tapez votre nom d'utilisateur{0} pour confirmer. ⇒ Eliminar borra la cuenta, el progreso y el historial, de forma definitiva. Escribe tu nombre de usuario{0} para confirmar.
+et votre mot de passe ⇒ y tu contraseña
+Supprimer définitivement ⇒ Eliminar permanentemente
+Erreur. ⇒ Error.
+Export impossible : réessayez. ⇒ No se pudo exportar: reinténtalo.
+Compte supprimé. ⇒ Cuenta eliminada.
+Niveau {0} ! ⇒ ¡Nivel {0}!
+{0} classe personnalisée débloquée ⇒ {0} clase personalizada desbloqueada
+{0} classes personnalisées débloquées ⇒ {0} clases personalizadas desbloqueadas
+Partie non enregistrée. <b>Connectez-vous</b> (Profil) pour gagner de l'XP du compte. ⇒ Partida no guardada. <b>Inicia sesión</b> (Perfil) para ganar XP de la cuenta.
+Progression gardée sur cet appareil ⇒ Progreso guardado en este dispositivo
+Partie solo : XP réduite de moitié ⇒ Partida en solitario: XP reducida a la mitad
+
+# 09k-legal.js
+Signalements et modération ⇒ Reportes y moderación
+Avant d'être enregistrée, chaque nouvelle photo est vérifiée automatiquement par un service d'intelligence artificielle (Claude, d'Anthropic), qui dit seulement si elle respecte les règles du jeu (ni nudité, ni violence, ni haine, ni drogue, ni texte injurieux) ; une photo refusée n'est pas gardée. Anthropic ne se sert pas de ces images pour entraîner ses modèles. ⇒ Antes de guardarse, cada foto nueva la verifica automáticamente un servicio de inteligencia artificial (Claude, de Anthropic), que solo dice si respeta las reglas del juego (ni desnudez, ni violencia, ni odio, ni drogas, ni texto injurioso); una foto rechazada no se guarda. Anthropic no usa estas imágenes para entrenar sus modelos.
+Base : intérêt légitime (protéger les joueurs, art. 6.1.f). ⇒ Base: interés legítimo (proteger a los jugadores, art. 6.1.f).
+: si vous signalez un joueur, votre compte, le compte signalé, la raison, votre message éventuel et la date sont lus par la modération ; si vous êtes signalé, elle voit ces éléments et votre profil (photo comprise, même masquée) pour décider, sans que l'auteur du signalement vous soit communiqué. Une photo signalée par trois joueurs est masquée aux autres en attendant la décision. Un signalement est effacé 90 jours après la décision. Pour faire respecter les règles du jeu et protéger les joueurs. ⇒ : si reportas a un jugador, la moderación lee tu cuenta, la cuenta reportada, el motivo, tu mensaje si lo hay y la fecha; si te reportan, ve esos elementos y tu perfil (foto incluida, aunque esté oculta) para decidir, sin que se te comunique quién hizo el reporte. Una foto reportada por tres jugadores se oculta a los demás hasta la decisión. Un reporte se borra 90 días después de la decisión. Para hacer cumplir las reglas del juego y proteger a los jugadores.
+Confidentialité ⇒ Privacidad
+Conditions d'utilisation ⇒ Condiciones de uso
+Mentions légales ⇒ Aviso legal
+Version du {0} ⇒ Versión del {0}
+1. Objet ⇒ 1. Finalidad
+Riposte: Frontline est un jeu de tir en ligne gratuit, joué dans le navigateur. Ces conditions encadrent l'usage du jeu et du compte joueur. Jouer en Solo ne demande pas de compte ; le multijoueur et la progression, si. ⇒ Riposte: Frontline es un juego de disparos en línea gratuito, jugado en el navegador. Estas condiciones regulan el uso del juego y de la cuenta de jugador. Jugar en Solo no exige cuenta; el multijugador y el progreso, sí.
+2. Compte ⇒ 2. Cuenta
+3. Comportement ⇒ 3. Conducta
+Sont interdits : tricher (modifier le jeu, falsifier des résultats ou de l'expérience, exploiter une faille), usurper une identité (y compris celle de l'équipe du jeu), choisir un nom d'utilisateur, un nom d'affichage ou une photo de profil injurieux, haineux, sexuels ou trompeurs, harceler d'autres joueurs, y compris dans la discussion d'un salon, et signaler un joueur à tort de façon répétée. Les mots grossiers ou haineux sont refusés dans les noms et masqués dans la discussion. Dans un salon, chacun peut masquer un joueur et l'hôte peut l'exclure ; tout joueur peut en signaler un autre depuis son profil. La modération peut retirer une photo, remettre un nom d'affichage à son nom d'utilisateur, retirer un joueur du classement, remettre une progression à zéro, suspendre ou supprimer un compte qui ne respecte pas ces règles. Dans Communauté, les messages suivent les mêmes règles, sans lien ni publicité. L'équipe peut masquer ou effacer un message qui ne les respecte pas. ⇒ Está prohibido: hacer trampas (modificar el juego, falsificar resultados o experiencia, explotar una falla), suplantar una identidad (incluida la del equipo del juego), elegir un nombre de usuario, un nombre visible o una foto de perfil injuriosos, de odio, sexuales o engañosos, acosar a otros jugadores, también en el chat de una sala, y reportar a un jugador sin motivo de forma repetida. Las palabras groseras o de odio se rechazan en los nombres y se ocultan en el chat. En una sala, cualquiera puede silenciar a un jugador y el anfitrión puede expulsarlo; cualquier jugador puede reportar a otro desde su perfil. La moderación puede quitar una foto, devolver un nombre visible a su nombre de usuario, retirar a un jugador de la clasificación, poner un progreso a cero, suspender o eliminar una cuenta que no respete estas reglas. En Comunidad, los mensajes siguen las mismas reglas, sin enlaces ni publicidad. El equipo puede ocultar o borrar un mensaje que no las respete.
+4. Progression ⇒ 4. Progresión
+Les niveaux, l'expérience et les statistiques sont des éléments de jeu, sans valeur monétaire ni droit acquis. Ils peuvent être ajustés (équilibrage du jeu) ou corrigés (triche, erreur). ⇒ Los niveles, la experiencia y las estadísticas son elementos del juego, sin valor monetario ni derecho adquirido. Pueden ajustarse (equilibrio del juego) o corregirse (trampas, error).
+5. Disponibilité et responsabilité ⇒ 5. Disponibilidad y responsabilidad
+Le jeu est fourni "en l'état", gratuitement, sans garantie de disponibilité continue : il peut être interrompu, modifié ou arrêté, et les données de compte peuvent être perdues en cas d'incident. Dans la mesure permise par la loi, l'éditeur n'est pas responsable des dommages indirects liés à l'usage du jeu. ⇒ El juego se ofrece "tal cual", de forma gratuita, sin garantía de disponibilidad continua: puede interrumpirse, modificarse o cerrarse, y los datos de la cuenta pueden perderse en caso de incidente. En la medida permitida por la ley, el editor no es responsable de los daños indirectos ligados al uso del juego.
+6. Propriété ⇒ 6. Propiedad
+Le jeu, son code et ses contenus restent à leur éditeur. Les textures et éclairages employés sont sous licence CC0 (voir les crédits du menu principal). Vos données de compte restent les vôtres (voir la politique de confidentialité). ⇒ El juego, su código y sus contenidos siguen siendo de su editor. Las texturas y la iluminación usadas están bajo licencia CC0 (consulta los créditos del menú principal). Tus datos de cuenta siguen siendo tuyos (consulta la política de privacidad).
+7. Résiliation ⇒ 7. Rescisión
+Vous pouvez supprimer votre compte à tout moment depuis Profil. ⇒ Puedes eliminar tu cuenta en cualquier momento desde Perfil.
+8. Droit applicable, modifications, contact ⇒ 8. Derecho aplicable, modificaciones, contacto
+Ces conditions sont régies par le droit français. Elles peuvent changer : la date en haut de cette page indique la version en vigueur, et un changement important vous sera signalé. Contact : {0}. ⇒ Estas condiciones se rigen por el derecho francés. Pueden cambiar: la fecha de arriba de esta página indica la versión vigente, y se te avisará de un cambio importante. Contacto: {0}.
+Éditeur ⇒ Editor
+Contact : {0} ⇒ Contacto: {0}
+Hébergement ⇒ Alojamiento
+1. Qui est responsable de vos données ? ⇒ 1. ¿Quién es responsable de tus datos?
+{0}, {1}. Contact pour toute question ou demande : {2}. ⇒ {0}, {1}. Contacto para cualquier pregunta o solicitud: {2}.
+2. Quelles données, pour quoi, sur quelle base ? ⇒ 2. ¿Qué datos, para qué y con qué base?
+Base : exécution du service que vous demandez (art. 6.1.b du RGPD). ⇒ Base: ejecución del servicio que solicitas (art. 6.1.b del RGPD).
+Progression ⇒ Progresión
+: niveau, expérience, statistiques et vingt dernières parties (carte, mode, résultat, éliminations, morts). Pour vous offrir la progression. ⇒ : nivel, experiencia, estadísticas y las últimas veinte partidas (mapa, modo, resultado, bajas, muertes). Para ofrecerte el progreso.
+Base : même. ⇒ Base: la misma.
+Sécurité ⇒ Seguridad
+Base : intérêt légitime (art. 6.1.f). ⇒ Base: interés legítimo (art. 6.1.f).
+Multijoueur ⇒ Multijugador
+3. Ce que nous ne faisons pas ⇒ 3. Lo que no hacemos
+4. Combien de temps ? ⇒ 4. ¿Cuánto tiempo?
+5. Qui reçoit vos données ? ⇒ 5. ¿Quién recibe tus datos?
+6. Cookies et stockage ⇒ 6. Cookies y almacenamiento
+7. Vos droits ⇒ 7. Tus derechos
+Vous pouvez ⇒ Puedes
+accéder ⇒ acceder
+à vos données et les ⇒ a tus datos y
+récupérer ⇒ recuperar
+dans un fichier (Profil, "Télécharger mes données"), les ⇒ en un archivo (Perfil, "Descargar mis datos"), los
+rectifier ⇒ rectificar
+effacer ⇒ borrar
+(Profil, "Supprimer mon compte"), demander la ⇒ (Perfil, "Eliminar mi cuenta"), solicitar la
+limitation ⇒ limitación
+du traitement ou vous y ⇒ del tratamiento o te
+opposer ⇒ oponerse
+en écrivant à {0}. Réponse sous un mois. Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir la CNIL (www.cnil.fr). ⇒ escribiendo a {0}. Respuesta en el plazo de un mes. Si consideras que no se respetan tus derechos, puedes reclamar ante la CNIL (www.cnil.fr).
+8. Mineurs ⇒ 8. Menores
+Le compte est réservé aux personnes de 15 ans au moins (âge du consentement numérique en France). Si vous êtes mineur de moins de 15 ans, ne créez pas de compte : le Solo reste accessible sans compte. ⇒ La cuenta está reservada a personas de 15 años como mínimo (edad del consentimiento digital en Francia). Si eres menor de 15 años, no crees una cuenta: el Solo sigue disponible sin cuenta.
+9. Sécurité ⇒ 9. Seguridad
+10. Changements ⇒ 10. Cambios
+La date en haut de cette page indique la version en vigueur. Un changement important vous sera signalé, et votre accord redemandé si la loi l'exige. ⇒ La fecha de arriba de esta página indica la versión vigente. Se te avisará de un cambio importante, y se te pedirá de nuevo tu acuerdo si la ley lo exige.
+
+# 09l-fin.js
+Vous gagnez avec {0} éliminations ⇒ Ganas con {0} bajas
+{0} gagne avec {1} éliminations, vous finissez {2} ⇒ {0} gana con {1} bajas, terminas {2}
+Temps écoulé ⇒ Tiempo agotado
+Score atteint ⇒ Puntos alcanzados
+Limite d'éliminations atteinte ⇒ Límite de bajas alcanzado
+
+# 09n-armurerie.js
+Classe personnalisée {0} sur {1}. Choisissez trois séries, qui ne se débloquent pas au même nombre d'éliminations ⇒ Clase personalizada {0} de {1}. Elige tres rachas, que no se desbloquean con el mismo número de bajas
+{0} élimination d'affilée ⇒ {0} baja seguida
+{0} éliminations d'affilée ⇒ {0} bajas seguidas
+{0} élimination ⇒ {0} baja
+{0} éliminations ⇒ {0} bajas
+Séries de la classe ⇒ Rachas de la clase
+Choisissez encore {0} série. ⇒ Elige {0} racha más.
+Choisissez encore {0} séries. ⇒ Elige {0} rachas más.
+Cadence ⇒ Cadencia
+{1} · {0} élimination, {2} à la tête ⇒ {1} · {0} baja, {2} a la cabeza
+{1} · {0} éliminations, {2} à la tête ⇒ {1} · {0} bajas, {2} a la cabeza
+Prochain déblocage au niveau {0} : ⇒ Próximo desbloqueo en el nivel {0}:
+Tout est débloqué pour cette arme ⇒ Todo está desbloqueado para esta arma
+Classe personnalisée {0} sur {1}. Choisissez vos armes. Les + posés sur l'arme ouvrent ses accessoires ⇒ Clase personalizada {0} de {1}. Elige tus armas. Los + puestos en el arma abren sus accesorios
+Glissez pour faire tourner l'arme ⇒ Desliza para girar el arma
+Glissez pour faire tourner l'arme, molette pour l'approcher ⇒ Arrastra para girar el arma, rueda para acercarla
+Équipée ⇒ Equipada
+Arme principale ⇒ Arma principal
+{0} niveau {1} ⇒ {0} nivel {1}
+Retirer : {0} ⇒ Quitar: {0}
+Chargeur : ⇒ Cargador:
+coups{0} · cadence {1} coups par minute ⇒ disparos{0} · cadencia {1} disparos por minuto
+Accessoires ⇒ Accesorios
+<span class="hint">Aucun accessoire : les + posés sur l'arme en ajoutent.</span> ⇒ <span class="hint">Ningún accesorio: los + puestos en el arma los añaden.</span>
+Standard ⇒ Estándar
+Camouflage : {0}, changer ⇒ Camuflaje: {0}, cambiar
+Camouflage ⇒ Camuflaje
+Fermer ⇒ Cerrar
+Limite atteinte : {0} accessoires au plus. Retirez-en un pour poser celui-ci. ⇒ Límite alcanzado: {0} accesorios como máximo. Quita uno para colocar este.
+posé ⇒ montado
+Posé ⇒ Montado
+<p class="hint">Aucun accessoire pour cet emplacement.</p> ⇒ <p class="hint">Ningún accesorio para esta ranura.</p>
+Pour le débloquer : {0} ⇒ Para desbloquearlo: {0}
+<i>Verrouillé</i> ⇒ <i>Bloqueado</i>
+Les camouflages se débloquent avec le niveau de l'arme. ⇒ Los camuflajes se desbloquean con el nivel del arma.
+{0} verrouillé : {1}. ⇒ {0} bloqueado: {1}.
+Verrouillé : {0}. ⇒ Bloqueado: {0}.
+Débloqué : {0} ⇒ Desbloqueado: {0}
+Progression des armes ⇒ Progresión de armas
+
+# 09o-vitrine.js
+<canvas class="vw-cv" aria-hidden="true"></canvas><div class="vw-hot"></div><div class="vw-count"></div><div class="vw-corner"></div><div class="vw-help">Glissez pour faire tourner · molette pour approcher</div> ⇒ <canvas class="vw-cv" aria-hidden="true"></canvas><div class="vw-hot"></div><div class="vw-count"></div><div class="vw-corner"></div><div class="vw-help">Arrastra para girar · rueda para acercar</div>
+Arme en 3D, flèches pour la faire tourner ⇒ Arma en 3D, flechas para girarla
+ajouter un accessoire ⇒ añadir un accesorio
+
+# shell.html
+Riposte: Frontline, FPS gratuit dans le navigateur ⇒ Riposte: Frontline, FPS gratis en el navegador
+Vue du jeu ⇒ Vista del juego
+Chargement de three.js ⇒ Cargando three.js
+Menu principal ⇒ Menú principal
+Classes ⇒ Clases
+Options ⇒ Opciones
+Jeu, audio, vidéo, commandes ⇒ Juego, audio, video, controles
+Nouveautés ⇒ Novedades
+Confidentialité et conditions ⇒ Privacidad y condiciones
+Code source ⇒ Código fuente
+Vibe codé avec Claude Code par BenDBS ⇒ Vibe codeado con Claude Code por BenDBS
+Textures et ciels : Poly Haven et ambientCG. Éclairage : HDRI Poly Haven via @pmndrs/assets. Toutes sous licence CC0. ⇒ Texturas y cielos: Poly Haven y ambientCG. Iluminación: HDRI Poly Haven vía @pmndrs/assets. Todas bajo licencia CC0.
+Carte ⇒ Mapa
+Mode ⇒ Modo
+Joueurs ⇒ Jugadores
+Difficulté des bots ⇒ Dificultad de los bots
+Durée maximale ⇒ Duración máxima
+Parties en ligne, publiques ou entre amis, jusqu'à 16 joueurs ⇒ Partidas en línea, públicas o entre amigos, hasta 16 jugadores
+Chargement... ⇒ Cargando...
+Le multijoueur demande un compte. Votre nom et votre progression vous suivent d'une partie à l'autre. Le mode Solo reste ouvert à tous. ⇒ El multijugador exige una cuenta. Tu nombre y tu progreso te siguen de una partida a otra. El modo Solo sigue abierto para todos.
+Se connecter ou créer un compte ⇒ Iniciar sesión o crear una cuenta
+Votre pseudo ⇒ Tu alias
+Pseudo ⇒ Alias
+Créer un salon ⇒ Crear una sala
+Entrez le code de 5 caractères donné par l'hôte, ou ouvrez son lien d'invitation. ⇒ Ingresa el código de 5 caracteres que te dio el anfitrión, o abre su enlace de invitación.
+Code du salon ⇒ Código de la sala
+Rejoindre ⇒ Unirse
+Passer directement par le relais ⇒ Pasar directo por el relé
+(réseau d'entreprise : aucune connexion directe entre postes, aucun trafic UDP) ⇒ (red de empresa: ninguna conexión directa entre computadoras, ningún tráfico UDP)
+Salon ⇒ Sala
+Lien d'invitation ⇒ Enlace de invitación
+Bots ⇒ =
+Aucun ⇒ Ninguno
+Discussion ⇒ Chat
+Message ⇒ Mensaje
+Rapport de connexion ⇒ Informe de conexión
+Quitter le salon ⇒ Salir de la sala
+Quitter le salon ? ⇒ ¿Salir de la sala?
+Rester dans le salon ⇒ Quedarse en la sala
+Économie d'énergie ⇒ Ahorro de energía
+Le jeu se limite à 30 images par seconde et règle l'image selon l'appareil. L'appareil chauffe moins et la batterie dure plus longtemps, sans grosse perte de qualité. Ce choix se change dans Options, Vidéo. ⇒ El juego se limita a 30 fotogramas por segundo y ajusta la imagen según el dispositivo. El dispositivo se calienta menos y la batería dura más, sin gran pérdida de calidad. Esto se cambia en Opciones, Vídeo.
+Activer ⇒ Activar
+Non merci ⇒ No, gracias
+Vous êtes l'hôte. Le salon se fermera pour tous les joueurs. ⇒ Eres el anfitrión. La sala se cerrará para todos los jugadores.
+Vous pourrez revenir avec le code {0}. ⇒ Podrás volver con el código {0}.
+Texte ⇒ Texto
+Votre équipement de départ. Vous pourrez encore en changer au déploiement. ⇒ Tu equipo inicial. Aún podrás cambiarlo al desplegar.
+Atelier de classe ⇒ Taller de clase
+Composez votre équipement ⇒ Arma tu equipamiento
+Nom de la classe ⇒ Nombre de la clase
+Armes ⇒ Armas
+Les réglages sont enregistrés automatiquement ⇒ Los ajustes se guardan automáticamente
+Historique des dernières mises à jour ⇒ Historial de las últimas actualizaciones
+Choisissez votre classe ⇒ Elige tu clase
+Mise à jour ⇒ Actualización
+Continuer ⇒ Continuar
+Historique des mises à jour ⇒ Historial de actualizaciones
+Taille de l'interface en jeu ⇒ Tamaño de la interfaz en el juego
+Message à tous (Entrée pour envoyer, Échap pour annuler) ⇒ Mensaje para todos (Intro para enviar, Esc para cancelar)
+Premier à 75 ⇒ Primero a 75
+Menu pause ⇒ Menú de pausa
+Pause ⇒ Pausa
+Reprendre ⇒ Reanudar
+Classe ⇒ Clase
+Changer de classe ⇒ Cambiar de clase
+Valider ⇒ Confirmar
+Attention : vous êtes dans la zone de frappe ⇒ Atención: estás en la zona de ataque
+Touchez la carte pour lancer la frappe ⇒ Toca el mapa para lanzar el ataque
+Clic gauche ⇒ Clic izquierdo
+Molette ⇒ Rueda
+Clic droit ⇒ Clic derecho
+Cliquez pour jouer ⇒ Haz clic para jugar
+Un clic ou une touche reprend la capture de la souris. Échap met en pause. ⇒ Un clic o una tecla recupera la captura del ratón. Esc pone en pausa.
+Capture de la souris refusée par le navigateur. La visée suit la souris tant qu'elle reste dans la fenêtre. Passez en plein écran pour un meilleur confort. Échap met en pause. ⇒ El navegador rechazó la captura del ratón. El apuntado sigue al ratón mientras permanezca en la ventana. Pasa a pantalla completa para más comodidad. Esc pone en pausa.
+
+# Noms de lieux des cartes (zone affichée sur la minicarte et la tablette de frappe aérienne)
+Base Alpha ⇒ =
+Base Bravo ⇒ =
+Portail ⇒ Portón
+Maison ⇒ Casa
+Balcon ⇒ Balcón
+Long ⇒ Largo
+Ruelle ⇒ Callejón
+Portes ⇒ Puertas
+Passerelle ⇒ Pasarela
+Rue centrale ⇒ Calle central
+Souk ⇒ Zoco
+Passage ⇒ Pasaje
+Hangar ⇒ =
+Arrière-cour ⇒ Patio trasero
+Goulet ⇒ Angostura
+Conteneurs ⇒ Contenedores
+Galerie ⇒ Galería
+Quai ⇒ Andén
+Voies ⇒ Vías
+Gare ⇒ Estación
+Halle ⇒ Nave
+Hôtel du Col ⇒ =
+Cour de la gare ⇒ Patio de la estación
+Boulangerie ⇒ Panadería
+Grand-Rue ⇒ Calle Mayor
+Scierie ⇒ Aserradero
+Grange ⇒ Granero
+Placette ⇒ Plazoleta
+Cour du poste ⇒ Patio del puesto
+Village ⇒ Pueblo
+Estacade ⇒ Estacada
+Chalutier ⇒ Arrastrero
+Darse ⇒ Dársena
+Quai de débarquement ⇒ Muelle de desembarco
+Quais ⇒ Muelles
+Mezzanine ⇒ Entrepiso
+Criée ⇒ Lonja
+Esplanade ⇒ Explanada
+Mareyage ⇒ Empacadora
+Fabrique de glace ⇒ Fábrica de hielo
+Café de la Marine ⇒ =
+Calvaire ⇒ Calvario
+Venelle ⇒ Callejuela
+Ruelles ⇒ Callejones
+Rue du Port ⇒ Calle del Puerto
+Grotte ⇒ Gruta
+Rocher ⇒ Roca
+Étang de la serre ⇒ Estanque del invernadero
+Grande Serre ⇒ Gran Invernadero
+Île du thé ⇒ Isla del té
+Jardin japonais ⇒ Jardín japonés
+Plateau ⇒ Meseta
+Ravin ⇒ Barranco
+Remise ⇒ Cobertizo
+Labyrinthe ⇒ Laberinto
+Kiosque ⇒ Templete
+Pergola de glycines ⇒ Pérgola de glicinas
+Roseraie ⇒ Rosaleda
+Canal ⇒ =
+Parterres ⇒ Jardineras
+Promenade ⇒ Paseo
+Pelouses ⇒ Céspedes
+Chapelle de la jetée ⇒ Capilla del muelle
+Jetée ⇒ Espigón
+Chantier naval ⇒ Varadero
+Taverne du port ⇒ Taberna del puerto
+Kafeneio ⇒ =
+Église de la Panagia ⇒ Iglesia de la Panagia
+Place du Platane ⇒ Plaza del plátano
+Placette du puits ⇒ Plazoleta del pozo
+Ruelle de l'Arche ⇒ Callejón del Arco
+Toit de l'îlot ⇒ Azotea de la manzana
+Rue de la Source ⇒ Calle del manantial
+Ruelle de l'Abside ⇒ Callejón del ábside
+Terrasses ⇒ Terrazas
+Aire à battre ⇒ Era de trilla
+Marine ⇒ Malecón
+Chora ⇒ =
+Dortoirs ⇒ Dormitorios
+Groupes électrogènes ⇒ Generadores
+Station de pompage ⇒ Estación de bombeo
+Têtes de puits ⇒ Cabezales de pozo
+Laboratoires ⇒ Laboratorios
+Carothèque ⇒ Almacén central
+Conduites ⇒ Tuberías
+Observatoire ⇒ Observatorio
+Salle des turbines ⇒ Sala de turbinas
+Salle de contrôle ⇒ Sala de control
+Séparateurs ⇒ Separadores
+Sous-station ⇒ Subestación
+Centrale ⇒ Central
+Parking ⇒ Estacionamiento
+Allée ⇒ Pasarela
+Quai des dirigeables ⇒ Muelle de los dirigibles
+Vigie ⇒ Vigía
+Rotonde ⇒ Rotonda
+Ruines ⇒ Ruinas
+Phare ⇒ Faro
+Sanctuaire ⇒ Santuario
+Bosquet ⇒ Arboleda
+Pont suspendu ⇒ Puente colgante
+
+# Divers ajoutés après coup
+Moyenne allégée ⇒ Media ligera
+Minimale ⇒ Mínima
+Les ombres changent au prochain lancement du jeu. Relancer maintenant ? ⇒ Las sombras cambian en el próximo inicio del juego. ¿Reiniciar ahora?
++{0} cartouches ⇒ +{0} cartuchos
++{0} munitions ({1}) ⇒ +{0} munición ({1})
+{0} et {1} ⇒ {0} y {1}
+Salon {0} ⇒ Sala {0}
+{0}, puis {1} ⇒ {0}, luego {1}
+{0} i/s ⇒ {0} FPS
+pire {0} ms (CPU {1}) ⇒ peor {0} ms (CPU {1})
+(auto) ⇒ =
+rendu {0} % ⇒ renderizado {0} %
+file courte ⇒ cola corta
+{0} image sautée ⇒ {0} fotograma saltado
+{0} images sautées ⇒ {0} fotogramas saltados
+{0} appels ⇒ {0} llamadas
+{0} k triangles ⇒ {0} k triángulos
+Point {0} perdu ⇒ Punto {0} perdido
+Point {0} tenu ⇒ Punto {0} controlado
+Point {0} : reprise ⇒ Punto {0}: lo recuperan
+Niveau {0} · voir mon profil ⇒ Nivel {0} · ver mi perfil
+et la ⇒ y la
+{0} min ⇒ =
+{0} {1} contre {2} {3} ⇒ {0} {1} contra {2} {3}
+Sélectionnée ⇒ Seleccionada
+Bientôt ⇒ Pronto
+ralenti ⇒ cámara lenta
+Emplacement {0} ⇒ Ranura {0}
+Suivante ⇒ Siguiente
+Choisie ⇒ Elegida
+Sans accessoire ⇒ Sin accesorio
+Tout retirer ⇒ Quitar todo
+Vainqueur ⇒ Ganador
+
+# Photo de profil (src/09p-avatar.js, éditeur de shell.html, profil)
+Changer la photo de profil ⇒ Cambiar la foto de perfil
+Modifier ⇒ Editar
+Photo de profil ⇒ Foto de perfil
+Changer la photo ⇒ Cambiar la foto
+Retirer ⇒ Quitar
+{0} Mo ⇒ {0} MB
+{0} Ko ⇒ {0} KB
+Image d'origine : {0} x {1} px, {2}. Version enregistrée : {3} x {3} px, {4}. ⇒ Imagen original: {0} x {1} px, {2}. Versión guardada: {3} x {3} px, {4}.
+Fichier trop lourd ({0} Mo au plus). ⇒ Archivo demasiado pesado ({0} MB como máximo).
+Ce fichier n'est pas une image. ⇒ Este archivo no es una imagen.
+Lecture de l'image... ⇒ Leyendo la imagen...
+Cette image ne peut pas être lue par le navigateur (essayez un JPEG, un PNG ou un WebP). ⇒ El navegador no puede leer esta imagen (prueba un JPEG, un PNG o un WebP).
+Enregistrement... ⇒ Guardando...
+Cette image ne tient pas dans le poids autorisé, même réduite. Essayez-en une autre. ⇒ Esta imagen no cabe en el peso permitido, ni siquiera reducida. Prueba con otra.
+Photo de profil enregistrée : {0} x {0} px, {1}. ⇒ Foto de perfil guardada: {0} x {0} px, {1}.
+Photo de profil retirée. ⇒ Foto de perfil retirada.
+Cadrage de la photo. Glisser pour déplacer, molette pour zoomer ⇒ Encuadre de la foto. Arrastrar para mover, rueda para hacer zoom
+Choisissez une image, ou glissez-la ici. Toutes les tailles conviennent. ⇒ Elige una imagen, o arrástrala aquí. Cualquier tamaño sirve.
+Aperçu ⇒ Vista previa
+Zoom ⇒ =
+L'image est recadrée en carré et réduite ici, dans le jeu, avant d'être enregistrée. Seuls quelques Ko sont conservés. Les autres joueurs connectés la voient dans le classement et sur votre profil. ⇒ La imagen se recorta en cuadrado y se reduce aquí, en el juego, antes de guardarse. Solo se conservan unos pocos KB. Los demás jugadores conectados la ven en la clasificación y en tu perfil.
+Choisir une image ⇒ Elegir una imagen
+Retirer la photo ⇒ Quitar la foto
+Annuler ⇒ Cancelar
+(facultative) : l'image que vous choisissez, réduite dans votre navigateur avant l'envoi (carrée, quelques Ko) ; l'original ne quitte pas votre appareil. Elle est visible de vous et des autres joueurs connectés, dans le classement et sur votre profil ; vous pouvez la retirer à tout moment dans Profil. Pour personnaliser votre profil. ⇒ (opcional): la imagen que eliges, reducida en tu navegador antes del envío (cuadrada, unos pocos KB); el original no sale de tu dispositivo. La ves tú y los demás jugadores conectados, en la clasificación y en tu perfil; puedes quitarla en cualquier momento en Perfil. Para personalizar tu perfil.
+Touchez : réapparaître tout de suite ⇒ Toca: reaparecer de inmediato
+Touchez : passer aux résultats ⇒ Toca: pasar a los resultados
+Touchez : passer et réapparaître ⇒ Toca: pasar y reaparecer
+Contrôles tactiles ⇒ Controles táctiles
+Activés ⇒ Activados
+Désactivés ⇒ Desactivados
+Joystick (à gauche) ⇒ Joystick (a la izquierda)
+Se déplacer. Poussé au-delà du cercle, il fait sprinter (réglable avec le bouton Courir) ⇒ Moverse. Empujado más allá del círculo, hace esprintar (ajustable con el botón Correr)
+Glisser (à droite) ⇒ Deslizar (a la derecha)
+Regarder autour de soi ⇒ Mirar alrededor
+Boutons de tir ⇒ Botones de disparo
+Viser ⇒ Apuntar
+Un appui épaule, un autre range. Un appui long vise tant que le doigt reste posé ⇒ Un toque echa al hombro, otro guarda. Una pulsación larga apunta mientras el dedo sigue apoyado
+Sauter, s'accroupir ⇒ Saltar, agacharse
+S'accroupir en sprintant fait une glissade ⇒ Agacharse al esprintar hace un deslizamiento
+Recharger, changer d'arme ⇒ Recargar, cambiar de arma
+Boutons à droite de l'écran ⇒ Botones a la derecha de la pantalla
+Appuyer dégoupille, relâcher lance ⇒ Pulsar quita el seguro, soltar lanza
+Un appui donne un coup. Maintenu, il sort le couteau pour courir plus vite. Changer d'arme le range ⇒ Un toque da un golpe. Si lo mantienes, saca el cuchillo para correr más rápido. Cambiar de arma lo guarda
+Le bouton de ramassage apparaît près d'une arme au sol ⇒ El botón de recoger aparece junto a un arma en el suelo
+Séries d'éliminations ⇒ Rachas de bajas
+Boutons jaunes à gauche, quand elles sont prêtes ⇒ Botones amarillos a la izquierda, cuando están listas
+Pause, scores, discussion ⇒ Pausa, puntos, chat
+Boutons en haut à droite ⇒ Botones arriba a la derecha
+Joystick à gauche ⇒ Joystick a la izquierda
+Glissez à droite ⇒ Desliza a la derecha
+pour regarder autour de vous. ⇒ para mirar a tu alrededor.
+Boutons : tirer, viser, sauter, s'accroupir (glissade en sprint), recharger, grenade, couteau. ⇒ Botones: disparar, apuntar, saltar, agacharse (deslizarse al esprintar), recargar, granada, cuchillo.
+Le tir part tout seul quand le réticule est sur un ennemi. Boutons : viser, sauter, s'accroupir (glissade en sprint), recharger, grenade, couteau. ⇒ El disparo sale solo cuando la retícula está sobre un enemigo. Botones: apuntar, saltar, agacharse (deslizarse al esprintar), recargar, granada, cuchillo.
+Le tir part tout seul quand le réticule est sur un ennemi. Touchez deux fois l'écran pour viser. Boutons : sauter, s'accroupir (glissade en sprint), recharger, grenade, couteau. ⇒ El disparo sale solo cuando la retícula está sobre un enemigo. Toca dos veces la pantalla para apuntar. Botones: saltar, agacharse (deslizarse al esprintar), recargar, granada, cuchillo.
+Touchez deux fois l'écran pour viser. Boutons : tirer, sauter, s'accroupir (glissade en sprint), recharger, grenade, couteau. ⇒ Toca dos veces la pantalla para apuntar. Botones: disparar, saltar, agacharse (deslizarse al esprintar), recargar, granada, cuchillo.
+Visée au double toucher (sans bouton Viser) ⇒ Apuntado con doble toque (sin botón Apuntar)
+Touchez pour commencer ⇒ Toca para empezar
+Installez le jeu sur votre écran d'accueil. Plein écran, sans barre d'adresse. ⇒ Instala el juego en tu pantalla de inicio. Pantalla completa, sin barra de direcciones.
+Installer ⇒ Instalar
+Confirmer ⇒ Confirmar
+Tournez votre appareil ⇒ Gira tu dispositivo
+Le jeu se joue en mode paysage. ⇒ El juego se juega en modo horizontal.
+Tirer ⇒ Disparar
+Sauter ⇒ Saltar
+S'accroupir ⇒ Agacharse
+Ramasser ⇒ Recoger
+Retenir son souffle ⇒ Aguantar la respiración
+UAV ⇒ =
+Frappe ⇒ Ataque
+Hélico ⇒ Helicóptero
+Touchez Partager dans Safari (le carré avec une flèche vers le haut). ⇒ Toca Compartir en Safari (el cuadrado con una flecha hacia arriba).
+Choisissez "Sur l'écran d'accueil". ⇒ Elige "Agregar a pantalla de inicio".
+Touchez Ajouter, puis lancez le jeu depuis sa nouvelle icône. ⇒ Toca Añadir y luego abre el juego desde su nuevo icono.
+Ouvrez le menu du navigateur (les trois points). ⇒ Abre el menú del navegador (los tres puntos).
+Touchez "Installer l'application" ou "Ajouter à l'écran d'accueil". ⇒ Toca "Instalar la aplicación" o "Añadir a la pantalla de inicio".
+Confirmez, puis lancez le jeu depuis sa nouvelle icône. ⇒ Confirma y luego abre el juego desde su nuevo icono.
+Sur iPhone et iPad, le jeu se joue en paysage. Désactivez le verrouillage de l'orientation. ⇒ En iPhone y iPad, el juego se juega en horizontal. Desactiva el bloqueo de orientación.
+Installer l'application ⇒ Instalar la aplicación
+Plein écran en paysage. Tout l'écran pour jouer ⇒ Pantalla completa en horizontal. Toda la pantalla para jugar
+Une icône sur l'écran d'accueil. Un toucher et c'est parti ⇒ Un icono en la pantalla de inicio. Un toque y a jugar
+Le même jeu. Même progression, parties en ligne comprises ⇒ El mismo juego. El mismo progreso, partidas en línea incluidas
+Votre session a expiré. Reconnectez-vous. ⇒ Tu sesión expiró. Vuelve a iniciar sesión.
+Compte injoignable pour le moment ⇒ Cuenta inaccesible por ahora
+Connexion en cours... ⇒ Iniciando sesión...
+Emplacement de classe personnalisée {0} débloqué ⇒ Ranura de clase personalizada {0} desbloqueada
+Votre niveau de joueur monte ⇒ Tu nivel de jugador sube
+Armes, accessoires et camouflages ⇒ Armas, accesorios y camuflajes
+
+# Mobile : durcissement graphique (src/01a-gpu.js, chargement des cartes, Options, fenêtres de shell.html)
+L'affichage 3D a été interrompu pendant que le jeu était en arrière-plan. Relancez le jeu pour le reprendre. ⇒ La visualización 3D se interrumpió mientras el juego estaba en segundo plano. Reinicia el juego para reanudarla.
+L'affichage 3D a été interrompu par l'appareil. Relancez le jeu pour le reprendre. ⇒ El dispositivo interrumpió la visualización 3D. Reinicia el juego para reanudarla.
+Votre appareil a interrompu l'affichage 3D du jeu (mémoire ou temps de calcul graphique). Le mode graphique économique est activé. Relancez le jeu. ⇒ Tu dispositivo interrumpió la visualización 3D del juego (memoria o tiempo de cálculo gráfico). El modo gráfico económico está activado. Reinicia el juego.
+L'affichage 3D a encore été interrompu, même en mode graphique économique. Relancez le jeu. Si cela se répète, ouvrez le rapport graphique. ⇒ La visualización 3D se interrumpió otra vez, incluso en modo gráfico económico. Reinicia el juego. Si se repite, abre el informe gráfico.
+affichage 3D interrompu par l'appareil ⇒ visualización 3D interrumpida por el dispositivo
+Copié ⇒ Copiado
+Compilation des shaders : {0} % ⇒ Compilación de shaders: {0} %
+le pilote graphique a refusé {0} programmes de rendu ⇒ el controlador gráfico rechazó {0} programas de renderizado
+Changer de mode graphique recharge le jeu. Vous quittez le salon. Continuer ? ⇒ Cambiar el modo gráfico recarga el juego. Sales de la sala. ¿Continuar?
+Mode graphique économique (si le jeu s'interrompt ou affiche du noir, relance le jeu) ⇒ Modo gráfico económico (si el juego se interrumpe o se pone negro, recarga el juego)
+Rapport graphique ⇒ Informe gráfico
+Rapport de performances ⇒ Informe de rendimiento
+Il suit chaque image de la dernière partie jouée avec les performances affichées. Copiez-le pour faire analyser les chutes d'images. ⇒ Sigue cada fotograma de la última partida jugada con el rendimiento en pantalla. Cópialo para que analicen las caídas de fotogramas.
+Aucune partie enregistrée. Cochez {0} dans Options, Vidéo, puis jouez une partie. ⇒ Ninguna partida guardada. Marca {0} en Opciones, Vídeo y luego juega una partida.
+L'affichage 3D a été interrompu par l'appareil pendant le chargement ({0}). Relancez le jeu. Le mode graphique économique est activé. ⇒ El dispositivo interrumpió la visualización 3D durante la carga ({0}). Reinicia el juego. El modo gráfico económico está activado.
+Réessayer en mode économique ⇒ Reintentar en modo económico
+Affichage 3D interrompu ⇒ Visualización 3D interrumpida
+Relancer le jeu ⇒ Reiniciar el juego
+Il décrit l'appareil et le rendu. Copiez-le ou partagez-le pour comprendre un affichage noir ou un chargement qui échoue. ⇒ Describe el dispositivo y el renderizado. Cópialo o compártelo para entender una pantalla en negro o una carga que falla.
+Copier ⇒ Copiar
+Partager ⇒ Compartir
+
+# Mobile : installation d'abord (src/09r-pwa.js, fenêtre d'installation de shell.html)
+C'est installé ! ⇒ ¡Ya está instalado!
+Le jeu est déjà installé ⇒ El juego ya está instalado
+Ouvrez Riposte: Frontline depuis son icône sur votre écran d'accueil. ⇒ Abre Riposte: Frontline desde su icono en tu pantalla de inicio.
+Ouvrez-le depuis son icône. Plein écran, même progression. ⇒ Ábrelo desde su icono. Pantalla completa, el mismo progreso.
+Jouer dans le navigateur quand même ⇒ Jugar en el navegador de todos modos
+Plus tard ⇒ Más tarde
+Installez le jeu pour y jouer ⇒ Instala el juego para jugar
+Il se joue en application. Plein écran, sans barre d'adresse, lancée d'un toucher depuis l'écran d'accueil. ⇒ Se juega como aplicación. Pantalla completa, sin barra de direcciones, se abre con un toque desde la pantalla de inicio.
+Impossible d'installer ? ⇒ ¿No se puede instalar?
+Dans le navigateur d'une application (Facebook, Instagram, Discord...), ouvrez le lien dans Chrome ou Safari. Sinon, vous pouvez jouer ici, avec moins de confort. Barre d'adresse, pas de plein écran assuré. ⇒ En el navegador de una aplicación (Facebook, Instagram, Discord...), abre el enlace en Chrome o Safari. Si no, puedes jugar aquí, con menos comodidad. Barra de direcciones, pantalla completa no garantizada.
+
+# Mobile : rendus refusés par l'appareil (src/01a-gpu.js, écran d'échec du chargement)
+Votre appareil a refusé certains rendus du jeu. Relancez le jeu. Ils seront remplacés par des versions simples (voir le rapport graphique). ⇒ Tu dispositivo rechazó algunos renderizados del juego. Reinicia el juego. Se sustituirán por versiones simples (consulta el informe gráfico).
+Votre appareil a refusé certains rendus du jeu pendant le chargement. Relancez le jeu. Ils seront remplacés par des versions simples (voir le rapport graphique). ⇒ Tu dispositivo rechazó algunos renderizados del juego durante la carga. Reinicia el juego. Se sustituirán por versiones simples (consulta el informe gráfico).
+L'affichage 3D a été interrompu. Le jeu s'adapte à votre appareil et se relance... ⇒ Se interrumpió la visualización 3D. El juego se adapta a tu dispositivo y se reinicia...
+three.js n'a pas pu être téléchargé. Vérifiez la connexion. Nouvel essai dans quelques secondes. ⇒ No se pudo descargar three.js. Revisa la conexión. Nuevo intento en unos segundos.
+Chrome a bloqué l'affichage 3D du jeu après une interruption et ne le rend qu'à son redémarrage. Fermez le jeu, arrêtez Chrome (Paramètres du téléphone, Applications, Chrome, Forcer l'arrêt), puis rouvrez le jeu. ⇒ Chrome bloqueó la visualización 3D del juego tras una interrupción y solo la devuelve al reiniciarse. Cierra el juego, detén Chrome (Ajustes del teléfono, Aplicaciones, Chrome, Forzar detención) y vuelve a abrir el juego.
+Attente : {0} s ⇒ Espera: {0} s
+Le démarrage n'a pas abouti : {0} ⇒ El inicio no se completó: {0}
+
+# 09q-tactile.js, 09qb-tactile-layout.js, 09e-menus.js (disposition des commandes tactiles)
+Courir ⇒ Correr
+Course au doigt ⇒ Correr con el dedo
+Bouton Courir ⇒ Botón Correr
+Joystick poussé au-delà du cercle ⇒ Joystick empujado fuera del círculo
+Joystick ⇒ =
+Tirer. Le doigt peut glisser pour regarder ⇒ Disparar. El dedo puede deslizarse para mirar
+Disposition des commandes tactiles ⇒ Disposición de los controles táctiles
+Disposition ⇒ Disposición
+Options, Jeu : déplacer, agrandir ou retirer chaque bouton ⇒ Opciones, Juego: mover, agrandar o quitar cada botón
+Terminé ⇒ Hecho
+Réinitialiser ⇒ Restablecer
+Appliquer ⇒ Aplicar
+Remettre ⇒ Devolver
+Disposition en texte ⇒ Disposición en texto
+Touchez un bouton, puis glissez-le ⇒ Toca un botón y luego deslízalo
+Copié. ⇒ Copiado.
+Sélectionnez le texte et copiez-le. ⇒ Selecciona el texto y cópialo.
+Disposition appliquée. ⇒ Disposición aplicada.
+Texte non reconnu. ⇒ Texto no reconocido.
+Non connecté. Votre progression reste sur cet appareil. ⇒ Sin iniciar sesión. Tu progreso se queda en este dispositivo.
+Apparaît sous le doigt ⇒ Aparece bajo el dedo
+Fixe à l'écran ⇒ Fijo en la pantalla
+Joystick (sa taille, il apparaît sous le doigt) ⇒ Joystick (su tamaño, aparece bajo el dedo)
+Niveau supérieur ⇒ Subes de nivel
+Notifications : {0} non lue ⇒ Notificaciones: {0} no leída
+Notifications : {0} non lues ⇒ Notificaciones: {0} no leídas
+Notifications ⇒ Notificaciones
+à l'instant ⇒ ahora mismo
+il y a {0} min ⇒ hace {0} min
+il y a {0} h ⇒ hace {0} h
+il y a {0} j ⇒ hace {0} d
+Ajouter en ami ⇒ Agregar amigo
+Demande envoyée ⇒ Solicitud enviada
+Annuler la demande ⇒ Cancelar la solicitud
+Accepter ⇒ Aceptar
+Refuser ⇒ Rechazar
+Ami ⇒ Amigo
+Retirer des amis ⇒ Quitar amigos
+Connectez-vous pour voir le classement. ⇒ Inicia sesión para ver la clasificación.
+Vous êtes {0} sur {1} joueurs ⇒ Eres {0} de {1} jugadores
+Vous n'êtes pas encore classé ⇒ Todavía no estás clasificado
+Personne n'est encore classé. ⇒ Nadie está clasificado todavía.
+Les joueurs sont classés selon toute l'XP gagnée depuis leur inscription. Le classement ne repart jamais de zéro. ⇒ Los jugadores se clasifican según toda la XP ganada desde su registro. La clasificación nunca vuelve a cero.
+Vous n'avez pas encore d'ami. Trouvez des joueurs dans le classement général et ajoutez-les. ⇒ Aún no tienes amigos. Busca jugadores en la clasificación general y agrégalos.
+Aucun joueur trouvé. ⇒ Ningún jugador encontrado.
+Joueurs à afficher ⇒ Jugadores por mostrar
+Chercher un joueur ⇒ Buscar un jugador
+Chercher ⇒ Buscar
+Voir plus ⇒ Ver más
+Tous les joueurs ⇒ Todos los jugadores
+Mes amis ⇒ Mis amigos
+Réessayer ⇒ Reintentar
+Inscrit le {0} ⇒ Registrado el {0}
+{0} au classement ⇒ Puesto {0}
+Rang ⇒ Rango
+Pas encore classé. ⇒ Aún sin clasificar.
+Mon profil ⇒ Mi perfil
+Aucune partie enregistrée. ⇒ Ninguna partida registrada.
+{0} vous a envoyé une demande d'ami. ⇒ {0} te envió una solicitud de amistad.
+{0} a accepté votre demande d'ami. ⇒ {0} aceptó tu solicitud de amistad.
+Vous avez atteint le niveau {0} ! ⇒ ¡Alcanzaste el nivel {0}!
+Bienvenue dans Riposte: Frontline ! Retrouvez les autres joueurs dans le classement et ajoutez-les en ami. ⇒ ¡Bienvenido a Riposte: Frontline! Encuentra a los demás jugadores en la clasificación y agrégalos como amigos.
+Connectez-vous pour voir vos notifications. ⇒ Inicia sesión para ver tus notificaciones.
+Voir le profil ⇒ Ver el perfil
+Effacer les notifications lues ⇒ Borrar las notificaciones leídas
+Aucune notification pour le moment. ⇒ Ninguna notificación por ahora.
+Classement des joueurs ⇒ Clasificación de jugadores
+Joueur ⇒ Jugador
+Demandes d'ami et nouveautés de votre compte ⇒ Solicitudes de amistad y novedades de tu cuenta
+Classement, amis et notifications ⇒ Clasificación, amigos y notificaciones
+Signalé ⇒ Reportado
+Signaler ⇒ Reportar
+Signaler {0} ⇒ Reportar {0}
+La modération regarde chaque signalement. Pour quelle raison ? ⇒ La moderación revisa cada reporte. ¿Por qué motivo?
+Raison du signalement ⇒ Motivo del reporte
+Précisez si besoin (facultatif) ⇒ Agrega detalles si hace falta (opcional)
+Envoyer le signalement ⇒ Enviar el reporte
+Merci : la modération va regarder ce signalement. ⇒ Gracias: la moderación revisará este reporte.
+Photo ⇒ Foto
+Triche ⇒ Trampa
+Comportement ⇒ Comportamiento
+La modération a retiré votre photo de profil. Elle ne respectait pas les règles du jeu. ⇒ La moderación quitó tu foto de perfil. No respetaba las reglas del juego.
+La modération a remis votre nom d'affichage à votre nom d'utilisateur. L'ancien ne respectait pas les règles du jeu. ⇒ La moderación restableció tu nombre visible a tu nombre de usuario. El anterior no respetaba las reglas del juego.
+La modération vous a retiré du classement (triche ou abus). ⇒ La moderación te retiró de la clasificación (trampas o abuso).
+
+# 09v-moderation.js
+Modération ⇒ Moderación
+Réservé à la modération. ⇒ Reservado para la moderación.
+Comptes bloqués ⇒ Cuentas bloqueadas
+{0} compte signalé ⇒ {0} cuenta reportada
+{0} comptes signalés ⇒ {0} cuentas reportadas
+Aucun signalement en attente ⇒ Ningún reporte pendiente
+Débloquer ⇒ Desbloquear
+Ignorer et rendre la photo ⇒ Ignorar y restaurar la foto
+Ignorer ⇒ Descartar
+Remettre le nom ⇒ Restablecer el nombre
+Retirer du classement ⇒ Quitar de la clasificación
+Confirmer le blocage ⇒ Confirmar el bloqueo
+Bloquer le compte ⇒ Bloquear la cuenta
+Voir la photo ⇒ Ver la foto
+Voir ⇒ Ver
+bloqué le {0} ⇒ bloqueado el {0}
+{0} XP, {1} parties, ratio {2} ⇒ {0} XP, {1} partidas, ratio {2}
+retiré du classement ⇒ fuera de la clasificación
+photo masquée ⇒ foto oculta
+Aucun compte bloqué. ⇒ Ninguna cuenta bloqueada.
+Aucun signalement en attente. ⇒ Ningún reporte pendiente.
+Liste à afficher ⇒ Lista por mostrar
+Actualiser ⇒ Actualizar
+Signalés ⇒ Reportados
+Bloqués ⇒ Bloqueados
+
+# 09qc-manette.js
+Régler ⇒ Ajustar
+Bâton gauche ⇒ Stick izquierdo
+Bâton droit ⇒ Stick derecho
+Regarder. R3 (appui sur le bâton) pour le couteau, maintenu pour le garder en main ⇒ Mirar. R3 (pulsar el stick) para el cuchillo, mantenido para dejarlo en la mano
+Tirer / viser (maintenu) ⇒ Disparar / apuntar (mantener)
+Ramasser l'arme au sol ⇒ Recoger el arma del suelo
+Recharger, maintenir pour ramasser l'arme au sol ⇒ Recargar, mantener para recoger el arma del suelo
+S'accroupir (glissade en sprintant) ⇒ Agacharse (deslizarse al esprintar)
+Croix directionnelle ⇒ Cruceta
+Haut : UAV, droite : frappe aérienne, bas : hélicoptère, gauche : inspecter l'arme ⇒ Arriba: UAV, derecha: ataque aéreo, abajo: helicóptero, izquierda: inspeccionar el arma
+Dans les menus ⇒ En los menús
+Croix ou bâton gauche pour naviguer, A valider, B revenir, LB et RB changer d'onglet ⇒ Cruceta o stick izquierdo para navegar, A confirma, B vuelve, LB y RB cambian de pestaña
+Sensibilité de la manette ⇒ Sensibilidad del mando
+Zone morte des bâtons ⇒ Zona muerta de las palancas
+Réponse de la visée (manette) ⇒ Respuesta al apuntar (mando)
+Réactive ⇒ Reactiva
+Progressive ⇒ Progresiva
+Linéaire ⇒ Lineal
+Accélération de la visée (manette, bâton à fond) ⇒ Aceleración del apuntado (mando, palanca a fondo)
+Aucune ⇒ Ninguna
+Forte ⇒ Fuerte
+Disposition de la manette ⇒ Disposición del mando
+Par défaut ⇒ Predeterminado
+Gaucher (bâtons échangés) ⇒ Zurdo (palancas intercambiadas)
+Bumper jumper (saut sur LB) ⇒ Bumper jumper (salto en LB)
+Course à la manette ⇒ Correr con el mando
+Appui sur le bâton gauche (L3) ⇒ Pulsar la palanca izquierda (L3)
+Bâton poussé à fond ⇒ Palanca al fondo
+Vibrations de la manette ⇒ Vibración del mando
+Manette (Xbox, PlayStation, 8BitDo...) ⇒ Mando (Xbox, PlayStation, 8BitDo...)
+{0} Échanger {1} contre {2} ⇒ {0} Cambiar {1} por {2}
+
+Avancer ⇒ Avanzar
+Reculer ⇒ Retroceder
+Aller à gauche ⇒ Lateral izquierda
+Aller à droite ⇒ Lateral derecha
+S'accroupir (maintenu), glisser en sprintant ⇒ Agacharse (mantener), deslizarse al esprintar
+S'accroupir (bascule), glisser en sprintant ⇒ Agacharse (alternar), deslizarse al esprintar
+Arme secondaire ⇒ Arma secundaria
+Inspecter l'arme ⇒ Inspeccionar el arma
+Espace ⇒ Espacio
+Maj gauche ⇒ Mayús izquierda
+Maj droite ⇒ Mayús derecha
+Ctrl gauche ⇒ Ctrl izquierda
+Ctrl droite ⇒ Ctrl derecha
+Alt gauche ⇒ Alt izquierda
+Alt droite ⇒ Alt derecha
+Verr. maj ⇒ Bloq Mayús
+Retour arrière ⇒ Retroceso
+Pavé {0} ⇒ Num {0}
+Appuyez sur une touche... ⇒ Pulsa una tecla...
+Cette touche est réservée (Échap, P, T, Entrée, flèches et touches de fonction). ⇒ Esta tecla está reservada (Esc, P, T, Intro, flechas y teclas de función).
+Rétablir les touches par défaut ⇒ Restaurar las teclas predeterminadas
+Clic sur une touche puis la nouvelle touche (Retour arrière : remettre celle par défaut). Hors plein écran, Ctrl+Maj avec une lettre peut déclencher un raccourci du navigateur. Préférez d'autres touches ou jouez en plein écran. ⇒ Clic en una tecla y luego la nueva (Retroceso: restaurar la predeterminada). Fuera de pantalla completa, Ctrl+Mayús con una letra puede activar un atajo del navegador. Prefiere otras teclas o juega en pantalla completa.
+Tab ⇒ =
+Visée au zoom (vitesse par rapport à la hanche) ⇒ Apuntado con zoom (velocidad respecto a la cadera)
+Visée au zoom (manette, vitesse par rapport à la hanche) ⇒ Apuntado con zoom (mando, velocidad respecto a la cadera)
+Onglets ⇒ Pestañas
+
+Jusqu'à 16 joueurs, complétés par des bots ⇒ Hasta 16 jugadores, completados con bots
+Chacun pour soi, joueurs humains seulement ⇒ Todos contra todos, solo jugadores humanos
+8 contre 8, complétés par des bots ⇒ 8 contra 8, completados con bots
+Deux équipes, joueurs humains seulement ⇒ Dos equipos, solo jugadores humanos
+Aucun message pour l'instant. ⇒ Ningún mensaje por ahora.
+Réglés par l'hôte ⇒ Los define el anfitrión
+Écrire un message ⇒ Escribir un mensaje
+
+# Tenues (src/06ga-tenues.js, écran Tenues et pause : src/09u-tenues.js, shell.html)
+Ligne de front, polyvalent ⇒ Frontline, versátil
+Commando ⇒ Comando
+Courte portée, agressif ⇒ Corto alcance, agresivo
+Ghillie ⇒ =
+Longue portée, précision ⇒ Largo alcance, precisión
+Ouverture, combat rapproché ⇒ Apertura, combate cercano
+<canvas class="vw-cv" aria-hidden="true"></canvas><div class="vw-help">Glissez pour faire tourner</div> ⇒ <canvas class="vw-cv" aria-hidden="true"></canvas><div class="vw-help">Arrastra para girar</div>
+Tenue en 3D, flèches pour la faire tourner ⇒ Atuendo en 3D, flechas para girarlo
+Tenues ⇒ Atuendos
+Dix tenues, dont six à débloquer ⇒ Diez atuendos, seis por desbloquear
+Votre tenue, quelle que soit votre arme. Elle change tout de suite. ⇒ Tu atuendo, sea cual sea tu arma. Cambia al instante.
+
+# 06gc-tenues-defi.js
+Nomade ⇒ Nómada
+Survie, brèche, sans frontières ⇒ Supervivencia, brecha, sin fronteras
+Tempête ⇒ Tempestad
+Reconnaissance, longue portée ⇒ Reconocimiento, largo alcance
+Fantôme vert ⇒ Fantasma verde
+Affût, invisible dans les feuillages ⇒ Al acecho, invisible entre el follaje
+Raptor ⇒ =
+Vitesse, assaut rapproché ⇒ Velocidad, asalto cercano
+Néant ⇒ Vacío
+Infiltration, précision, domination ⇒ Infiltración, precisión, dominio
+Gilet jaune ⇒ Chaleco amarillo
+Haute visibilité, aucune discrétion ⇒ Alta visibilidad, cero sigilo
+
+
+# 06s-defis.js
+Éliminations au fusil à pompe ⇒ Bajas con escopeta
+Éliminations au couteau ou à la grenade ⇒ Bajas con cuchillo o granada
+Parties de match à mort finies dans les trois premiers ⇒ Partidas de combate a muerte acabadas entre los tres primeros
+Mode Match à mort, en solo ou en ligne ⇒ Modo Combate a muerte, en solitario o en línea
+Éliminations au fusil de précision ⇒ Bajas con rifle de francotirador
+Éliminations à 50 m ou plus ⇒ Bajas a 50 m o más
+Drones UAV appelés ⇒ Drones UAV llamados
+Le drone se gagne avec une série de 4 éliminations ⇒ El dron se consigue con una racha de 4 bajas
+Éliminations avec un silencieux ⇒ Bajas con silenciador
+Le silencieux se débloque au niveau 4 d'une arme, dans l'atelier de classe ⇒ El silenciador se desbloquea al nivel 4 de un arma, en el taller de clase
+Éliminations accroupi ⇒ Bajas agachado
+Cartes où vous avez terminé une partie ⇒ Mapas en los que terminaste una partida
+Éliminations au pistolet-mitrailleur ⇒ Bajas con subfusil
+Éliminations en glissade ou en plein saut ⇒ Bajas en deslizamiento o en pleno salto
+Doubles éliminations ⇒ Dobles bajas
+Deux éliminations à moins de 4 secondes d'écart ⇒ Dos bajas con menos de 4 segundos de diferencia
+Éliminations au fusil d'assaut ⇒ Bajas con rifle de asalto
+Éliminations au pistolet ⇒ Bajas con pistola
+Points capturés en Domination ⇒ Puntos capturados en Dominación
+Parties terminées sur une carte française ⇒ Partidas terminadas en un mapa francés
+Val-Blanc, Kervénec ou French Dream ⇒ Val-Blanc, Kervénec o French Dream
+Victoires sur une carte française ⇒ Victorias en un mapa francés
+Éliminations sur une carte française ⇒ Bajas en un mapa francés
+Défi accompli ⇒ Desafío completado
+Tenue débloquée : {0} ⇒ Atuendo desbloqueado: {0}
+À porter depuis l'écran Tenues ⇒ Para usarlo desde la pantalla Atuendos
+Accompli ⇒ Completado
+
+# 09u-tenues.js (tenues de défi)
+Défis ⇒ Desafíos
+Défis {0} / {1} ⇒ Desafíos {0} / {1}
+Tenues de défi ⇒ Atuendos de desafío
+Relevez leurs défis pour les débloquer ⇒ Supera sus desafíos para desbloquearlos
+Tenue unique ⇒ Atuendo único
+Faite pour vous, personne d'autre ne peut la porter ⇒ Hecha para ti, nadie más puede llevarla
+# Comptes sans adresse e-mail : code de secours (09j-compte.js) et textes légaux (09k-legal.js)
+Code de secours ⇒ Código de recuperación
+Le code de secours s'affiche à la création du compte. Sans lui, un mot de passe oublié ne peut pas être retrouvé. Le jeu ne garde aucune adresse e-mail. Vos autres appareils seront déconnectés. ⇒ El código de recuperación se muestra al crear la cuenta. Sin él, una contraseña olvidada no se puede recuperar. El juego no guarda ninguna dirección de correo. Tus otros dispositivos se desconectarán.
+Mot de passe changé. Votre ancien code de secours ne sert plus. Voici le nouveau. ⇒ Contraseña cambiada. Tu código de recuperación anterior ya no sirve. Aquí está el nuevo.
+Le nom d'utilisateur est votre identifiant public : 3 à 16 caractères (lettres sans accent, chiffres, tiret bas), définitif. Votre nom d'affichage sera le même, et vous pourrez le changer. Mot de passe : 8 caractères au moins. Aucune adresse e-mail n'est demandée : un code de secours s'affichera, à noter pour retrouver le compte si vous oubliez le mot de passe. ⇒ El nombre de usuario es tu identificador público: de 3 a 16 caracteres (letras sin acento, cifras, guion bajo), definitivo. Tu nombre visible será el mismo, y podrás cambiarlo. Contraseña: 8 caracteres como mínimo. No se pide ninguna dirección de correo: se mostrará un código de recuperación, para anotarlo y recuperar la cuenta si olvidas la contraseña.
+Compte créé : bienvenue ! ⇒ ¡Cuenta creada: te damos la bienvenida!
+Votre compte n'avait pas encore de code de secours. Le voici. Il remplace l'adresse e-mail, que le jeu ne garde plus. ⇒ Tu cuenta aún no tenía código de recuperación. Aquí está. Sustituye la dirección de correo, que el juego ya no guarda.
+Votre code de secours ⇒ Tu código de respaldo
+Notez-le et gardez-le en lieu sûr. C'est le seul moyen de retrouver votre compte si vous oubliez votre mot de passe. Il ne sera plus affiché. ⇒ Anótalo y guárdalo en un lugar seguro. Es la única forma de recuperar tu cuenta si olvidas tu contraseña. No se volverá a mostrar.
+Enregistrer dans un fichier ⇒ Guardar en un archivo
+J'ai noté mon code de secours ⇒ Anoté mi código de recuperación
+Code copié. ⇒ Código copiado.
+Copie impossible ici. Le code est sélectionné, notez-le à la main. ⇒ No se puede copiar aquí. El código está seleccionado, anótalo a mano.
+Nom d'utilisateur : {0} ⇒ Nombre de usuario: {0}
+Code de secours : {0} ⇒ Código de respaldo: {0}
+Donné le {0} ⇒ Emitido el {0}
+Il sert à choisir un nouveau mot de passe si vous oubliez le vôtre (Connexion, "Mot de passe oublié ?"). Il ne sert qu'une fois. Un nouveau code vous est alors donné. ⇒ Sirve para elegir una contraseña nueva si olvidas la tuya (Inicio de sesión, "¿Olvidaste tu contraseña?"). Solo sirve una vez. Entonces se te da un código nuevo.
+riposte-frontline-code-de-secours.txt ⇒ riposte-frontline-codigo-de-recuperacion.txt
+Créer mon code de secours ⇒ Crear mi código de recuperación
+Mot de passe et code de secours ⇒ Contraseña y código de recuperación
+Ajouter un mot de passe ⇒ Agregar una contraseña
+Nouveau code de secours (code perdu). L'ancien ne servira plus. ⇒ Nuevo código de recuperación (código perdido). El anterior dejará de servir.
+Créer un nouveau code ⇒ Crear un código nuevo
+Votre code de secours est prêt. ⇒ Tu código de recuperación está listo.
+Nouveau code de secours. L'ancien ne sert plus. ⇒ Nuevo código de recuperación. El anterior ya no sirve.
+Ce lien reçu par e-mail ne sert plus. Le jeu ne garde plus d'adresse e-mail. Connectez-vous avec votre nom d'utilisateur. En cas d'oubli du mot de passe, utilisez votre code de secours. ⇒ Este enlace recibido por correo ya no sirve. El juego ya no guarda direcciones de correo. Inicia sesión con tu nombre de usuario. Si olvidas la contraseña, usa tu código de recuperación.
+Le compte est réservé aux personnes de 15 ans au moins. Aucune adresse e-mail n'est demandée : vous gardez secrets votre mot de passe et votre code de secours (le seul moyen de retrouver le compte si vous oubliez le mot de passe) et vous êtes responsable de ce qui se fait avec votre compte. Un compte, une personne. ⇒ La cuenta está reservada a personas de 15 años como mínimo. No se pide ninguna dirección de correo: guardas en secreto tu contraseña y tu código de recuperación (la única forma de recuperar la cuenta si olvidas la contraseña) y eres responsable de lo que se haga con tu cuenta. Una cuenta, una persona.
+: nom d'utilisateur, nom d'affichage, mot de passe et code de secours (conservés hachés : ils ne sont lisibles par personne), dates de création et de dernière connexion, version et date des conditions acceptées. Aucune adresse e-mail, aucun nom réel, aucune date de naissance. Pour créer et gérer votre compte, vous connecter et vous permettre de retrouver un mot de passe oublié. ⇒ : nombre de usuario, nombre visible, contraseña y código de recuperación (guardados hasheados: nadie puede leerlos), fechas de creación y de última conexión, versión y fecha de las condiciones aceptadas. Ninguna dirección de correo, ningún nombre real, ninguna fecha de nacimiento. Para crear y gestionar tu cuenta, iniciar tu sesión y permitirte recuperar una contraseña olvidada.
+Pas de publicité, pas de revente ni de cession de données, pas de profilage. Pas d'e-mail : le jeu ne demande aucune adresse et n'envoie aucun message. ⇒ Sin publicidad, sin reventa ni cesión de datos, sin elaboración de perfiles. Sin correo: el juego no pide ninguna dirección y no envía ningún mensaje.
+Un seul cookie, de session, strictement nécessaire pour rester connecté (il disparaît à la déconnexion ou après 90 jours sans visite) : aucun bandeau n'est donc demandé. Le navigateur garde aussi vos réglages (qualité, sensibilité, classe, pseudo de salon) sur votre appareil. La mesure d'audience du site ne dépose aucun cookie. ⇒ Una sola cookie, de sesión, estrictamente necesaria para seguir conectado (desaparece al cerrar sesión o tras 90 días sin visita): por eso no se exige ningún banner. El navegador también guarda tus ajustes (calidad, sensibilidad, clase, alias de sala) en tu dispositivo. La medición de audiencia del sitio no instala ninguna cookie.
+(nom d'affichage, mot de passe, code de secours : Profil), les ⇒ (nombre visible, contraseña, código de recuperación: Perfil), los
+Connexion chiffrée (HTTPS), mots de passe et codes de secours hachés avec un sel propre à chacun, codes de secours à usage unique, sessions révocables, essais limités. Aucune sécurité n'est parfaite : en cas de violation de données susceptible de vous exposer, l'information sera publiée dans le jeu (aucune adresse ne permet de vous écrire). ⇒ Conexión cifrada (HTTPS), contraseñas y códigos de recuperación hasheados con una sal propia de cada uno, códigos de recuperación de un solo uso, sesiones revocables, intentos limitados. Ninguna seguridad es perfecta: si hay una violación de datos que pueda exponerte, la información se publicará en el juego (ninguna dirección permite escribirte).
+Créez votre code de secours. Sans lui, un mot de passe oublié ne peut pas être retrouvé (le jeu ne garde aucune adresse e-mail). ⇒ Crea tu código de recuperación. Sin él, una contraseña olvidada no se puede recuperar (el juego no guarda ninguna dirección de correo).
+Changer le mot de passe (un nouveau code de secours vous sera donné) ⇒ Cambiar la contraseña (se te dará un nuevo código de recuperación)
+: votre nom d'utilisateur, votre nom d'affichage, votre niveau, vos statistiques de jeu (sauf votre temps de jeu ; avec votre rang au classement), vos dernières parties et votre date d'inscription sont visibles des autres joueurs connectés, dans le classement et sur votre profil (avec votre photo de profil, si vous en avez une). Vos demandes d'ami, vos amis et vos notifications (demandes reçues, réponses, niveaux gagnés, nouveaux codes de secours, invitations dans un salon) sont conservés avec votre compte ; les notifications lues sont effacées après 30 jours. Vos amis voient si vous êtes en ligne et ce que vous faites (au menu, dans un salon, en partie), d'après le dernier signal de votre jeu, et peuvent vous inviter dans leur salon. Pour vous permettre de retrouver et d'ajouter d'autres joueurs. ⇒ : tu nombre de usuario, tu nombre visible, tu nivel, tus estadísticas de juego (salvo tu tiempo de juego; con tu puesto en la clasificación), tus últimas partidas y tu fecha de registro son visibles para los demás jugadores conectados, en la clasificación y en tu perfil (con tu foto de perfil, si tienes una). Tus solicitudes de amistad, tus amigos y tus notificaciones (solicitudes recibidas, respuestas, niveles ganados, códigos de recuperación nuevos, invitaciones a una sala) se guardan con tu cuenta; las notificaciones leídas se borran a los 30 días. Tus amigos ven si estás en línea y qué haces (en el menú, en una sala, en una partida), según la última señal de tu juego, y pueden invitarte a su sala. Para que puedas encontrar y agregar a otros jugadores.
+Un nouveau code de secours a été créé pour votre compte. Si ce n'est pas vous, changez votre mot de passe dans Profil. Cela remplace aussi le code. ⇒ Se creó un código de recuperación nuevo para tu cuenta. Si no fuiste tú, cambia tu contraseña en Perfil. Eso también sustituye el código.
+Aucune adresse e-mail. Un nom d'utilisateur et un mot de passe suffisent. Les autres joueurs connectés voient votre nom d'utilisateur, votre nom d'affichage, votre niveau, vos statistiques et votre photo. Évitez d'y mettre votre vrai nom. ⇒ Ninguna dirección de correo. Bastan un nombre de usuario y una contraseña. Los demás jugadores conectados ven tu nombre de usuario, tu nombre visible, tu nivel, tus estadísticas y tu foto. Evita poner ahí tu nombre real.
+(définitif, visible dans le classement). Les autres joueurs voient aussi votre nom d'affichage. ⇒ (definitivo, visible en la clasificación). Los demás jugadores también ven tu nombre visible.
+Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (jeu et fonctions en ligne, exécutées en Europe). Base de données : Neon ({0}). Serveur de jeu (salons en ligne) : Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Allemagne (serveur en Allemagne). ⇒ Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, Estados Unidos (juego y funciones en línea, ejecutadas en Europa). Base de datos: Neon ({0}). Servidor de juego (salas en línea): Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Alemania (servidor en Alemania).
+: une empreinte de votre adresse IP (calculée avec une clé secrète : l'adresse elle-même n'est pas gardée) et de l'identifiant saisi sert à limiter les essais de connexion, de récupération du mot de passe et les créations de compte ; elle est effacée après 48 heures au plus. Un jeton de session, dont seule l'empreinte est gardée. Pour protéger le service des abus. ⇒ : una huella de tu dirección IP (calculada con una clave secreta: la dirección en sí no se guarda) y del identificador introducido sirve para limitar los intentos de inicio de sesión, de recuperación de la contraseña y las creaciones de cuenta; se borra a las 48 horas como máximo. Un token de sesión, del que solo se guarda la huella. Para proteger el servicio de los abusos.
+Compte et progression : jusqu'à ce que vous supprimiez le compte, ou 36 mois après votre dernière connexion. Session : 90 jours sans visite. Limitation des essais : 48 heures au plus. Signalements : 90 jours après la décision de la modération. Messages de la Communauté : jusqu'à ce que vous les effaciez ou supprimiez le compte. Les adresses e-mail données aux versions précédentes du jeu ont été effacées. Ce qui est supprimé (compte supprimé, adresses effacées) disparaît aussitôt de la base, et des sauvegardes de l'hébergeur à leur rotation. ⇒ Cuenta y progreso: hasta que elimines la cuenta, o 36 meses después de tu último inicio de sesión. Sesión: 90 días sin visita. Limitación de intentos: 48 horas como máximo. Reportes: 90 días después de la decisión de la moderación. Mensajes de la Comunidad: hasta que los borres o elimines la cuenta. Las direcciones de correo dadas a versiones anteriores del juego fueron borradas. Lo eliminado (cuenta eliminada, direcciones borradas) desaparece al instante de la base, y de las copias de seguridad del alojamiento cuando rotan.
+Uniquement nos prestataires techniques, pour fournir le service : Vercel (hébergement du jeu et des fonctions), Neon (base de données, {0}), Hetzner (serveur de jeu des salons en ligne, en Allemagne), Anthropic (vérification automatique des photos de profil, aux États-Unis). Pour fonctionner, la page charge aussi ses polices de caractères chez Google Fonts, qui reçoit donc votre adresse IP comme tout site. Certains de ces prestataires sont établis aux États-Unis : les transferts hors de l'Union européenne s'appuient sur les garanties prévues par le RGPD (décision d'adéquation du cadre UE-États-Unis ou clauses contractuelles types). ⇒ Únicamente nuestros proveedores técnicos, para prestar el servicio: Vercel (alojamiento del juego y de las funciones), Neon (base de datos, {0}), Hetzner (servidor de juego de las salas en línea, en Alemania), Anthropic (verificación automática de las fotos de perfil, en Estados Unidos). Para funcionar, la página también carga sus fuentes en Google Fonts, que por tanto recibe tu dirección IP como cualquier sitio. Algunos de estos proveedores están establecidos en Estados Unidos: las transferencias fuera de la Unión Europea se apoyan en las garantías previstas por el RGPD (decisión de adecuación del marco UE-Estados Unidos o cláusulas contractuales tipo).
+Niveau {0} · créez votre code de secours ⇒ Nivel {0} · crea tu código de recuperación
+Téléchargement demandé : vérifiez que le fichier est bien enregistré, sinon copiez le code ou notez-le à la main. ⇒ Descarga solicitada: comprueba que el archivo se haya guardado; si no, copia el código o anótalo a mano.
+Salon ouvert sur le serveur de jeu : {0} joueur. ⇒ Sala abierta en el servidor de juego: {0} jugador.
+Salon ouvert sur le serveur de jeu : {0} joueurs. ⇒ Sala abierta en el servidor de juego: {0} jugadores.
+Le serveur de jeu est saturé. Réessayez dans un instant. ⇒ El servidor de juego está saturado. Inténtalo de nuevo en un momento.
+Le serveur de jeu est injoignable depuis ce poste. Connexion coupée, réseau très restrictif ou serveur en maintenance. Réessayez dans un instant. ⇒ El servidor de juego no responde desde esta computadora. Conexión cortada, red muy restrictiva o servidor en mantenimiento. Inténtalo en un momento.
+Connexion au serveur de jeu en cours. ⇒ Conectando con el servidor de juego.
+Le serveur de jeu est injoignable. ⇒ No se alcanza el servidor del juego.
+L'hôte ne répond pas. Réessayez, ou demandez-lui de créer un nouveau salon. ⇒ El anfitrión no responde. Inténtalo de nuevo, o pídele que cree una sala nueva.
+: votre nom d'affichage, vos actions de jeu et vos messages de discussion sont transmis aux autres joueurs du salon par notre serveur de jeu (hébergé par Hetzner, en Allemagne). Les joueurs ne se connectent jamais directement entre eux : ⇒ : tu nombre visible, tus acciones de juego y tus mensajes de chat se transmiten a los demás jugadores de la sala mediante nuestro servidor de juego (alojado por Hetzner, en Alemania). Los jugadores nunca se conectan directamente entre sí:
+votre adresse IP n'est pas visible des autres joueurs ⇒ tu dirección IP no es visible para los demás jugadores
+, seulement du serveur, qui s'en sert, en mémoire, pour acheminer la connexion et limiter les abus. Il ne garde ni vos messages ni votre adresse une fois la connexion fermée. ⇒ , solo al servidor, que la usa, en memoria, para encaminar la conexión y limitar los abusos. No guarda ni tus mensajes ni tu dirección una vez cerrada la conexión.
+Base : exécution du service que vous demandez (art. 6.1.b) ; limitation des abus : intérêt légitime (art. 6.1.f). ⇒ Base: ejecución del servicio que solicitas (art. 6.1.b); limitación de abusos: interés legítimo (art. 6.1.f).
+{0} joueur en ligne en ce moment ⇒ {0} jugador en línea en este momento
+{0} joueurs en ligne en ce moment ⇒ {0} jugadores en línea en este momento
+Liste des parties publiques indisponible pour le moment. ⇒ Lista de partidas públicas no disponible por el momento.
+Aucune partie publique pour le moment. Lancez-en une avec "Jouer maintenant". ⇒ No hay ninguna partida pública por ahora. Inicia una con "Jugar ahora".
+En partie ⇒ En partida
+Hôte : {0} ⇒ Anfitrión: {0}
+Recherche d'une partie publique... ⇒ Buscando una partida pública...
+Privé ⇒ Privado
+Public ⇒ Público
+Jouer maintenant ⇒ Jugar ahora
+Parties publiques ⇒ Partidas públicas
+Jouez tout de suite, rejoignez une partie publique, ou créez un salon pour vos amis. ⇒ Juega ahora mismo, únete a una partida pública o crea una sala para tus amigos.
+Si vous ouvrez un salon public (ou lancez "Jouer maintenant"), votre nom d'affichage, la carte, le mode et le nombre de joueurs figurent dans la liste des parties publiques, visible de tous, tant que le salon est ouvert. ⇒ Si abres una sala pública (o lanzas "Jugar ahora"), tu nombre visible, el mapa, el modo y el número de jugadores aparecen en la lista de partidas públicas, visible para todos, mientras la sala esté abierta.
+La partie commence dans ⇒ La partida empieza en
+En avant ! ⇒ ¡En marcha!
+Entre amis ⇒ Entre amigos
+Rejoindre ou lancer une partie publique ⇒ Unirse o empezar una partida pública
+Vous réglez la partie et invitez vos amis ⇒ Configuras la partida e invitas a tus amigos
+Rejoindre un salon ⇒ Unirse a una sala
+Avec le code ou le lien de l'hôte ⇒ Con el código o el enlace del anfitrión
+Paramètres de partie ⇒ Ajustes de la partida
+Inviter des amis ⇒ Invitar amigos
+Vos amis tapent ce code dans Rejoindre un salon, ou ouvrent le lien. ⇒ Tus amigos escriben este código en Unirse a una sala, o abren el enlace.
+Code copié ⇒ Código copiado
+Copier le code ⇒ Copiar el código
+Lien copié ⇒ Enlace copiado
+Copiez-le à la main ⇒ Cópialo a mano
+Copier le lien ⇒ Copiar el enlace
+Rejoignez mon salon {0} ⇒ Únete a mi sala {0}
+Bot ⇒ =
+Installer Riposte ⇒ Instalar Riposte
+Ouvrez le fichier téléchargé dans le dossier Téléchargements et confirmez. L'installation se termine seule et revient au mode Jeu. ⇒ Abre el archivo descargado en la carpeta Descargas y confirma. La instalación termina sola y vuelve al modo Juego.
+Installez le jeu dans Steam pour y jouer depuis le mode Jeu. ⇒ Instala el juego en Steam para jugarlo desde el modo Juego.
+Télécharger de nouveau ⇒ Descargar de nuevo
+Installer sur Steam Deck ⇒ Instalar en Steam Deck
+Si la manette ne répond pas, choisissez dans Steam la disposition Manette avec trackpad souris. ⇒ Si el mando no responde, elige en Steam la disposición Mando con trackpad de ratón.
+Bouton Steam et X pour le clavier à l'écran ⇒ Botón Steam y X para el teclado en pantalla
+Communauté ⇒ Comunidad
+Avis, idées et problèmes des joueurs ⇒ Opiniones, ideas y problemas de los jugadores
+Avis ⇒ Reseñas
+Idées ⇒ Ideas
+Problèmes ⇒ Problemas
+Idée ⇒ Idea
+Problème ⇒ Problema
+Signalés ({0}) ⇒ Reportados ({0})
+Messages à afficher ⇒ Mensajes por mostrar
+Ordre ⇒ Orden
+Populaires ⇒ Populares
+Récents ⇒ Recientes
+Donner mon avis ⇒ Dar mi opinión
+Modifier mon avis ⇒ Editar mi reseña
+Proposer une idée ⇒ Proponer una idea
+Signaler un problème ⇒ Reportar un problema
+Modifier le message ⇒ Editar el mensaje
+Jouez une partie pour donner votre avis. ⇒ Juega una partida para dar tu opinión.
+Connectez-vous pour lire les avis des joueurs et donner le vôtre. ⇒ Inicia sesión para leer las opiniones de los jugadores y dejar la tuya.
+Votre note et quelques mots sur le jeu. Les joueurs connectés les verront avec votre nom. ⇒ Tu nota y unas palabras sobre el juego. Los jugadores conectados las verán con tu nombre.
+Une idée par message. Les autres joueurs pourront l'appuyer. ⇒ Una idea por mensaje. Los demás jugadores podrán apoyarla.
+Dites ce qui se passe, sur quelle carte et sur quel appareil. ⇒ Di qué pasa, en qué mapa y en qué dispositivo.
+Ce que vous en pensez (facultatif) ⇒ Qué te parece (opcional)
+Votre idée ⇒ Tu idea
+Le problème rencontré ⇒ El problema que encontraste
+Note ⇒ Nota
+Publier ⇒ Publicar
+Effacer ⇒ Eliminar
+Choisissez une note de 1 à 5 étoiles. ⇒ Elige una nota de 1 a 5 estrellas.
+Un avis ⇒ Una reseña
+{0} avis ⇒ {0} reseñas
+{0} étoile ⇒ {0} estrella
+{0} étoiles ⇒ {0} estrellas
+{0} étoile sur 5 ⇒ {0} estrella de 5
+{0} étoiles sur 5 ⇒ {0} estrellas de 5
+{0} appui ⇒ {0} apoyo
+{0} appuis ⇒ {0} apoyos
+{0} signalement ⇒ {0} reporte
+{0} signalements ⇒ {0} reportes
+Moi aussi ⇒ Yo también
+Masqué ⇒ Oculto
+modifié ⇒ editado
+Prévue ⇒ Prevista
+Ajoutée au jeu ⇒ Agregada al juego
+Pris en compte ⇒ Tenido en cuenta
+Sans état ⇒ Sin estado
+Répondre ⇒ Responder
+Modifier la réponse ⇒ Editar la respuesta
+Rétablir ⇒ Restaurar
+Réponse de l'équipe ⇒ Respuesta del equipo
+Réponse de l'équipe (facultative) ⇒ Respuesta del equipo (opcional)
+Profil de {0} ⇒ Perfil de {0}
+Aucun avis pour le moment. ⇒ Ninguna reseña por ahora.
+Aucune idée pour le moment. ⇒ Ninguna idea por ahora.
+Aucun problème signalé pour le moment. ⇒ Ningún problema reportado por ahora.
+Aucun message signalé. ⇒ Ningún mensaje reportado.
+Restez courtois. Les liens et la publicité ne sont pas acceptés. Un message signalé par plusieurs joueurs est masqué en attendant l'équipe. ⇒ Sé cortés. No se aceptan enlaces ni publicidad. Un mensaje reportado por varios jugadores se oculta hasta que lo revise el equipo.
+L'équipe a répondu à votre message dans Communauté. ⇒ El equipo respondió a tu mensaje en Comunidad.
+Voir la réponse ⇒ Ver la respuesta
+: vos avis (note et texte), vos idées et les problèmes que vous signalez sont visibles des joueurs connectés, avec votre nom d'utilisateur, votre nom d'affichage et votre photo de profil. Vous pouvez les modifier ou les effacer à tout moment. Vos appuis ("Moi aussi") et les messages que vous signalez sont gardés avec votre compte. L'équipe peut répondre à un message, le masquer ou l'effacer. Pour recueillir l'avis des joueurs et améliorer le jeu. ⇒ : tus opiniones (nota y texto), tus ideas y los problemas que reportas son visibles para los jugadores conectados, con tu nombre de usuario, tu nombre visible y tu foto de perfil. Puedes modificarlos o borrarlos en cualquier momento. Tus apoyos ("Yo también") y los mensajes que reportas se guardan con tu cuenta. El equipo puede responder a un mensaje, ocultarlo o borrarlo. Para recoger la opinión de los jugadores y mejorar el juego.
+
+# 09cb-serveurs.js, 09c-net.js, 09e-menus.js (salons publics permanents)
+Vous pourrez revenir dans ce salon depuis la liste des salons publics. ⇒ Podrás volver a esta sala desde la lista de salas públicas.
+Rejoignez une partie publique, ou créez un salon privé pour vos amis. ⇒ Únete a una partida pública, o crea una sala privada para tus amigos.
+Connexion au salon... ⇒ Conectando con la sala...
+Ce salon public n'existe plus. Choisissez-en un autre. ⇒ Esta sala pública ya no existe. Elige otra.
+Ce salon public est complet. ⇒ Esta sala pública está llena.
+Ce salon public accueille une autre version du jeu. Choisissez-en un autre. ⇒ Esta sala pública usa otra versión del juego. Elige otra.
+Vous êtes déjà dans ce salon depuis un autre onglet. ⇒ Ya estás en esta sala desde otra pestaña.
+La partie a été interrompue, son hôte est parti. ⇒ La partida se interrumpió, su anfitrión se fue.
+En attente de joueurs ⇒ Esperando jugadores
+Départ imminent ⇒ Salida inminente
+Lancement ⇒ Iniciando
+Connexion perdue. Nouvel essai... ⇒ Conexión perdida. Reintentando...
+La partie se lance à {1} joueurs. Encore {0} joueur. ⇒ La partida empieza con {1} jugadores. Falta {0} jugador.
+La partie se lance à {1} joueurs. Encore {0} joueurs. ⇒ La partida empieza con {1} jugadores. Faltan {0} jugadores.
+La partie commence dans {0} s. Votez pour la carte. ⇒ La partida empieza en {0} s. Vota el mapa.
+La partie commence dans {0} s sur {1}. ⇒ La partida empieza en {0} s en {1}.
+Ouverture de la partie sur {0}... ⇒ Abriendo la partida en {0}...
+Partie en cours sur {0}. ⇒ Partida en curso en {0}.
+Salon public ⇒ Sala pública
+Partie en cours ⇒ Partida en curso
+Votez pour la prochaine carte ⇒ Vota por el próximo mapa
+Prochaine carte ⇒ Siguiente mapa
+{0} vote ⇒ {0} voto
+{0} votes ⇒ {0} votos
+mon vote ⇒ mi voto
+Début dans {0} s ⇒ Empieza en {0} s
+Lancement de la partie... ⇒ Iniciando la partida...
+Connexion à la partie... ⇒ Conectando a la partida...
+Liste des salons publics indisponible pour le moment. ⇒ Lista de salas públicas no disponible por el momento.
+Salons publics ⇒ Salas públicas
+Salon public {0} ⇒ Sala pública {0}
+Salon public, {0} ⇒ Sala pública, {0}
+Vous êtes dans un salon public. Lancer une partie ici le quitte. ⇒ Estás en una sala pública. Empezar una partida aquí la abandona.
+Dans un salon public permanent, votre nom d'affichage et votre niveau sont vus des autres joueurs de ce salon. La liste des salons publics ne montre que la carte, le mode et le nombre de joueurs. ⇒ En una sala pública permanente, los demás jugadores de esa sala ven tu nombre visible y tu nivel. La lista de salas públicas solo muestra el mapa, el modo y el número de jugadores.
+Vous êtes le chef du salon. Un autre joueur prendra votre place. ⇒ Eres el jefe de la sala. Otro jugador ocupará tu lugar.
+Public ou privé, vous réglez la partie ⇒ Pública o privada, tú configuras la partida
+Ce salon est privé. Entrez le code que vous a donné son chef. ⇒ Esta sala es privada. Introduce el código que te dio su jefe.
+Le chef du salon vous a exclu. ⇒ El líder de la sala te expulsó.
+Réglés par le chef du salon ⇒ Definidos por el líder de la sala
+Au salon ⇒ En la sala
+Réglez la partie, puis lancez-la quand vous voulez. ⇒ Configura la partida y lánzala cuando quieras.
+En attente du lancement par le chef du salon. ⇒ A la espera de que el jefe de la sala empiece.
+chef ⇒ líder
+En attente du chef ⇒ Esperando al líder
+Chef : {0} ⇒ Líder: {0}
+Vous réglez la partie et la lancez quand vous voulez. Le salon reste ouvert tant qu'il y a quelqu'un. ⇒ Configuras la partida y la inicias cuando quieres. La sala sigue abierta mientras haya alguien.
+Dans la liste des salons, ouvert à tous ⇒ En la lista de salas, abierto para todos
+Salon privé ⇒ Sala privada
+Dans la liste des salons, on n'y entre qu'avec son code ⇒ En la lista de salas, solo se entra con su código
+Avec son code ou son lien d'invitation ⇒ Con su código o su enlace de invitación
+Si vous créez un salon, public ou privé, votre nom d'affichage, la carte, le mode et le nombre de joueurs figurent dans la liste des salons, visible de tous, tant que le salon est ouvert. Le code d'un salon privé n'y figure pas. ⇒ Si creas una sala, pública o privada, tu nombre visible, el mapa, el modo y el número de jugadores aparecen en la lista de salas, visible para todos, mientras la sala esté abierta. El código de una sala privada no aparece ahí.
+Connexion perdue. La partie continue chez un autre joueur. ⇒ Conexión perdida. La partida continúa y la aloja otro jugador.
+L'hôte est parti. Vous hébergez maintenant la partie. ⇒ El anfitrión se fue. Ahora tú alojas la partida.
+La partie continue avec un nouvel hôte. ⇒ La partida continúa con un nuevo anfitrión.
+Ne quittez pas ⇒ Un momento
+Migration de l'hôte ⇒ Cambio de anfitrión
+Un autre joueur reprend la partie. ⇒ Otro jugador retoma la partida.
+Vous devenez l'hôte de la partie. ⇒ Pasas a ser el anfitrión de la partida.
+Reconnexion ⇒ Reconectando
+Connexion perdue. Retour dans la partie... ⇒ Conexión perdida. Volviendo a la partida...
+La connexion au serveur de jeu est perdue. ⇒ Se perdió la conexión con el servidor de juego.
+{0} est de retour. ⇒ {0} ha vuelto.
+{0} a perdu la connexion. ⇒ {0} perdió la conexión.
+
+# Zone ronde (src/02-relief.js, shell.html) : hors du cercle, compte à rebours avant la mort
+Hors de la zone de combat ⇒ Fuera de la zona de combate
+Revenez avant la fin du compte à rebours ⇒ Vuelve antes de que acabe la cuenta atrás
+
+# Simoun (src/02yl-simoun.js) : zones de la carte
+Oasis ⇒ =
+Camp nord ⇒ Bando norte
+Camp sud ⇒ Bando sur
+Épave ⇒ Pecio
+Campement ⇒ Campamento
+Rochers ⇒ Rocas
+Impossible de rejoindre cette partie, son hôte ne répond pas. Choisissez un autre salon ou réessayez dans un moment. ⇒ No se puede entrar en esta partida: su anfitrión no responde. Elige otra sala o inténtalo en un momento.
+
+# 09zn-outil-zones.js
+Zones des cartes ⇒ Zonas de los mapas
+Miroir ⇒ Espejo
+Ajouter ⇒ Agregar
+Annuler les retouches ⇒ Deshacer los retoques
+Copier la configuration ⇒ Copiar la configuración
+Largage {0} ⇒ Suministro {0}
+Domination {0} ⇒ Dominación {0}
+Alpha à {0} m, Bravo à {1} m. ⇒ Alpha a {0} m, Bravo a {1} m.
+Le mecha ne peut pas se poser ici. ⇒ El mecha no puede aterrizar aquí.
+Le mecha se posera à {0} m. ⇒ El mecha aterrizará a {0} m.
+Faites glisser une zone pour la déplacer. ⇒ Arrastra una zona para moverla.
+Configuration copiée. ⇒ Configuración copiada.
+Copiez ce texte ⇒ Copia este texto
+Pas de sol praticable sous ce point. ⇒ No hay suelo transitable bajo este punto.
+
+# 08g-mecha-pilote.js
+Chaleur ⇒ Calor
+Surchauffe ! Sortez du mecha ⇒ ¡Sobrecalentamiento! Sal del mecha
+Surchauffe ! Maintenir {0} pour sortir ⇒ ¡Sobrecalentamiento! Mantén {0} para salir
+Surchauffe ! {0} Sortir du mecha ⇒ ¡Sobrecalentamiento! {0} Salir del mecha
+Canons ⇒ Cañones
+Monter dans le mecha ⇒ Subir al mecha
+Descendre du mecha ⇒ Bajar del mecha
+Maintenir {0} pour monter dans le mecha ⇒ Mantén {0} para subir al mecha
+Maintenir {0} pour descendre du mecha ⇒ Mantén {0} para bajar del mecha
+{0} Monter dans le mecha ⇒ {0} Subir al mecha
+{0} Descendre du mecha ⇒ {0} Bajar del mecha
+Votre mecha a explosé ⇒ Tu mecha explotó
+Mecha allié détruit ⇒ Mecha aliado destruido
+Mecha ennemi détruit ⇒ Mecha enemigo destruido
+Prête ⇒ Lista
+Ennemi ⇒ Enemigo
+Touches 1 à 7 prête, Maj et 1 à 7 ennemi ⇒ Teclas 1 a 7 listo, Mayús y 1 a 7 enemigo
+Trajectoire des grenades (en tenant une grenade) ⇒ Trayectoria de las granadas (al sostener una granada)
+Frag ⇒ =
+Grenade à fragmentation ⇒ Granada de fragmentación
+Elle explose 3,5 secondes après la cuillère. La garder en main raccourcit la mèche. ⇒ Explota 3,5 segundos después de la cuchara. Tenerla en la mano acorta la mecha.
+Flash ⇒ =
+Grenade incapacitante ⇒ Granada cegadora
+Elle aveugle et assourdit, d'autant plus qu'on est près et face à elle. Aucun dégât. ⇒ Ciega y ensordece, y más si estás cerca y de frente. Ningún daño.
+Fumigène ⇒ Humo
+Grenade fumigène ⇒ Granada de humo
+Un nuage épais d'environ sept mètres, pendant une quinzaine de secondes. Personne ne voit à travers. ⇒ Una nube espesa de unos siete metros, durante unos quince segundos. Nadie ve a través.
+{0} grenade incapacitante ⇒ {0} granada aturdidora
+{0} grenades incapacitantes ⇒ {0} granadas aturdidoras
+{0} grenade fumigène ⇒ {0} granada de humo
+{0} grenades fumigènes ⇒ {0} granadas de humo
+Classe personnalisée {0} sur {1}. Choisissez une grenade ou le couteau de lancer, vous en avez deux à chaque vie ⇒ Clase personalizada {0} de {1}. Elige una granada o el cuchillo arrojadizo; tienes dos en cada vida
+{0} accessoire ⇒ {0} accesorio
+{0} accessoires ⇒ {0} accesorios
+Principale ⇒ Principal
+{0} par vie ⇒ {0} por vida
+Un seul par classe ⇒ Uno por clase
+D'origine ⇒ De serie
+Mèche ⇒ Mecha
+{0} s ⇒ =
+Par vie ⇒ Por vida
+Effet ⇒ Efecto
+Aveugle jusqu'à {0} s ⇒ Ciega hasta {0} s
+{0} m ⇒ =
+Nuage de {0} s ⇒ Nube de {0} s
+Largeur ⇒ Ancho
+Jusqu'à {0} de dégâts ⇒ Hasta {0} de daño
+Rayon ⇒ Radio
+Emplacements de la classe ⇒ Ranuras de la clase
+Couteau de lancer ⇒ Cuchillo arrojadizo
+Il part presque droit et tue d'un coup s'il touche. Il se ramasse en passant dessus. ⇒ Sale casi recto y mata de un golpe si impacta. Se recoge al pasar por encima.
+{0} couteau de lancer ⇒ {0} cuchillo arrojadizo
+{0} couteaux de lancer ⇒ {0} cuchillos arrojadizos
+Couteau de lancer récupéré ⇒ Cuchillo arrojadizo recuperado
+Élimine d'un coup ⇒ Mata de un golpe
+Vitesse ⇒ Velocidad
+{0} m/s ⇒ =
+Au sol ⇒ En el suelo
+Se ramasse ⇒ Recógelo
+
+# 02yn-french-dream.js
+Chantier ⇒ Obra
+Garage ⇒ Garaje
+Maison témoin ⇒ Casa modelo
+Sente ⇒ Sendero
+Piscine ⇒ Piscina
+Jardins ⇒ Jardines
+Raquette ⇒ Retorno
+Rue des Mésanges ⇒ Calle de los carboneros
+Pavillons ⇒ Casas
+Seul, entre amis ou en ligne ⇒ Solo, entre amigos o en línea
+Vous êtes maintenant amis. ⇒ Ahora son amigos.
+Demande d'ami envoyée. ⇒ Solicitud de amistad enviada.
+Invitation envoyée à {0}. ⇒ Invitación enviada a {0}.
+Hors ligne ⇒ Desconectado
+Au menu ⇒ En los menús
+Dans un salon ⇒ En una sala
+Connectez-vous pour retrouver vos amis. ⇒ Inicia sesión para ver a tus amigos.
+{0} ami en ligne ⇒ {0} amigo en línea
+{0} amis en ligne ⇒ {0} amigos en línea
+Demande reçue ⇒ Solicitud recibida
+Nom d'utilisateur de l'ami à ajouter ⇒ Nombre de usuario del amigo a añadir
+Demandes reçues ⇒ Solicitudes recibidas
+En ligne ({0}) ⇒ En línea ({0})
+Hors ligne ({0}) ⇒ Desconectado ({0})
+Demandes envoyées ⇒ Solicitudes enviadas
+Vous n'avez pas encore d'ami. Ajoutez un joueur par son nom d'utilisateur, ou depuis le classement (Joueurs). ⇒ Aún no tienes amigos. Agrega a un jugador por su nombre de usuario, o desde la clasificación (Jugadores).
+Vous contre des bots, sans connexion. Pour s'entraîner. ⇒ Tú contra bots, sin conexión. Para entrenar.
+Jouer ⇒ Jugar
+Amis ⇒ Amigos
+Seul contre des bots, entre amis ou en ligne ⇒ Solo contra bots, entre amigos o en línea
+{0} vous a invité dans son salon {1}. ⇒ {0} te invitó a su sala {1}.
+{0} vous invite dans son salon. ⇒ {0} te invita a su sala.
+Vos amis ⇒ Tus amigos
+Ajoutez des amis dans le menu Amis pour les inviter ici. ⇒ Añade amigos en el menú Amigos para invitarlos aquí.
+Invitation envoyée ⇒ Invitación enviada
+Renvoyer ⇒ Reenviar
+Inviter ⇒ Invitar
+Code et lien ⇒ Código y enlace
+Renvoyer l'invitation ⇒ Reenviar la invitación
+Inviter dans mon salon ⇒ Invitar a mi sala
+Un salon privé contre des bots. Invitez vos amis connectés depuis le salon. ⇒ Una sala privada contra bots. Invita a tus amigos conectados desde la sala.
+Les salons publics lancés par des joueurs. Vous pouvez aussi y créer votre salon. ⇒ Las salas públicas iniciadas por jugadores. También puedes crear ahí tu propia sala.
+Sprinter, retenir son souffle en lunette ⇒ Esprintar, aguantar la respiración con la mira
+pour avancer. Poussé au-delà du cercle, il fait sprinter. ⇒ para avanzar. Empujado más allá del círculo, hace esprintar.
+Se déplacer (analogique). L3 (appui sur le bâton) pour sprinter, en lunette pour retenir son souffle ⇒ Moverse (analógico). L3 (pulsar el stick) para esprintar; en la mira, para aguantar la respiración
+Aucun salon public pour le moment. Créez le vôtre, il apparaîtra ici. ⇒ Ninguna sala pública por ahora. Crea la tuya y aparecerá aquí.
+
+Course aux armes ⇒ Carrera de armas
+Chaque élimination change votre arme. La dernière est le couteau. ⇒ Cada baja cambia tu arma. La última es el cuchillo.
+Personne n'est votre allié. Chaque élimination vous donne l'arme suivante. Le premier qui tue au couteau l'emporte. ⇒ Nadie es tu aliado. Cada baja te da el arma siguiente. Gana el primero que mata con el cuchillo.
+Coop contre les bots ⇒ Cooperativo contra bots
+Coop ⇒ Coop.
+Vous et vos amis dans le même camp, contre une vague de bots. ⇒ Tú y tus amigos en el mismo bando, contra una oleada de bots.
+Vous contre les bots ⇒ Tú contra los bots
+Vous et vos alliés contre les bots. Le premier camp à la limite d'éliminations l'emporte. ⇒ Tú y tus aliados contra los bots. Gana el primer bando que llega al límite de bajas.
+Bots ennemis ⇒ Bots enemigos
+Bots alliés ⇒ Bots aliados
+Bots en chacun pour soi ⇒ Bots en todos contra todos
+L'autre équipe est complète ⇒ El otro equipo está completo
+Infectés ⇒ Infectados
+Un infecté au couteau. Les morts le rejoignent. ⇒ Un infectado con cuchillo. Los muertos se le unen.
+Survivants contre infectés ⇒ Sobrevivientes contra infectados
+Un soldat commence infecté (couteau, plus rapide). Un survivant tué réapparaît infecté. S'il ne reste plus de survivants, les infectés l'emportent. Si le temps s'achève, les survivants gagnent. ⇒ Un soldado empieza infectado (cuchillo, más rápido). Un superviviente abatido reaparece infectado. Si no quedan supervivientes, ganan los infectados. Si se acaba el tiempo, ganan los supervivientes.
+Survivants ⇒ Sobrevivientes
+Mutateurs ⇒ Mutadores
+Hardcore ⇒ =
+Moins de vie (30 PV). Chaque échange compte. ⇒ Menos vida (30 PV). Cada duelo cuenta.
+Pistolets seulement ⇒ Solo pistolas
+Tout le monde n'a qu'un pistolet. ⇒ Todos tienen solo una pistola.
+Couteau seulement ⇒ Solo cuchillo
+Plus d'armes à feu, le couteau seulement. ⇒ Sin armas de fuego, solo el cuchillo.
+Instagib ⇒ =
+Chaque touche tue sur le coup. ⇒ Cada impacto mata al instante.
+Classe au hasard ⇒ Clase al azar
+Une classe tirée au sort à chaque vie. ⇒ Una clase al azar en cada vida.
+Tir allié ⇒ Fuego amigo
+Les balles touchent aussi vos alliés. ⇒ Las balas también alcanzan a tus aliados.
+Vous êtes l'infecté de départ ! ⇒ ¡Eres el infectado inicial!
+{0} est l'infecté de départ ⇒ {0} es el infectado inicial
+Vous avez été infecté ⇒ Te infectaron
+Prochaine arme, {0} ⇒ Siguiente arma, {0}
+Couteau. Une élimination pour gagner ⇒ Cuchillo. Una baja para ganar
+Vous gagnez la course aux armes ⇒ Ganas la carrera de armas
+{0} gagne la course aux armes ⇒ {0} gana la carrera de armas
+Les infectés l'emportent ⇒ Ganan los infectados
+Les survivants l'emportent ⇒ Ganan los sobrevivientes
+Premier au couteau ⇒ El primero con el cuchillo
+Survivre jusqu'à la fin ⇒ Sobrevivir hasta el final
+Héberger une partie ⇒ Crear una partida
+Vous créez le salon et donnez le code à vos amis ⇒ Creas la sala y das el código a tus amigos
+Rejoindre une partie ⇒ Unirse a una partida
+Entrez le code de 5 caractères de l'hôte ⇒ Introduce el código de 5 caracteres del anfitrión
+Survivants (un infecté au départ) ⇒ Sobrevivientes (un infectado al inicio)
+Course aux armes terminée ⇒ Carrera de armas terminada
+Tous les survivants ont été infectés ⇒ Todos los sobrevivientes fueron infectados
+
+# LAN (src/00c-lan.js, src/09c-net.js)
+Réseau local, sans internet, jusqu'à 16 joueurs ⇒ Red local, sin internet, hasta 16 jugadores
+Mode LAN : pas d'internet. La mise en relation passe par l'ordinateur de l'hôte ({0}). ⇒ Modo LAN: sin internet. La conexión pasa por la computadora del anfitrión ({0}).
+
+# Atouts (src/06ib-perks.js, src/09n-armurerie.js)
+Léger ⇒ Ligero
+Vous courez 8 % plus vite. ⇒ Corres un 8 % más rápido.
+Prestidigitateur ⇒ Prestidigitador
+Le rechargement est 30 % plus court. ⇒ La recarga es un 30 % más corta.
+Silence mortel ⇒ Silencio mortal
+Vos pas s'entendent beaucoup moins. ⇒ Tus pasos se oyen mucho menos.
+Marathon ⇒ Maratón
+Le sprint est plus rapide. ⇒ El esprint es más rápido.
+Charognard ⇒ Carroñero
+Une élimination rend des munitions. ⇒ Una eliminación devuelve munición.
+Blindé ⇒ Blindado
+20 % de dégâts de balle en moins. Vous êtes 6 % plus lent. ⇒ Un 20 % menos de daño de bala. Eres un 6 % más lento.
+Masque tactique ⇒ Máscara táctica
+Les grenades incapacitantes vous touchent moins. ⇒ Las granadas tácticas te afectan menos.
+Deux armes principales ⇒ Dos armas principales
+Tireur ⇒ Tirador
+Tactique ⇒ Táctica
+Appui ⇒ Apoyo
+Furtif ⇒ Furtivo
+Équilibré ⇒ Equilibrado
+La seconde arme peut être une arme principale. ⇒ El arma secundaria puede ser un arma principal.
+Bandoulière ⇒ Bandolera
+Plus de munitions en réserve. ⇒ Más munición de reserva.
+Pouvoir d'arrêt ⇒ Poder de parada
+12 % de dégâts de balle en plus. Le recul augmente de 10 %. ⇒ Un 12 % más de daño de bala. El retroceso sube un 10 %.
+Dégainé rapide ⇒ Desenfunde rápido
+La visée et le changement d'arme sont plus rapides. ⇒ Apuntar y cambiar de arma es más rápido.
+Pouls ferme ⇒ Pulso firme
+La dispersion à la hanche baisse de 30 %. ⇒ La dispersión a la cadera baja un 30 %.
+Résistant ⇒ Resistente
+Immunisé contre l'IEM et la contre-UAV. ⇒ Inmune a la IEM y a la contra-UAV.
+Stimulant ⇒ Estimulante
+La santé revient plus vite. ⇒ La vida vuelve más rápido.
+Cet atout n'existe pas. ⇒ Esa ventaja no existe.
+Deux atouts par niveau. Retirez-en un. ⇒ Dos ventajas por nivel. Quita una primero.
+Atouts ⇒ Ventajas
+2 par niveau ⇒ 2 por nivel
+Classe personnalisée {0} sur {1}. Deux atouts par niveau, au plus. ⇒ Clase personalizada {0} de {1}. Como máximo, dos ventajas por nivel.
+Niveau 1 ⇒ Nivel 1
+Niveau 2 ⇒ Nivel 2
+Niveau 3 ⇒ Nivel 3
+Choisi ⇒ Elegido
+Deux par niveau ⇒ Dos por nivel
+Les contreparties restent. Rien ne les inverse. ⇒ Las contrapartidas se quedan. Nada las invierte.
+Choisissez-en dans la liste. ⇒ Elige en la lista.

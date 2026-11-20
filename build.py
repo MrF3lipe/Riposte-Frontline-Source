@@ -140,8 +140,13 @@ print("illustrations des cartes :",", ".join(f"{k} ({os.path.getsize('dist/'+v)/
 # Dictionnaire anglais (i18n/en.txt, voir src/00-i18n.js) : clé française, traduction
 en_dict,en_errs=i18n.load_en()
 if en_errs: raise SystemExit("i18n/en.txt :\n  "+"\n  ".join(en_errs))
-print("dictionnaire anglais :",len(en_dict),"entrées")
-for mark,val in (("/*__I18N_EN__*/ {}",json.dumps(en_dict,ensure_ascii=False,separators=(",",":")).replace("<","\\u003c")),("/*__TEX_PACKS__*/ {}",json.dumps(packs)),("/*__SFX_PACKS__*/ {}",json.dumps(sfx)),("/*__MAP_ART__*/ {}",json.dumps(art))):
+es_dict,es_errs=i18n.load_es()
+if es_errs: raise SystemExit("i18n/es.txt :\n  "+"\n  ".join(es_errs))
+es_miss=[k for k in en_dict if k not in es_dict]
+es_extra=[k for k in es_dict if k not in en_dict]
+if es_miss or es_extra: raise SystemExit("i18n/es.txt : "+str(len(es_miss))+" clés anglaises absentes, "+str(len(es_extra))+" clés en trop")
+print("dictionnaire anglais :",len(en_dict),"entrées ; espagnol :",len(es_dict))
+for mark,val in (("/*__I18N_EN__*/ {}",json.dumps(en_dict,ensure_ascii=False,separators=(",",":")).replace("<","\\u003c")),("/*__I18N_ES__*/ {}",json.dumps(es_dict,ensure_ascii=False,separators=(",",":")).replace("<","\\u003c")),("/*__TEX_PACKS__*/ {}",json.dumps(packs)),("/*__SFX_PACKS__*/ {}",json.dumps(sfx)),("/*__MAP_ART__*/ {}",json.dumps(art))):
     if js.count(mark)!=1: raise SystemExit("marqueur introuvable ou en double dans src/ : "+mark)
     js=js.replace(mark,val)
 # Syntaxe du script assemblé (node --check) : une erreur de syntaxe passait sans bruit, et la page restait blanche au chargement (les outils

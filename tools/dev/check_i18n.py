@@ -13,6 +13,7 @@ import i18n,i18n_keys as K
 os.chdir(ROOT)
 errs=[]; warn=[]
 en,e=i18n.load_en(); errs+=e
+es,ee=i18n.load_es(); errs+=ee
 keys=K.all_keys(); shell=K.shell_keys()
 SHELL_SAME={'Riposte: Frontline','Khamsin','Place','CODE','Alpha','Bravo','UAV','Killcam','Solo'}  # noms propres ou textes remplacés par le jeu
 need={k:w for k,w in keys.items()}
@@ -26,6 +27,11 @@ PH=re.compile(r"\{\d+\}")
 for k,v in en.items():
     if sorted(PH.findall(k))!=sorted(PH.findall(v)): errs.append(f"paramètres différents : {k[:70]!r} / {v[:70]!r}")
     if re.search(r"\s$|^\s",k) or re.search(r"\s$|^\s",v): errs.append(f"espace en début ou fin : {k[:70]!r}")
+for k in en:
+    if k not in es: errs.append(f"sans traduction espagnole : {k[:90]!r}")
+for k,v in es.items():
+    if k not in en: errs.append(f"entrée inutile dans i18n/es.txt : {k[:90]!r}")
+    elif sorted(PH.findall(k))!=sorted(PH.findall(v)): errs.append(f"paramètres espagnols différents : {k[:70]!r} / {v[:70]!r}")
 # textes français restés en clair
 FRW=K.FRW
 ignore=[l.rstrip('\n') for l in open('i18n/ignore.txt',encoding='utf-8')] if os.path.exists('i18n/ignore.txt') else []
