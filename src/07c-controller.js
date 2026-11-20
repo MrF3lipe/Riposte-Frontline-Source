@@ -103,7 +103,7 @@ function ctlMove(ent, dt) {
   // automatique hisse le soldat sur le meuble, sa tête entre dans la dalle) : il s'accroupit. Debout, collideCircle prendrait la dalle pour
   // un mur et le repousserait jusqu'à son bord, à l'autre bout de la pièce
   if (!ent.crouch && ent.onGround && ceilingAbove(ent.pos.x, ent.pos.z, ent.pos.y + 0.3, 0.3) < ent.pos.y + 1.77) ent.crouch = true;
-  const height = ent.crouch ? 1.2 : 1.75;
+  const height = (typeof postureHeight === 'function') ? postureHeight(ent) : (ent.crouch ? 1.2 : 1.75);
   if (MATCH.time - (ent.spawnAt || -99) < 3) spawnPush(ent, dt);
   collideCircle(ent.pos, ent.isPlayer ? 0.36 : 0.34, height);
   // bot au bord du vide (îles flottantes) : un pas sans appui, ou qui en manquera un quart de mètre plus loin, est refusé, axe par axe
@@ -133,7 +133,7 @@ function ctlMove(ent, dt) {
   ent.airVy = ent.vy;
   if (sliding && !ent.onGround) { ent.slideT = 0; ent.slideCd = SLIDE.cd; sliding = false; } // plus de sol : fin de la glissade
   ent.slideAmt = damp(ent.slideAmt || 0, sliding ? 1 : 0, sliding ? 12 : 7, dt);
-  ent.eyeH = damp(ent.eyeH, sliding ? 0.85 : ent.crouch ? 1.1 : 1.62, sliding ? 22 : 12, dt);
+  ent.eyeH = damp(ent.eyeH, (typeof postureEye === 'function') ? postureEye(ent, sliding) : (sliding ? 0.85 : ent.crouch ? 1.1 : 1.62), sliding ? 22 : 12, dt);
   ent.sprinting = sprint && hyp(ent.vel.x, ent.vel.z) > 3;
   A.sprintW = damp(A.sprintW, ent.sprinting ? 1 : 0, 11, dt); // (9 avant la 5.1 : on tire plus tôt en sortant du sprint)
   return { landed, jumped, slid };
