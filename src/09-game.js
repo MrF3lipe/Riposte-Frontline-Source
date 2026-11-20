@@ -261,7 +261,7 @@ function drawMinimap() {
     g.fillStyle = col; g.beginPath(); g.moveTo(0, -6); g.lineTo(4.5, 4.5); g.lineTo(0, 2.5); g.lineTo(-4.5, 4.5); g.closePath(); g.fill();
     g.strokeStyle = 'rgba(0,0,0,0.75)'; g.lineWidth = 1; g.stroke(); g.restore();
   };
-  const jam = typeof perkJam === 'function' ? perkJam(e) : ksJammed(e.team), sat = MATCH.sat[e.team] > 0 && !jam;
+  const jam = (typeof cuavBlocks === 'function' && cuavBlocks(e)) || (typeof perkJam === 'function' ? perkJam(e) : ksJammed(e.team)), sat = MATCH.sat[e.team] > 0 && !jam;
   for (const o of entities) {
     if (!o.alive || o === e || jam) continue; // brouillé par une IEM : aucun repère
     if (allied(o, e)) arrow(o, C.ally);

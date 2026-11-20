@@ -1878,3 +1878,23 @@ Confirmations atteintes ⇒ Confirmations reached
 Points de zone atteints ⇒ Zone points reached
 Captures atteintes ⇒ Captures reached
 min ⇒ min
+Explosif adhésif ⇒ Sticky explosive
+Il se colle aux surfaces et aux soldats. Il explose au bout de 2,5 s. On ne le cuisine pas. ⇒ It sticks to surfaces and to soldiers. It explodes after 2.5 s. It cannot be cooked.
+Étourdissante ⇒ Stun grenade
+Grenade étourdissante ⇒ Stun grenade
+Elle ralentit le mouvement, la visée et la sensibilité pendant environ 3 s. Moins forte que la flash. Le masque tactique la réduit aussi. ⇒ It slows movement, aiming and sensitivity for about 3 s. Weaker than a flash. Tactical Mask also reduces it.
+Charge déclenchée à distance ⇒ Remotely detonated charge
+On la lance et on la déclenche avec la touche de grenade. Les bots la font sauter si un ennemi passe près. Au bout de 45 s, elle se désarme. ⇒ Throw it and detonate it with the grenade key. Bots set it off if an enemy comes close. After 45 s it disarms.
+{0} Semtex ⇒ =
+{0} grenade étourdissante ⇒ {0} stun grenade
+{0} grenades étourdissantes ⇒ {0} stun grenades
+{0} C4 ⇒ =
+Contre-UAV ⇒ Counter-UAV
+Pendant 30 secondes, la mini-carte ennemie est inutilisable : plus d'UAV ni de points rouges. Résistant l'ignore, comme l'IEM. ⇒ For 30 seconds the enemy minimap is disabled: no UAV and no red dots. Hardened ignores it, like EMP.
+Contre-UAV actif ⇒ Counter-UAV active
+Contre-UAV allié ({0}) ⇒ Allied counter-UAV ({0})
+Contre-UAV ennemi ⇒ Enemy counter-UAV
+Première élimination ⇒ First blood
+Vengeance ⇒ Revenge
+Semtex ⇒ =
+C4 ⇒ =

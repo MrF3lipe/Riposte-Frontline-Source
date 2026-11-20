@@ -1878,3 +1878,23 @@ Confirmations atteintes ⇒ Confirmaciones alcanzadas
 Points de zone atteints ⇒ Puntos de zona alcanzados
 Captures atteintes ⇒ Capturas alcanzadas
 min ⇒ min
+Explosif adhésif ⇒ Explosivo adhesivo
+Il se colle aux surfaces et aux soldats. Il explose au bout de 2,5 s. On ne le cuisine pas. ⇒ Se pega a superficies y a soldados. Explota a los 2,5 s. No se cocina.
+Étourdissante ⇒ Aturdidora
+Grenade étourdissante ⇒ Granada aturdidora
+Elle ralentit le mouvement, la visée et la sensibilité pendant environ 3 s. Moins forte que la flash. Le masque tactique la réduit aussi. ⇒ Ralentiza el movimiento, la puntería y la sensibilidad unos 3 s. Menos que la flash. La máscara táctica también lo reduce.
+Charge déclenchée à distance ⇒ Carga detonada a distancia
+On la lance et on la déclenche avec la touche de grenade. Les bots la font sauter si un ennemi passe près. Au bout de 45 s, elle se désarme. ⇒ Se lanza y se detona con la tecla de granada. Los bots la hacen explotar si un enemigo se acerca. A los 45 s se desarma.
+{0} Semtex ⇒ =
+{0} grenade étourdissante ⇒ {0} granada aturdidora
+{0} grenades étourdissantes ⇒ {0} granadas aturdidoras
+{0} C4 ⇒ =
+Contre-UAV ⇒ Contra-UAV
+Pendant 30 secondes, la mini-carte ennemie est inutilisable : plus d'UAV ni de points rouges. Résistant l'ignore, comme l'IEM. ⇒ Durante 30 segundos el minimapa enemigo queda inutilizado: no ven el UAV ni los puntos rojos. Resistente lo ignora, igual que la IEM.
+Contre-UAV actif ⇒ Contra-UAV activo
+Contre-UAV allié ({0}) ⇒ Contra-UAV aliado ({0})
+Contre-UAV ennemi ⇒ Contra-UAV enemigo
+Première élimination ⇒ Primera sangre
+Vengeance ⇒ Venganza
+Semtex ⇒ =
+C4 ⇒ =
