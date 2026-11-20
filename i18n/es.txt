@@ -170,7 +170,6 @@ Une classe de votre composition, avec armes, accessoires et camouflages. ⇒ Una
 Cette classe ne se modifie pas. ⇒ Esta clase no se puede modificar.
 Cet accessoire ne va pas sur cette arme. ⇒ Este accesorio no encaja en esta arma.
 Accessoire verrouillé : {0}. ⇒ Accesorio bloqueado: {0}.
-Une arme porte {0} accessoires au plus. Retirez-en un. ⇒ Un arma lleva {0} accesorios como máximo. Quita uno.
 
 # 07-bots.js
 Recrue ⇒ Recluta
@@ -1818,3 +1817,64 @@ Choisi ⇒ Elegido
 Deux par niveau ⇒ Dos por nivel
 Les contreparties restent. Rien ne les inverse. ⇒ Las contrapartidas se quedan. Nada las invierte.
 Choisissez-en dans la liste. ⇒ Elige en la lista.
+# 09zp-objectifs.js
+Basse confirmée ⇒ Baja confirmada
+Ramassez la plaque de l'ennemi ⇒ Recoge la placa del enemigo
+8 contre 8, plaques à ramasser ⇒ 8 contra 8, placas por recoger
+Confirmations ⇒ Confirmaciones
+confirmations ⇒ confirmaciones
+À sa mort, un soldat lâche sa plaque. L'ennemi qui la ramasse marque le point. Un allié la refuse. ⇒ Al morir, un soldado suelta su placa. El enemigo que la recoge suma el punto. Un aliado la niega.
+Point chaud ⇒ Punto caliente
+Une zone qui tourne chaque minute ⇒ Una zona que rota cada minuto
+8 contre 8, une zone active ⇒ 8 contra 8, una zona activa
+Points de zone ⇒ Puntos de zona
+points ⇒ puntos
+La zone change toutes les 60 s. Votre équipe marque 1 point par seconde si elle est seule à l'intérieur. ⇒ La zona cambia cada 60 s. Tu equipo suma 1 punto por segundo si está solo dentro.
+Capture du drapeau ⇒ Captura la bandera
+Portez le drapeau ennemi jusqu'à votre base ⇒ Lleva la bandera enemiga a tu base
+8 contre 8, deux drapeaux ⇒ 8 contra 8, dos banderas
+Captures ⇒ Capturas
+captures ⇒ capturas
+Portez le drapeau ennemi à votre base pendant que le vôtre y est. Si vous mourez, vous le lâchez. Un allié le ramène en le touchant. Il rentre seul au bout de 30 s. ⇒ Lleva la bandera enemiga a tu base con la tuya en casa. Si mueres, la sueltas. Un aliado la devuelve al tocarla. Vuelve sola a los 30 s.
+Plaque refusée ⇒ Placa negada
+Votre équipe tient la zone ⇒ Tu equipo controla la zona
+L'ennemi tient la zone ⇒ El enemigo controla la zona
+Point chaud : {0} ⇒ Punto caliente: {0}
+Drapeau rendu ⇒ Bandera devuelta
+Drapeau récupéré ⇒ Bandera recuperada
+Drapeau ennemi ⇒ Bandera enemiga
+Vous avez le drapeau ennemi ⇒ Tenéis la bandera enemiga
+On a volé votre drapeau ⇒ Han robado vuestra bandera
+Drapeau capturé ⇒ Captura
+L'ennemi a capturé ⇒ El enemigo ha capturado
+Votre drapeau est au sol ⇒ Vuestra bandera está en el suelo
+Le drapeau ennemi est au sol ⇒ La bandera enemiga está en el suelo
+Le drapeau est rentré seul ⇒ La bandera ha vuelto sola
+{0} plaques au sol ⇒ {0} placas en el suelo
+Aucune plaque ⇒ Sin placas
+Refusez la plaque ⇒ Niega la placa
+Confirmez la basse ⇒ Confirma la baja
+disputée ⇒ disputada
+à vous ⇒ vuestra
+ennemie ⇒ enemiga
+vide ⇒ vacía
+Zone {0} · {1} s · {2} ⇒ Zona {0} · {1} s · {2}
+Zone disputée ⇒ Zona disputada
+Vous marquez 1 point par seconde ⇒ Sumáis 1 punto por segundo
+Entrez seuls dans la zone ⇒ Entrad solos en la zona
+à la maison ⇒ en casa
+dans sa base ⇒ en su base
+au sol ⇒ en el suelo
+vous le portez ⇒ la llevas
+un allié le porte ⇒ un aliado la lleva
+l'ennemi le porte ⇒ el enemigo la lleva
+Le nôtre {0} · l'ennemi {1} ⇒ Nuestra {0} · enemiga {1}
+Portez-le à votre base ⇒ Llévala a tu base
+Votre drapeau n'est pas à la maison ⇒ Tu bandera no está en casa
+Ramenez votre drapeau ⇒ Devuelve vuestra bandera
+Premier à {0} confirmations ⇒ Primero a {0} confirmaciones
+Premier à {0} captures ⇒ Primero a {0} capturas
+Confirmations atteintes ⇒ Confirmaciones alcanzadas
+Points de zone atteints ⇒ Puntos de zona alcanzados
+Captures atteintes ⇒ Capturas alcanzadas
+min ⇒ min

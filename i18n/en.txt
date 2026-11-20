@@ -170,7 +170,6 @@ Une classe de votre composition, avec armes, accessoires et camouflages. ⇒ A c
 Cette classe ne se modifie pas. ⇒ This class cannot be edited.
 Cet accessoire ne va pas sur cette arme. ⇒ This attachment does not fit this weapon.
 Accessoire verrouillé : {0}. ⇒ Attachment locked: {0}.
-Une arme porte {0} accessoires au plus. Retirez-en un. ⇒ A weapon carries at most {0} attachments. Remove one.
 
 # 07-bots.js
 Recrue ⇒ Recruit
@@ -1818,3 +1817,64 @@ Choisi ⇒ Selected
 Deux par niveau ⇒ Two per tier
 Les contreparties restent. Rien ne les inverse. ⇒ Tradeoffs stay. Nothing flips them.
 Choisissez-en dans la liste. ⇒ Pick some from the list.
+# 09zp-objectifs.js
+Basse confirmée ⇒ Kill Confirmed
+Ramassez la plaque de l'ennemi ⇒ Pick up the enemy tags
+8 contre 8, plaques à ramasser ⇒ 8 versus 8, tags to collect
+Confirmations ⇒ Confirmations
+confirmations ⇒ confirmations
+À sa mort, un soldat lâche sa plaque. L'ennemi qui la ramasse marque le point. Un allié la refuse. ⇒ When a soldier dies, they drop their tags. The enemy who picks them up scores the point. An ally denies them.
+Point chaud ⇒ Hardpoint
+Une zone qui tourne chaque minute ⇒ A zone that rotates every minute
+8 contre 8, une zone active ⇒ 8 versus 8, one active zone
+Points de zone ⇒ Zone points
+points ⇒ points
+La zone change toutes les 60 s. Votre équipe marque 1 point par seconde si elle est seule à l'intérieur. ⇒ The zone moves every 60 s. Your team scores 1 point per second while alone inside.
+Capture du drapeau ⇒ Capture the Flag
+Portez le drapeau ennemi jusqu'à votre base ⇒ Carry the enemy flag back to your base
+8 contre 8, deux drapeaux ⇒ 8 versus 8, two flags
+Captures ⇒ Captures
+captures ⇒ captures
+Portez le drapeau ennemi à votre base pendant que le vôtre y est. Si vous mourez, vous le lâchez. Un allié le ramène en le touchant. Il rentre seul au bout de 30 s. ⇒ Carry the enemy flag to your base while yours is home. If you die, you drop it. An ally returns it by touching it. It comes back on its own after 30 s.
+Plaque refusée ⇒ Tags denied
+Votre équipe tient la zone ⇒ Your team holds the zone
+L'ennemi tient la zone ⇒ The enemy holds the zone
+Point chaud : {0} ⇒ Hardpoint: {0}
+Drapeau rendu ⇒ Flag returned
+Drapeau récupéré ⇒ Flag recovered
+Drapeau ennemi ⇒ Enemy flag
+Vous avez le drapeau ennemi ⇒ Your team has the enemy flag
+On a volé votre drapeau ⇒ Your flag was stolen
+Drapeau capturé ⇒ Flag captured
+L'ennemi a capturé ⇒ The enemy captured
+Votre drapeau est au sol ⇒ Your flag is on the ground
+Le drapeau ennemi est au sol ⇒ The enemy flag is on the ground
+Le drapeau est rentré seul ⇒ The flag returned on its own
+{0} plaques au sol ⇒ {0} tags on the ground
+Aucune plaque ⇒ No tags
+Refusez la plaque ⇒ Deny the tags
+Confirmez la basse ⇒ Confirm the kill
+disputée ⇒ contested
+à vous ⇒ yours
+ennemie ⇒ enemy
+vide ⇒ empty
+Zone {0} · {1} s · {2} ⇒ Zone {0} · {1} s · {2}
+Zone disputée ⇒ Contested zone
+Vous marquez 1 point par seconde ⇒ You score 1 point per second
+Entrez seuls dans la zone ⇒ Step in alone
+à la maison ⇒ at home
+dans sa base ⇒ at their base
+au sol ⇒ on the ground
+vous le portez ⇒ you carry it
+un allié le porte ⇒ an ally carries it
+l'ennemi le porte ⇒ the enemy carries it
+Le nôtre {0} · l'ennemi {1} ⇒ Ours {0} · enemy {1}
+Portez-le à votre base ⇒ Take it to your base
+Votre drapeau n'est pas à la maison ⇒ Your flag is not home
+Ramenez votre drapeau ⇒ Bring your flag back
+Premier à {0} confirmations ⇒ First to {0} confirmations
+Premier à {0} captures ⇒ First to {0} captures
+Confirmations atteintes ⇒ Confirmations reached
+Points de zone atteints ⇒ Zone points reached
+Captures atteintes ⇒ Captures reached
+min ⇒ min
