@@ -1898,3 +1898,40 @@ Première élimination ⇒ First blood
 Vengeance ⇒ Revenge
 Semtex ⇒ =
 C4 ⇒ =
+Ordre des armes ⇒ Weapon order
+Mélangé ⇒ Mixed
+Aléatoire ⇒ Random
+Classique ⇒ Classic
+Mélangé : les armes les plus faciles à tuer en premier, en alternant les types. Aléatoire : un ordre tiré au sort. Classique : l'ordre d'origine. ⇒ Mixed: the easiest weapons to get a kill with first, alternating types. Random: a shuffled order. Classic: the original order.
+Juggernaut ⇒ =
+Jugger ⇒ =
+Une caisse vous tombe dessus. Jusqu'à votre mort, vous encaissez un quart des dégâts de balle, les explosions un peu plus, vous avancez à 75 % et vous ne sprintez plus. Vous portez un fusil à grand chargeur. Les ennemis vous voient sur la carte. ⇒ A crate drops on you. Until you die you take a quarter of bullet damage, a bit more from explosions, you move at 75% and you cannot sprint. You carry a large-mag rifle. Enemies see you on the map.
+Armure lourde ⇒ Heavy armor
+Dernier recours ⇒ Last Stand
+Un tir au corps qui vous tuerait vous laisse 10 s au sol, au pistolet, à ramper. Un allié qui s'approche et maintient utiliser pendant 2 s vous relève avec 50 de vie. Un tir à la tête ou une explosion vous tuent directement. ⇒ A body shot that would kill you leaves you down for 10 s, with a pistol, crawling. An ally who comes close and holds use for 2 s picks you up with 50 health. A headshot or an explosion kills you outright.
+À terre ⇒ Downed
+Un allié peut vous relever ⇒ An ally can pick you up
+Relevez l'allié ({0}) ⇒ Pick up the ally ({0})
+Relevé ⇒ Revived
+S'incliner à gauche ⇒ Lean left
+S'incliner à droite ⇒ Lean right
+Caisse de munitions ⇒ Ammo box
+Posez une caisse : vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s. ⇒ Place a box: you and your allies refill magazine and reserve by walking near it. Four uses, 30 s.
+Système Trophy ⇒ Trophy system
+Détruit les grenades ennemies dans un rayon de 4 m. Trois charges, 20 s. ⇒ Destroys enemy grenades within 4 m. Three charges, 20 s.
+Balise de réapparition ⇒ Spawn beacon
+Votre prochaine réapparition a lieu ici, une fois. ⇒ Your next respawn happens here, once.
+Fantôme ⇒ Ghost
+Pendant 25 s, vous n'apparaissez ni sur le radar ni sur l'UAV. ⇒ For 25 s you do not appear on the radar or the UAV.
+Déployer l'amélioration de champ ⇒ Deploy field upgrade
+Amélioration de champ ⇒ Field upgrade
+Touche V pour déployer ⇒ V key to deploy
+Une par classe ⇒ One per class
+Pas d'amélioration de champ. ⇒ No field upgrade.
+Classe personnalisée {0} sur {1}. Choisissez une amélioration de champ, déployée avec la touche V ⇒ Custom class {0} of {1}. Pick a field upgrade, deployed with the V key
+Options de partie ⇒ Match options
+Vie ⇒ Health
+Normales ⇒ Normal
+Illimitées ⇒ Unlimited
+Activées ⇒ On
+Désactivées ⇒ Off

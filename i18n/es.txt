@@ -1898,3 +1898,40 @@ Première élimination ⇒ Primera sangre
 Vengeance ⇒ Venganza
 Semtex ⇒ =
 C4 ⇒ =
+Ordre des armes ⇒ Orden de las armas
+Mélangé ⇒ Mezclado
+Aléatoire ⇒ Aleatorio
+Classique ⇒ Clásico
+Mélangé : les armes les plus faciles à tuer en premier, en alternant les types. Aléatoire : un ordre tiré au sort. Classique : l'ordre d'origine. ⇒ Mezclado: primero las armas con las que es más fácil conseguir una baja, alternando tipos. Aleatorio: un orden al azar. Clásico: el orden original.
+Juggernaut ⇒ =
+Jugger ⇒ =
+Une caisse vous tombe dessus. Jusqu'à votre mort, vous encaissez un quart des dégâts de balle, les explosions un peu plus, vous avancez à 75 % et vous ne sprintez plus. Vous portez un fusil à grand chargeur. Les ennemis vous voient sur la carte. ⇒ Te cae una caja. Hasta que mueres recibes un cuarto del daño de bala, un poco más de las explosiones, te mueves al 75 % y no puedes esprintar. Llevas un fusil de cargador grande. Los enemigos te ven en el mapa.
+Armure lourde ⇒ Armadura pesada
+Dernier recours ⇒ Última batalla
+Un tir au corps qui vous tuerait vous laisse 10 s au sol, au pistolet, à ramper. Un allié qui s'approche et maintient utiliser pendant 2 s vous relève avec 50 de vie. Un tir à la tête ou une explosion vous tuent directement. ⇒ Un disparo al cuerpo que te mataría te deja 10 s en el suelo, con la pistola, arrastrándote. Un aliado que se acerque y mantenga usar durante 2 s te levanta con 50 de vida. Un tiro a la cabeza o una explosión te matan del todo.
+À terre ⇒ En el suelo
+Un allié peut vous relever ⇒ Un aliado puede levantarte
+Relevez l'allié ({0}) ⇒ Levanta al aliado ({0})
+Relevé ⇒ Levantado
+S'incliner à gauche ⇒ Asomarse a la izquierda
+S'incliner à droite ⇒ Asomarse a la derecha
+Caisse de munitions ⇒ Caja de munición
+Posez une caisse : vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s. ⇒ Coloca una caja: tú y tus aliados recargáis cargador y reserva al pasar cerca. Cuatro usos, 30 s.
+Système Trophy ⇒ Sistema Trophy
+Détruit les grenades ennemies dans un rayon de 4 m. Trois charges, 20 s. ⇒ Destruye las granadas enemigas en un radio de 4 m. Tres cargas, 20 s.
+Balise de réapparition ⇒ Baliza de reaparición
+Votre prochaine réapparition a lieu ici, une fois. ⇒ Tu próxima reaparición es aquí, una sola vez.
+Fantôme ⇒ Fantasma
+Pendant 25 s, vous n'apparaissez ni sur le radar ni sur l'UAV. ⇒ Durante 25 s no sales en el radar ni en el UAV.
+Déployer l'amélioration de champ ⇒ Desplegar la mejora de campo
+Amélioration de champ ⇒ Mejora de campo
+Touche V pour déployer ⇒ Tecla V para desplegar
+Une par classe ⇒ Una por clase
+Pas d'amélioration de champ. ⇒ Sin mejora de campo.
+Classe personnalisée {0} sur {1}. Choisissez une amélioration de champ, déployée avec la touche V ⇒ Clase personalizada {0} de {1}. Elige una mejora de campo, se despliega con la tecla V
+Options de partie ⇒ Opciones de partida
+Vie ⇒ Vida
+Normales ⇒ Normales
+Illimitées ⇒ Ilimitadas
+Activées ⇒ Activadas
+Désactivées ⇒ Desactivadas

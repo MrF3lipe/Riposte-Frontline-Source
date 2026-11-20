@@ -7,7 +7,52 @@
 
 const PARTY_MUT_KEYS = ['mutHard', 'mutPistol', 'mutKnife', 'mutInsta', 'mutRand', 'mutFF'];
 const PARTY_PISTOLS = ['m9', 'usp', 'glock18', 'deagle'];
-const GG_GUNS = ['m4', 'ak47', 'scarh', 'famas', 'mp5', 'mp7', 'ump45', 'vector', 'm1014', 'rem870', 'aa12', 'l96', 'svd', 'm82', 'm9', 'usp', 'glock18', 'deagle'];
+const GG_CLASSIC = ['m4', 'ak47', 'scarh', 'famas', 'mp5', 'mp7', 'ump45', 'vector', 'm1014', 'rem870', 'aa12', 'l96', 'svd', 'm82', 'm9', 'usp', 'glock18', 'deagle'];
+const GG_GUNS = GG_CLASSIC.slice();
+const GG_ORDERS = ['mix', 'rand', 'classic'];
+if (Settings.ggOrder === undefined) Settings.ggOrder = 'mix';
+
+function ggCat(id) { return (WEAPONS[id] && WEAPONS[id].cat) || 'ar'; }
+function ggEase(id) {
+  const d = WEAPONS[id]; if (!d) return 0;
+  const pellets = d.pellets || 1, dmg = (d.dmg && d.dmg[0]) || 20, rpm = d.rpm || 400;
+  const ttk = Math.max(0.05, (100 / Math.max(1, pellets * dmg)) * (60 / rpm));
+  return 1 / ttk;
+}
+function ggShuffle(list) {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+function ggBuildMixed(pool) {
+  const pist = pool.filter((id) => ggCat(id) === 'pistol');
+  const left = pool.filter((id) => ggCat(id) !== 'pistol').sort((a, b) => ggEase(b) - ggEase(a));
+  const out = [];
+  while (left.length) {
+    let i = 0;
+    if (out.length) {
+      const prev = ggCat(out[out.length - 1]);
+      const hit = left.findIndex((id) => ggCat(id) !== prev);
+      if (hit >= 0) i = hit;
+    }
+    out.push(left.splice(i, 1)[0]);
+  }
+  return out.concat(pist);
+}
+function ggListOk(list) {
+  return Array.isArray(list) && list.length === GG_CLASSIC.length && list.every((id) => GG_CLASSIC.indexOf(id) >= 0);
+}
+function ggRebuild(src) {
+  src = src || (typeof partySrc === 'function' ? partySrc() : Settings);
+  const o = (src && GG_ORDERS.indexOf(src.ggOrder) >= 0) ? src.ggOrder : 'mix';
+  let list;
+  if (ggListOk(src && src.ggGuns) && (o === 'rand' || o === 'mix')) list = src.ggGuns.slice();
+  else if (o === 'classic') list = GG_CLASSIC.slice();
+  else if (o === 'rand') list = ggShuffle(GG_CLASSIC);
+  else list = ggBuildMixed(GG_CLASSIC);
+  GG_GUNS.length = 0; for (const id of list) GG_GUNS.push(id);
+  return GG_GUNS;
+}
 const PARTY_COOP_N = [4, 6, 8, 10, 12];
 const PARTY_HC_HP = 30;
 const PARTY_INF_SPEED = 1.12;
@@ -112,6 +157,7 @@ function partyRoster() {
 }
 
 function partyOnModeStart() {
+  if (MATCH.mode === 'gun') ggRebuild();
   for (const e of entities) {
     e.ggTier = 0;
     if (MATCH.mode !== 'inf') e.infected = false;
@@ -280,6 +326,13 @@ function partyExtendRows(rows, o) {
     const li = rows.findIndex((r) => r.key === 'limit');
     if (li >= 0) rows.splice(li, 1);
   }
+  if (o.mode === 'gun') {
+    const cur = GG_ORDERS.indexOf(o.ggOrder) >= 0 ? o.ggOrder : 'mix';
+    rows.push(
+      { k: 'seg', full: true, key: 'ggOrder', label: _t('Ordre des armes'), items: [['mix', _t('Mélangé')], ['rand', _t('Aléatoire')], ['classic', _t('Classique')]], get: () => cur, set: set('ggOrder'), disabled: dis },
+      { k: 'note', cls: 'hint', text: _t('Mélangé : les armes les plus faciles à tuer en premier, en alternant les types. Aléatoire : un ordre tiré au sort. Classique : l\u0027ordre d\u0027origine.') }
+    );
+  }
   const muts = [
     { key: 'mutHard', label: _t('Hardcore'), sub: _t('Moins de vie (30 PV). Chaque échange compte.') },
     { key: 'mutPistol', label: _t('Pistolets seulement'), sub: _t('Tout le monde n\u0027a qu\u0027un pistolet.'), hide: o.mode === 'gun' || o.mode === 'inf' },
@@ -302,6 +355,11 @@ function partyFillCfg(dst, src) {
   src = src || {};
   for (const k of PARTY_MUT_KEYS) dst[k] = +src[k] ? 1 : 0;
   dst.coopN = PARTY_COOP_N.includes(+src.coopN) ? +src.coopN : 6;
+  dst.ggOrder = GG_ORDERS.includes(src.ggOrder) ? src.ggOrder : 'mix';
+  if (ggListOk(src.ggGuns)) dst.ggGuns = src.ggGuns.slice();
+  else if (dst.ggOrder === 'rand') dst.ggGuns = ggShuffle(GG_CLASSIC);
+  else if (dst.ggOrder === 'mix') dst.ggGuns = ggBuildMixed(GG_CLASSIC);
+  else dst.ggGuns = GG_CLASSIC.slice();
   return dst;
 }
 
@@ -522,6 +580,13 @@ const _party_soloSet = soloSet;
 soloSet = function (k, v) {
   if (PARTY_MUT_KEYS.includes(k)) { Settings[k] = +v ? 1 : 0; saveSettings(); return; }
   if (k === 'coopN') { Settings.coopN = PARTY_COOP_N.includes(+v) ? +v : 6; saveSettings(); return; }
+  if (k === 'ggOrder') {
+    Settings.ggOrder = GG_ORDERS.includes(v) ? v : 'mix';
+    if (Settings.ggOrder === 'rand') Settings.ggGuns = ggShuffle(GG_CLASSIC);
+    else if (Settings.ggOrder === 'mix') Settings.ggGuns = ggBuildMixed(GG_CLASSIC);
+    else Settings.ggGuns = GG_CLASSIC.slice();
+    saveSettings(); return;
+  }
   _party_soloSet(k, v);
 };
 
@@ -595,3 +660,13 @@ if (typeof NET_PAGES !== 'undefined' && NET_PAGES.home) {
 }
 
 /* matchOutcome / finByLimit : définis plus tard (fichiers après 09ib). 09ic-party-end.js les enveloppe. */
+
+const _party_netSetupSet = netSetupSet;
+netSetupSet = function (k, v) {
+  _party_netSetupSet(k, v);
+  if (k === 'ggOrder' && NET.cfg) {
+    Settings.ggOrder = NET.cfg.ggOrder;
+    Settings.ggGuns = Array.isArray(NET.cfg.ggGuns) ? NET.cfg.ggGuns.slice() : Settings.ggGuns;
+    saveSettings();
+  }
+};
