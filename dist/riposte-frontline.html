@@ -2,14 +2,14 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CQUeIXL3UUCwMgiVQUF9JXGFbbk4zitbjLtqU4nQmRI=' 'sha256-nhkVX1dbtF2OXtH0z2gGv9aBHBHNDmQK7d6/muiOkCQ=' 'sha256-rbTaSdDD+Sd+K8IZ66VS79bdI78bN8AwXXyN0/lD5fY=' https://cdn.jsdelivr.net/npm/peerjs@1.5.5/; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' https://*.peerjs.com wss://*.peerjs.com stun: turn: http: ws:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-CQUeIXL3UUCwMgiVQUF9JXGFbbk4zitbjLtqU4nQmRI=' 'sha256-DNWnRIL4EWviFOHSwGaF4Nt9w5v205xHgtPHdKdY10E=' 'sha256-rbTaSdDD+Sd+K8IZ66VS79bdI78bN8AwXXyN0/lD5fY=' https://cdn.jsdelivr.net/npm/peerjs@1.5.5/; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' https://*.peerjs.com wss://*.peerjs.com stun: turn: http: ws:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Riposte">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="cod-relay" content="">
-<meta name="cod-build" content="0f7ac9e2076f">
+<meta name="cod-build" content="ac64c36cc087">
 <meta name="menu-music" content="menu-theme.mp3?v=1b342264">
 <title>Riposte: Frontline, FPS gratuit dans le navigateur</title>
 <!-- Aperçu d'un lien partagé (Discord, WhatsApp, réseaux) et adresse de référence : adresse et image posées par build.py (SITE, assets/apercu.jpg).
@@ -9340,8 +9340,10 @@ const mate=lastNearMate(me);LAST.mate=mate;const use=!!(typeof KEYS!=='undefined
 else b._lsHelp=0;}}
 const _last_dmg=applyDamage;applyDamage=function(victim,dmg,attacker,weapon,head,dir,srcPos,life){if(victim&&victim.alive&&!victim.downed&&typeof perkHas==='function'&&perkHas(victim,'last')&&!head&&!lastBoom(weapon)){const d=lastFinalDmg(victim,dmg,attacker,weapon);if(victim.health-d<=0){lastDown(victim,attacker,weapon);return;}}
 if(victim&&victim.downed){if(head||lastBoom(weapon))return _last_dmg(victim,Math.max(dmg,999),attacker,weapon,head,dir,srcPos,life);return;}
-return _last_dmg(victim,dmg,attacker,weapon,head,dir,srcPos,life);};const _last_move=perkMoveMul;perkMoveMul=function(ent){const m=_last_move(ent);return(ent&&ent.downed)?m*0.3:m;};const _last_start=startMatch;startMatch=function(opt){const r=_last_start(opt);LAST.t=0;LAST.mate=null;for(const e of entities)if(e){e.downed=false;e.downT=0;e.downBy=null;}
-return r;};const _last_tick=matchTick;matchTick=function(dt){lastTick(dt);return _last_tick(dt);};const _last_pres=netPresence;netPresence=function(e,now){const p=_last_pres(e,now);if(p&&e&&e.downed){p.dn=1;p.dnt=Math.round((e.downT||0)*10)/10;}
+return _last_dmg(victim,dmg,attacker,weapon,head,dir,srcPos,life);};const _last_move=perkMoveMul;perkMoveMul=function(ent){const m=_last_move(ent);return(ent&&ent.downed)?m*0.3:m;};const _last_start=startMatch;startMatch=function(opt){const r=_last_start(opt);LAST.t=0;LAST.mate=null;for(const e of entities)if(e){e.downed=false;e.downT=0;e.downBy=null;e._lsSlot=null;e._lsPushed=0;}
+return r;};function lastHeldDown(e){return!!(e&&e.downed);}
+function lastKeepPistol(e){if(!lastHeldDown(e)||!e.arms||!e.arms.slots)return;const i=e.arms.slots.findIndex((s)=>s.def&&s.def.cat==='pistol');if(i<0||e.arms.cur===i)return;lastToPistol(e);}
+const _last_swapWithDrop=swapWithDrop;swapWithDrop=function(){if(lastHeldDown(PL.ent)||lastNearMate(PL.ent))return;return _last_swapWithDrop();};const _last_ctlSwitch=ctlSwitch;ctlSwitch=function(ent,i,again){if(lastHeldDown(ent))return false;return _last_ctlSwitch(ent,i,again);};const _last_switchWeapon=switchWeapon;switchWeapon=function(i){if(lastHeldDown(PL.ent))return;return _last_switchWeapon(i);};const _last_quickSwap=quickSwap;quickSwap=function(){if(lastHeldDown(PL.ent))return;return _last_quickSwap();};const _last_knife=knife;knife=function(){if(lastHeldDown(PL.ent))return;return _last_knife();};const _last_knifeDraw=knifeDraw;knifeDraw=function(){if(lastHeldDown(PL.ent))return false;return _last_knifeDraw();};const _last_tick=matchTick;matchTick=function(dt){lastTick(dt);if(typeof PL!=='undefined'&&PL.ent)lastKeepPistol(PL.ent);return _last_tick(dt);};const _last_pres=netPresence;netPresence=function(e,now){const p=_last_pres(e,now);if(p&&e&&e.downed){p.dn=1;p.dnt=Math.round((e.downT||0)*10)/10;}
 return p;};const _last_apply=netApply;netApply=function(id,P){_last_apply(id,P);const e=NET.remotes.get(id);if(!e||!P)return;if('dn'in P){if(P.dn&&!e.downed)lastDown(e,null,e.downWpn);if(!P.dn&&e.downed)lastUp(e);if(P.dnt!=null)e.downT=P.dnt;}};const _last_ev=netEventIn;netEventIn=function(e,ev){if(ev&&ev.k==='dn'){lastDown(e,null,ev.w);return;}
 if(ev&&ev.k==='up'){lastUp(e);return;}
 return _last_ev(e,ev);};const _post_pres=netPresence;netPresence=function(e,now){const p=_post_pres(e,now);if(p&&e){if(e.lean)p.ln=Math.round(e.lean*10)/10;if(e.prone)p.pr=1;if(e.mantle)p.mt=1;}

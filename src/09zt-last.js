@@ -141,13 +141,51 @@ const _last_start = startMatch;
 startMatch = function (opt) {
   const r = _last_start(opt);
   LAST.t = 0; LAST.mate = null;
-  for (const e of entities) if (e) { e.downed = false; e.downT = 0; e.downBy = null; }
+  for (const e of entities) if (e) { e.downed = false; e.downT = 0; e.downBy = null; e._lsSlot = null; e._lsPushed = 0; }
   return r;
 };
 
+function lastHeldDown(e) { return !!(e && e.downed); }
+function lastKeepPistol(e) {
+  if (!lastHeldDown(e) || !e.arms || !e.arms.slots) return;
+  const i = e.arms.slots.findIndex((s) => s.def && s.def.cat === 'pistol');
+  if (i < 0 || e.arms.cur === i) return;
+  lastToPistol(e);
+}
+const _last_swapWithDrop = swapWithDrop;
+swapWithDrop = function () {
+  if (lastHeldDown(PL.ent) || lastNearMate(PL.ent)) return;
+  return _last_swapWithDrop();
+};
+const _last_ctlSwitch = ctlSwitch;
+ctlSwitch = function (ent, i, again) {
+  if (lastHeldDown(ent)) return false;
+  return _last_ctlSwitch(ent, i, again);
+};
+const _last_switchWeapon = switchWeapon;
+switchWeapon = function (i) {
+  if (lastHeldDown(PL.ent)) return;
+  return _last_switchWeapon(i);
+};
+const _last_quickSwap = quickSwap;
+quickSwap = function () {
+  if (lastHeldDown(PL.ent)) return;
+  return _last_quickSwap();
+};
+const _last_knife = knife;
+knife = function () {
+  if (lastHeldDown(PL.ent)) return;
+  return _last_knife();
+};
+const _last_knifeDraw = knifeDraw;
+knifeDraw = function () {
+  if (lastHeldDown(PL.ent)) return false;
+  return _last_knifeDraw();
+};
 const _last_tick = matchTick;
 matchTick = function (dt) {
   lastTick(dt);
+  if (typeof PL !== 'undefined' && PL.ent) lastKeepPistol(PL.ent);
   return _last_tick(dt);
 };
 
