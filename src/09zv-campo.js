@@ -3,7 +3,7 @@ const FIELD_IDS = ['ammo', 'trophy', 'spawn', 'ghost'];
 const FIELD = { boxes: [], trophies: [], marks: [], ghostT: [], need: { ammo: 12, trophy: 10, spawn: 8, ghost: 15 } };
 const FIELD_NONE = _t('Aucune');
 const FIELD_DEF = {
-  ammo: { name: _t('Caisse de munitions'), desc: _t('Posez une caisse : vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s.') },
+  ammo: { name: _t('Caisse de munitions'), desc: _t('Posez une caisse. Vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s.') },
   trophy: { name: _t('Système Trophy'), desc: _t('Détruit les grenades ennemies dans un rayon de 4 m. Trois charges, 20 s.') },
   spawn: { name: _t('Balise de réapparition'), desc: _t('Votre prochaine réapparition a lieu ici, une fois.') },
   ghost: { name: _t('Fantôme'), desc: _t('Pendant 25 s, vous n\u0027apparaissez ni sur le radar ni sur l\u0027UAV.') }

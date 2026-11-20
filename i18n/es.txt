@@ -1890,7 +1890,7 @@ On la lance et on la déclenche avec la touche de grenade. Les bots la font saut
 {0} grenades étourdissantes ⇒ {0} granadas aturdidoras
 {0} C4 ⇒ =
 Contre-UAV ⇒ Contra-UAV
-Pendant 30 secondes, la mini-carte ennemie est inutilisable : plus d'UAV ni de points rouges. Résistant l'ignore, comme l'IEM. ⇒ Durante 30 segundos el minimapa enemigo queda inutilizado: no ven el UAV ni los puntos rojos. Resistente lo ignora, igual que la IEM.
+Pendant 30 secondes, la mini-carte ennemie est inutilisable. Plus d'UAV ni de points rouges. Résistant l'ignore, comme l'IEM. ⇒ Durante 30 segundos el minimapa enemigo queda inutilizado. No ven el UAV ni los puntos rojos. Resistente lo ignora, igual que la IEM.
 Contre-UAV actif ⇒ Contra-UAV activo
 Contre-UAV allié ({0}) ⇒ Contra-UAV aliado ({0})
 Contre-UAV ennemi ⇒ Contra-UAV enemigo
@@ -1916,7 +1916,7 @@ Relevé ⇒ Levantado
 S'incliner à gauche ⇒ Asomarse a la izquierda
 S'incliner à droite ⇒ Asomarse a la derecha
 Caisse de munitions ⇒ Caja de munición
-Posez une caisse : vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s. ⇒ Coloca una caja: tú y tus aliados recargáis cargador y reserva al pasar cerca. Cuatro usos, 30 s.
+Posez une caisse. Vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s. ⇒ Coloca una caja. Tú y tus aliados recargáis cargador y reserva al pasar cerca. Cuatro usos, 30 s.
 Système Trophy ⇒ Sistema Trophy
 Détruit les grenades ennemies dans un rayon de 4 m. Trois charges, 20 s. ⇒ Destruye las granadas enemigas en un radio de 4 m. Tres cargas, 20 s.
 Balise de réapparition ⇒ Baliza de reaparición

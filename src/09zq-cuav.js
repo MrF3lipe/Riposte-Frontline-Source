@@ -4,7 +4,7 @@
 KSDEF.cuav = {
   n: 5, name: _t('Contre-UAV'), short: _t('Contre-UAV'),
   icon: '<circle cx="12" cy="12" r="8.5"/><path d="M4 4l16 16M12 7.2a4.8 4.8 0 0 1 4.2 7.2"/>',
-  desc: _t('Pendant 30 secondes, la mini-carte ennemie est inutilisable : plus d\u0027UAV ni de points rouges. Résistant l\u0027ignore, comme l\u0027IEM.'),
+  desc: _t('Pendant 30 secondes, la mini-carte ennemie est inutilisable. Plus d\u0027UAV ni de points rouges. Résistant l\u0027ignore, comme l\u0027IEM.'),
   use: () => usePhoneKs('cuav'),
   bot: (b) => cuavFire(b)
 };

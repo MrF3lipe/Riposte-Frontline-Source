@@ -1890,7 +1890,7 @@ On la lance et on la déclenche avec la touche de grenade. Les bots la font saut
 {0} grenades étourdissantes ⇒ {0} stun grenades
 {0} C4 ⇒ =
 Contre-UAV ⇒ Counter-UAV
-Pendant 30 secondes, la mini-carte ennemie est inutilisable : plus d'UAV ni de points rouges. Résistant l'ignore, comme l'IEM. ⇒ For 30 seconds the enemy minimap is disabled: no UAV and no red dots. Hardened ignores it, like EMP.
+Pendant 30 secondes, la mini-carte ennemie est inutilisable. Plus d'UAV ni de points rouges. Résistant l'ignore, comme l'IEM. ⇒ For 30 seconds the enemy minimap is disabled. No UAV and no red dots. Hardened ignores it, like EMP.
 Contre-UAV actif ⇒ Counter-UAV active
 Contre-UAV allié ({0}) ⇒ Allied counter-UAV ({0})
 Contre-UAV ennemi ⇒ Enemy counter-UAV
@@ -1916,7 +1916,7 @@ Relevé ⇒ Revived
 S'incliner à gauche ⇒ Lean left
 S'incliner à droite ⇒ Lean right
 Caisse de munitions ⇒ Ammo box
-Posez une caisse : vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s. ⇒ Place a box: you and your allies refill magazine and reserve by walking near it. Four uses, 30 s.
+Posez une caisse. Vous et vos alliés rechargez chargeur et réserve en passant près. Quatre usages, 30 s. ⇒ Place a box. You and your allies refill magazine and reserve by walking near it. Four uses, 30 s.
 Système Trophy ⇒ Trophy system
 Détruit les grenades ennemies dans un rayon de 4 m. Trois charges, 20 s. ⇒ Destroys enemy grenades within 4 m. Three charges, 20 s.
 Balise de réapparition ⇒ Spawn beacon

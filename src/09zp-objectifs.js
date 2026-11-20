@@ -962,7 +962,7 @@ function objHud() {
     const p = objZoneHere(),
       n = p ? objCounts(p) : [0, 0];
     const who = n[0] > 0 && n[1] > 0 ? _t('disputée') : n[me.team] > 0 ? _t('à vous') : n[1 - me.team] > 0 ? _t('ennemie') : _t('vide');
-    line = _t('Zone {0} · {1} s · {2}', p ? p.name : '—', Math.max(0, Math.ceil(OBJ.left)), who);
+    line = _t('Zone {0} · {1} s · {2}', p ? p.name : '-', Math.max(0, Math.ceil(OBJ.left)), who);
     if (p && me.alive && hyp(me.pos.x - p.x, me.pos.z - p.z) <= OBJ.rad && Math.abs(me.pos.y - p.y) <= OBJ.dy) {
       near = n[0] > 0 && n[1] > 0 ? _t('Zone disputée') : n[me.team] > 0 ? _t('Vous marquez 1 point par seconde') : _t('Entrez seuls dans la zone');
       nearCls = n[0] > 0 && n[1] > 0 ? 'hot' : 'ally';
@@ -971,7 +971,7 @@ function objHud() {
     const mine = OBJ.flags[me.team],
       theirs = OBJ.flags[1 - me.team];
     const txt = (f, own) => {
-      if (!f) return '—';
+      if (!f) return '-';
       if (f.st === 'home') return own ? _t('à la maison') : _t('dans sa base');
       if (f.st === 'drop') return _t('au sol');
       if (f.who === me) return _t('vous le portez');

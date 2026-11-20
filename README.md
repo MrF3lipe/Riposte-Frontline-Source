@@ -51,3 +51,13 @@ The game is written in French: code, comments and tool output. `src/*.js` is joi
 
 The visual tests in `tools/dev/visual/` open the game in Chromium (`cd tools/dev && npm ci`, then for example
 `node tools/dev/visual/menus.js`).
+
+## Unofficial fork / Fork no oficial
+
+This public fork is maintained by [MrF3lipe](https://github.com/MrF3lipe). It is **not** the official game.
+The official game is [Riposte: Frontline](https://www.playriposte.com), by [BenDBSS](https://github.com/BenDBSS).
+The original 5.6.0 snapshot, its `LICENSE` (MIT) and `NOTICE.md` are unchanged. Do not send pull requests here expecting them to reach the official repository.
+
+Este fork público parte del código abierto de Riposte: Frontline 5.6.0 y documenta, en varios commits, trabajo propio de Riposte Mix. **No incluye** el modo Supremo ni modelos, sonidos o texturas del paquete público de las versiones 5.15 y 5.16 (esas armas y el modo Supervivencia/zombis no están). El juego oficial sigue en [playriposte.com](https://www.playriposte.com). En este fork el idioma por defecto es el español (`i18n/es.txt`); la tabla de más arriba describe el repositorio original, donde el inglés era el idioma por defecto.
+
+La lista de cambios está en [CAMBIOS.md](CAMBIOS.md).

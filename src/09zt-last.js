@@ -59,7 +59,7 @@ function lastDown(v, attacker, weapon) {
   v.downWpn = weapon || 'M9';
   v.crouch = true;
   lastToPistol(v);
-  if (v.isPlayer && typeof hudMsg === 'function') hudMsg(_t('À terre') + ' — ' + _t('Un allié peut vous relever'), 3);
+  if (v.isPlayer && typeof hudMsg === 'function') hudMsg(_t('À terre') + '. ' + _t('Un allié peut vous relever'), 3);
   if (typeof netEvent === 'function' && (v === PL.ent || v.netBot)) netEvent(v, { k: 'dn', a: attacker && attacker.netId, w: weapon });
 }
 function lastUp(v) {
