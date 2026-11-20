@@ -1,4 +1,4 @@
-/* Mejoras de campo. Modelos procedurales, sin assets 5.15. El evento de red k:'fu' lo ignora una build original. */
+/* Mejoras de campo. Modelos procedurales. El evento de red k:'fu' lo ignora una build original. */
 const FIELD_IDS = ['ammo', 'trophy', 'spawn', 'ghost'];
 const FIELD = { boxes: [], trophies: [], marks: [], ghostT: [], need: { ammo: 12, trophy: 10, spawn: 8, ghost: 15 } };
 const FIELD_NONE = _t('Aucune');

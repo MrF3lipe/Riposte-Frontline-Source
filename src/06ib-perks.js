@@ -2,7 +2,7 @@
    ATOUTS (deux par palier)
    Le 5.6 n'en a pas. Trois paliers, PERK_PER choix chacun, mémorisés sur la
    classe (pk). Les contreparties (Blindé, Pouvoir d'arrêt) sont fixes :
-   rien ne les inverse. Pas de Supremo.
+   rien ne les inverse.
    ========================================================================== */
 const PERK_PER = 2;
 const PERKS = [

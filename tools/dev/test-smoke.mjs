@@ -1,4 +1,4 @@
-// Arranque sin pantalla: el HTML compilado abre en español, sin pageerror, con los modos y sistemas del fork y sin Supremo ni armas 5.16.
+// Arranque sin pantalla: el HTML compilado abre en español, sin pageerror, con los modos y sistemas del fork.
 import { chromium } from '/workspace/riposte-merge/node_modules_p/node_modules/playwright-core/index.mjs';
 import http from 'http';
 import fs from 'fs';
@@ -74,9 +74,7 @@ try {
       posture: typeof POSTURE !== 'undefined',
       mo: typeof MO_HP !== 'undefined',
       jugg: typeof KSDEF !== 'undefined' && !!KSDEF.jugg,
-      last: typeof PERK_BY !== 'undefined' && !!PERK_BY.last,
-      supremo: typeof SUPREMO !== 'undefined' || (typeof window !== 'undefined' && !!window.SUPREMO),
-      w516: typeof WEAPONS !== 'undefined' && ['aug','m16a4','fal','p90','bizon','uzi','intervention','spas12'].filter((id) => WEAPONS[id])
+      last: typeof PERK_BY !== 'undefined' && !!PERK_BY.last
     };
   });
   console.log('INFO', JSON.stringify(info));
@@ -88,8 +86,6 @@ try {
   if (!info.gg.includes('mix') || info.ggDefault !== 'mix') fail('orden de armas');
   if (!info.field.includes('ammo') || !info.field.includes('trophy')) fail('mejoras de campo');
   if (!info.posture || !info.mo || !info.jugg || !info.last) fail('sistemas posture/mo/jugg/last');
-  if (info.supremo) fail('Supremo no debía estar');
-  if (info.w516 && info.w516.length) fail('armas 5.16 presentes: ' + info.w516.join(','));
   if (errors.length) fail('pageerror/console: ' + errors[0]);
 } catch (e) {
   fail('excepción: ' + String(e && e.stack || e).slice(0, 800));

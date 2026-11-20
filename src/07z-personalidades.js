@@ -2,7 +2,7 @@
    PERSONNALITÉS DES BOTS
    Un profil fixe par nom (armes, atouts, séries, allure). Un nom inconnu
    reste Équilibré. Les identifiants absents du 5.6 (arme, atout, série,
-   grenade) sont ignorés : rien de Supremo, rien d'une autre version.
+   grenade) sont ignorés.
    b.pers garde slide et scan, ceux que le reste du jeu lit déjà.
    ========================================================================== */
 const PERS_DEFAULT = 'equil';
